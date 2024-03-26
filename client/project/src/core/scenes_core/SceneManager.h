@@ -1,13 +1,13 @@
 #pragma once
 #include "IScene.h"
 
-namespace JoD {
+namespace Funtasia {
     class SceneManager {
        public:
         void HandleEventCurrentScene(sf::Event event);
         void UpdateCurrentScene();
         void RenderCurrentScene();
-        void EnterScene(int scene);
+        void EnterScene(const std::string& scene);
         static SceneManager *Get();
 
        private:

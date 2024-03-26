@@ -1,6 +1,6 @@
 #pragma once
 
-namespace JoD {
+namespace Funtasia {
     class GLColor {
        public:
         float r = 0.0f;

@@ -3,15 +3,19 @@
 #include "default_theme/scenes/intro/IntroScene.h"
 #include "default_theme/scenes/main/MainScene.h"
 #include "default_theme/scenes/main_menu/MainMenuScene.h"
+#include "default_theme/scenes/new_game/NewGameScene.h"
+#include "default_theme/scenes/world_generation/WorldGenerationScene.h"
 
-namespace JoD {
+namespace Funtasia {
     SceneManager::SceneManager() {
         m_scenes.insert({Hash("IntroScene"), IntroScene::Get()});
         m_scenes.insert({Hash("MainMenuScene"), MainMenuScene::Get()});
+        m_scenes.insert({Hash("NewGameScene"), NewGameScene::Get()});
+        m_scenes.insert({Hash("WorldGenerationScene"), WorldGenerationScene::Get()});
         m_scenes.insert({Hash("MainScene"), MainScene::Get()});
         m_scenes.insert({Hash("GameOverScene"), GameOverScene::Get()});
 
-        EnterScene(Hash("IntroScene"));
+        EnterScene("IntroScene");
     }
 
     void SceneManager::HandleEventCurrentScene(sf::Event event) {
@@ -32,8 +36,8 @@ namespace JoD {
         }
     }
 
-    void SceneManager::EnterScene(int scene) {
-        m_currentScene = scene;
+    void SceneManager::EnterScene(const std::string& scene) {
+        m_currentScene = Hash(scene);
         if (m_scenes.contains(m_currentScene)) {
             m_scenes.at(m_currentScene)->OnEnter();
         }

@@ -1,6 +1,6 @@
 #include "GameProps.h"
 
-namespace JoD {
+namespace Funtasia {
     GameProps *GameProps::Get() {
         static GameProps instance;
         return &instance;

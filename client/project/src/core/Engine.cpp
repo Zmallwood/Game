@@ -3,7 +3,7 @@
 #include "Graphics.h"
 #include "scenes_core/SceneManager.h"
 
-namespace JoD {
+namespace Funtasia {
     void Engine::HandleInput() {
         PollEvents();
     }

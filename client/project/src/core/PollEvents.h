@@ -1,5 +1,5 @@
 #pragma once
 
-namespace JoD {
+namespace Funtasia {
     void PollEvents();
 }

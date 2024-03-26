@@ -1,8 +1,9 @@
 #pragma once
 
 namespace Funtasia {
-    class GameInstance {
+    class Size {
        public:
-        void Run();
+        int x = 0;
+        int y = 0;
     };
 }

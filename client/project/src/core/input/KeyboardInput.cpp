@@ -1,6 +1,6 @@
 #include "KeyboardInput.h"
 
-namespace JoD {
+namespace Funtasia {
     void KeyboardInput::OnKeyPress(sf::Keyboard::Key key) {
         m_pressedKeys.insert(key);
     }

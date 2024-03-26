@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.5)
-project (JourneyOfDreams)
+project (Funtasia)
 set (CMAKE_CXX_STANDARD 20)
 find_package(TGUI 1 REQUIRED)
 set(TGUI_STATIC_LIBRARIES TRUE)
@@ -13,16 +13,16 @@ file(GLOB_RECURSE SRC_FILES_MATTER ${PROJECT_SOURCE_DIR}/../../matter/*.cpp)
 file(GLOB_RECURSE SRC_FILES_DYNAMIC_DATA ${PROJECT_SOURCE_DIR}/../../dynamic_data/*.cpp)
 file(GLOB_RECURSE SRC_FILES_WORLD_STRUCTURE ${PROJECT_SOURCE_DIR}/../../world_structure/*.cpp)
 file(GLOB_RECURSE SRC_FILES_WORLD_GENERATION ${PROJECT_SOURCE_DIR}/../../world_generation/*.cpp)
-add_executable(JourneyOfDreams ${SRC_FILES} ${SRC_FILES_MATTER} ${SRC_FILES_DYNAMIC_DATA} ${SRC_FILES_WORLD_STRUCTURE} ${SRC_FILES_WORLD_GENERATION})
+add_executable(Funtasia ${SRC_FILES} ${SRC_FILES_MATTER} ${SRC_FILES_DYNAMIC_DATA} ${SRC_FILES_WORLD_STRUCTURE} ${SRC_FILES_WORLD_GENERATION})
 
 IF (WIN32)
-    target_link_libraries(JourneyOfDreams tgui sfml-graphics opengl32 glu32)
+    target_link_libraries(Funtasia tgui sfml-graphics opengl32 glu32)
 ELSE()
-    target_link_libraries(JourneyOfDreams tgui sfml-graphics GL GLU)
+    target_link_libraries(Funtasia tgui sfml-graphics GL GLU)
 ENDIF()
 
-target_include_directories(JourneyOfDreams PUBLIC "src")
+target_include_directories(Funtasia PUBLIC "src")
 set(PCH_FILES
     "stdafx/stdafx.h"
 )
-target_precompile_headers(JourneyOfDreams PRIVATE ${PCH_FILES})
+target_precompile_headers(Funtasia PRIVATE ${PCH_FILES})

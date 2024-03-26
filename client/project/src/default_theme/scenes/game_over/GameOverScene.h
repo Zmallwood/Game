@@ -1,7 +1,7 @@
 #pragma once
 #include "core/scenes_core/IScene.h"
 
-namespace JoD {
+namespace Funtasia {
     class GameOverScene : public IScene {
        public:
         void Update() override;

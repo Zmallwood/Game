@@ -1,6 +1,6 @@
 #include "Graphics.h"
 
-namespace JoD {
+namespace Funtasia {
     Graphics::Graphics() {
         {
             auto desktopMode = sf::VideoMode::getDesktopMode();

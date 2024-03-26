@@ -1,6 +1,6 @@
 #pragma once
 
-namespace JoD {
+namespace Funtasia {
     class Graphics {
        public:
         auto RenderWindow() { return m_renderWindow; }

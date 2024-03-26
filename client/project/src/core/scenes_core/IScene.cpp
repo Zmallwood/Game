@@ -2,7 +2,7 @@
 #include "core/Graphics.h"
 #include "core/GameProps.h"
 
-namespace JoD {
+namespace Funtasia {
     IScene::IScene() {
         m_gui = std::make_shared<tgui::Gui>(*Graphics::Get()->RenderWindow());
     }

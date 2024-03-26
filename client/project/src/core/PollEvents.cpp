@@ -5,7 +5,7 @@
 #include "input/MouseInput.h"
 #include "scenes_core/SceneManager.h"
 
-namespace JoD {
+namespace Funtasia {
     void PollEvents() {
         auto renderWindow = Graphics::Get()->RenderWindow();
         {

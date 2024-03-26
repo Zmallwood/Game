@@ -2,6 +2,6 @@
 
 int main()
 {
-    JoD::RunNewGameInstance();
+    Funtasia::RunNewGameInstance();
     return EXIT_SUCCESS;
 }

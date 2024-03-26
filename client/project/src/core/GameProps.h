@@ -1,6 +1,6 @@
 #pragma once
 
-namespace JoD {
+namespace Funtasia {
     class GameProps {
        public:
         auto ClearColor() { return m_clearColor; }

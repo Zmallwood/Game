@@ -1,6 +1,6 @@
 #pragma once
 
-namespace JoD {
+namespace Funtasia {
     class MouseButton {
        public:
         void OnPress();

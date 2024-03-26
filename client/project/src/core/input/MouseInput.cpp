@@ -1,6 +1,6 @@
 #include "MouseInput.h"
 
-namespace JoD {
+namespace Funtasia {
     void MouseInput::OnMousePress(sf::Mouse::Button button) {
         switch (button) {
             case sf::Mouse::Button::Left:

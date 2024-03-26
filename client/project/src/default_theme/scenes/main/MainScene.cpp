@@ -1,6 +1,6 @@
 #include "MainScene.h"
 
-namespace JoD {
+namespace Funtasia {
     void MainScene::Update() {
 
     }

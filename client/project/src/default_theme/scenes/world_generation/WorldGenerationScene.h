@@ -2,15 +2,13 @@
 #include "core/scenes_core/IScene.h"
 
 namespace Funtasia {
-    class IntroScene : public IScene {
+    class WorldGenerationScene : public IScene {
        public:
         void Update() override;
         void Render3D() override;
-        static IntroScene *Get();
+        static WorldGenerationScene *Get();
 
        private:
-        IntroScene();
-
-        tgui::RichTextLabel::Ptr m_startText;
+        WorldGenerationScene();
     };
 }

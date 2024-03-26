@@ -1,7 +1,7 @@
 #include "GameInstance.h"
 #include "Engine.h"
 
-namespace JoD {
+namespace Funtasia {
     void GameInstance::Run() {
         auto e = Engine::Get();
         while (e->Running()) {

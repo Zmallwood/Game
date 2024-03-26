@@ -1,6 +1,6 @@
 #pragma once
 
-namespace JoD {
+namespace Funtasia {
     class KeyboardInput {
        public:
         void OnKeyPress(sf::Keyboard::Key key);

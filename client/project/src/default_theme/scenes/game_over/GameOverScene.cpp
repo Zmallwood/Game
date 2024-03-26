@@ -1,6 +1,6 @@
 #include "GameOverScene.h"
 
-namespace JoD {
+namespace Funtasia {
     void GameOverScene::Update() {
 
     }

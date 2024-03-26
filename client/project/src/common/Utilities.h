@@ -1,6 +1,6 @@
 #pragma once
 
-namespace JoD {
+namespace Funtasia {
     int Ticks();
     int Hash(const std::string& text);
 }

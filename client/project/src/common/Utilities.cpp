@@ -1,6 +1,6 @@
 #include "Utilities.h"
 
-namespace JoD {
+namespace Funtasia {
     int Ticks() {
         static sf::Clock clock;
         return clock.getElapsedTime().asMilliseconds();

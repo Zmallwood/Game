@@ -1,6 +1,6 @@
 #include "MouseButton.h"
 
-namespace JoD {
+namespace Funtasia {
     void MouseButton::OnPress() {
         m_pressed = true;
     }

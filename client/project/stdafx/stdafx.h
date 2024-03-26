@@ -3,6 +3,7 @@
 #include <utility>
 #include <map>
 #include <set>
+#include <vector>
 
 #include <GL/glew.h>
 #include <SFML/Graphics.hpp>
@@ -12,4 +13,5 @@
 
 #include "../../../matter/Color.h"
 #include "../../../matter/GLColor.h"
+#include "../../../matter/Size.h"
 #include "common/Utilities.h"

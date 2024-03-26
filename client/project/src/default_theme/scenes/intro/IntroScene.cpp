@@ -3,7 +3,7 @@
 #include "core/input/KeyboardInput.h"
 #include "core/input/MouseInput.h"
 
-namespace JoD {
+namespace Funtasia {
     IntroScene::IntroScene() {
         {
             auto button = tgui::Button::create("Hej");
@@ -22,7 +22,7 @@ namespace JoD {
     void IntroScene::Update() {
         if (KeyboardInput::Get()->AnyKeyIsPressed() ||
             MouseInput::Get()->AnyButtonPressed()) {
-            SceneManager::Get()->EnterScene(Hash("MainMenuScene"));
+            SceneManager::Get()->EnterScene("MainMenuScene");
         }
         if (Ticks() % 600 < 300) {
             m_startText->setVisible(false);

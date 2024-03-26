@@ -1,35 +1,46 @@
-#include "MainMenuScene.h"
-#include "core/Engine.h"
+#include "NewGameScene.h"
 #include "core/scenes_core/SceneManager.h"
 
 namespace Funtasia {
-    MainMenuScene::MainMenuScene() {
+    NewGameScene::NewGameScene() {
         {
-            auto button = tgui::Button::create("New game");
-            button->setSize({140, 40});
-            button->setPosition("(parent.width - width)/2", "30%");
-            button->onPress([] { SceneManager::Get()->EnterScene("NewGameScene"); });
-            GUI()->add(button);
+            auto label = tgui::Label::create();
+            label->setText("Map width:");
+            label->getRenderer()->setTextColor(tgui::Color::White);
+            label->setPosition("(parent.width - width)/2","30%");
+            GUI()->add(label);
         }
         {
-            auto button = tgui::Button::create("Continue game");
-            button->setSize({140, 40});
-            button->setPosition("(parent.width - width)/2", "35%");
-            button->onPress([] { std::cout << "Continue game\n"; });
-            GUI()->add(button);
+            auto editBox = tgui::EditBox::create();
+            editBox->setText("100");
+            editBox->setPosition("(parent.width - width)/2","33%");
+            GUI()->add(editBox, "EditBoxMapWidth");
         }
         {
-            auto button = tgui::Button::create("Exit");
+            auto label = tgui::Label::create();
+            label->setText("Map height:");
+            label->getRenderer()->setTextColor(tgui::Color::White);
+            label->setPosition("(parent.width - width)/2","40%");
+            GUI()->add(label);
+        }
+        {
+            auto editBox = tgui::EditBox::create();
+            editBox->setText("100");
+            editBox->setPosition("(parent.width - width)/2","43%");
+            GUI()->add(editBox, "EditBoxMapHeight");
+        }
+        {
+            auto button = tgui::Button::create("Start game");
             button->setSize({140, 40});
-            button->setPosition("(parent.width - width)/2", "40%");
-            button->onPress([] { Engine::Get()->SetRunning(false); });
+            button->setPosition("(parent.width - width)/2", "50%");
+            button->onPress([] { SceneManager::Get()->EnterScene("WorldGenerationScene"); });
             GUI()->add(button);
         }
     }
 
-    void MainMenuScene::Update() {}
+    void NewGameScene::Update() {}
 
-    void MainMenuScene::Render3D() {
+    void NewGameScene::Render3D() {
         glTranslatef(0.f, 0.f, -200.f);
 
         {
@@ -81,8 +92,8 @@ namespace Funtasia {
         glEnd();
     }
 
-    MainMenuScene *MainMenuScene::Get() {
-        static MainMenuScene instance;
+    NewGameScene *NewGameScene::Get() {
+        static NewGameScene instance;
         return &instance;
     }
 }
