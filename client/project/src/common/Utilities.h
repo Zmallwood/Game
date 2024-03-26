@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Funtasia {
+namespace Zmallwood {
     int Ticks();
     int Hash(const std::string& text);
 }

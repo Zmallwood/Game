@@ -1,6 +1,6 @@
 #include "GameProps.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     GameProps *GameProps::Get() {
         static GameProps instance;
         return &instance;

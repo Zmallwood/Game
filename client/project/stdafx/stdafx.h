@@ -14,4 +14,5 @@
 #include "../../../matter/Color.h"
 #include "../../../matter/GLColor.h"
 #include "../../../matter/Size.h"
+#include "../../../matter/Point.h"
 #include "common/Utilities.h"

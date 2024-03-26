@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Funtasia {
+namespace Zmallwood {
     class WorldArea;
 
     class World {
@@ -11,6 +11,6 @@ namespace Funtasia {
        private:
         World();
 
-        std::shared_ptr<Funtasia::WorldArea> m_worldArea;
+        std::shared_ptr<Zmallwood::WorldArea> m_worldArea;
     };
 }

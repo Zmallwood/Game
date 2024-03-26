@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Funtasia {
+namespace Zmallwood {
     class Graphics {
        public:
         auto RenderWindow() { return m_renderWindow; }

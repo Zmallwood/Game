@@ -1,6 +1,6 @@
 #include "MouseButton.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     void MouseButton::OnPress() {
         m_pressed = true;
     }

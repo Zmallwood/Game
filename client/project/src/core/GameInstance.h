@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Funtasia {
+namespace Zmallwood {
     class GameInstance {
        public:
         void Run();

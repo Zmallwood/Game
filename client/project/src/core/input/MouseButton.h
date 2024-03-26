@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Funtasia {
+namespace Zmallwood {
     class MouseButton {
        public:
         void OnPress();

@@ -1,6 +1,6 @@
 #include "MainScene.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     void MainScene::Update() {
 
     }

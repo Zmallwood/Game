@@ -3,7 +3,7 @@
 #include "core/input/KeyboardInput.h"
 #include "core/input/MouseInput.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     IntroScene::IntroScene() {
         {
             auto button = tgui::Button::create("Hej");

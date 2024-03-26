@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Funtasia {
+namespace Zmallwood {
     class GLColor {
        public:
         float r = 0.0f;

@@ -84,7 +84,8 @@
 			"charconv": "cpp",
 			"codecvt": "cpp",
 			"format": "cpp",
-			"span": "cpp"
+			"span": "cpp",
+			"numeric": "cpp"
 		}
 	}
 }

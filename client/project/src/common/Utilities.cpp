@@ -1,6 +1,6 @@
 #include "Utilities.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     int Ticks() {
         static sf::Clock clock;
         return clock.getElapsedTime().asMilliseconds();

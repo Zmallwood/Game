@@ -1,7 +1,7 @@
 #pragma once
 #include "IScene.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     class SceneManager {
        public:
         void HandleEventCurrentScene(sf::Event event);

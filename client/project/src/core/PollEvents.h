@@ -1,5 +1,5 @@
 #pragma once
 
-namespace Funtasia {
+namespace Zmallwood {
     void PollEvents();
 }

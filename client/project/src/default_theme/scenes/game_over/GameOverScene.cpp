@@ -1,6 +1,6 @@
 #include "GameOverScene.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     void GameOverScene::Update() {
 
     }

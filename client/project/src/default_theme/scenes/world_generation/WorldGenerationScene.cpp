@@ -1,7 +1,8 @@
 #include "WorldGenerationScene.h"
 #include "../../../world_generation/WorldGenerator.h"
+#include "core/scenes_core/SceneManager.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     WorldGenerationScene::WorldGenerationScene() {
         {
             auto label = tgui::Label::create();
@@ -13,7 +14,14 @@ namespace Funtasia {
     }
 
     void WorldGenerationScene::Update() {
-        WorldGenerator::Get()->GenerateWorld();
+        static bool hasSkippedUpdateFirstFrame = false;
+
+        if (hasSkippedUpdateFirstFrame) {
+            WorldGenerator::Get()->GenerateWorld();
+            SceneManager::Get()->EnterScene("MainScene");
+        }
+        
+        hasSkippedUpdateFirstFrame = true;
     }
 
     void WorldGenerationScene::Render3D() {}

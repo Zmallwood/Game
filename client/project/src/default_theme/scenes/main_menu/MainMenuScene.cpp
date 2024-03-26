@@ -2,7 +2,7 @@
 #include "core/Engine.h"
 #include "core/scenes_core/SceneManager.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     MainMenuScene::MainMenuScene() {
         {
             auto button = tgui::Button::create("New game");

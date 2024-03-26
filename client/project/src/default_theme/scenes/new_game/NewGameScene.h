@@ -1,7 +1,7 @@
 #pragma once
 #include "core/scenes_core/IScene.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     class NewGameScene : public IScene {
        public:
         void Update() override;

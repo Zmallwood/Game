@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Funtasia {
+namespace Zmallwood {
     class KeyboardInput {
        public:
         void OnKeyPress(sf::Keyboard::Key key);

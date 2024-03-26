@@ -1,6 +1,6 @@
 #include "Graphics.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     Graphics::Graphics() {
         {
             auto desktopMode = sf::VideoMode::getDesktopMode();

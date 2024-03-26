@@ -1,7 +1,7 @@
 #pragma once
 #include "MouseButton.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     class MouseInput {
        public:
         void OnMousePress(sf::Mouse::Button button);

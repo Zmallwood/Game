@@ -2,6 +2,6 @@
 
 int main()
 {
-    Funtasia::RunNewGameInstance();
+    Zmallwood::RunNewGameInstance();
     return EXIT_SUCCESS;
 }

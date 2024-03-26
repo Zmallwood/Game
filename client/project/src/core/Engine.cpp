@@ -3,7 +3,7 @@
 #include "Graphics.h"
 #include "scenes_core/SceneManager.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     void Engine::HandleInput() {
         PollEvents();
     }

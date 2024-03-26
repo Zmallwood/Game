@@ -1,2 +1,2 @@
 cd build
-./Funtasia.exe
+./Game.exe

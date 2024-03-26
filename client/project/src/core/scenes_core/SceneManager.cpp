@@ -6,7 +6,7 @@
 #include "default_theme/scenes/new_game/NewGameScene.h"
 #include "default_theme/scenes/world_generation/WorldGenerationScene.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     SceneManager::SceneManager() {
         m_scenes.insert({Hash("IntroScene"), IntroScene::Get()});
         m_scenes.insert({Hash("MainMenuScene"), MainMenuScene::Get()});

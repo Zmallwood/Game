@@ -1,7 +1,7 @@
 #include "GameInstance.h"
 #include "Engine.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     void GameInstance::Run() {
         auto e = Engine::Get();
         while (e->Running()) {

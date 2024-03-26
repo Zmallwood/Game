@@ -2,7 +2,7 @@
 #include "core/GameInstance.h"
 #include "core/GameProps.h"
 
-namespace Funtasia {
+namespace Zmallwood {
     void RunNewGameInstance() {
         GameProps::Get()->SetClearColor({.r = 30, .g = 0, .b = 30});
 
