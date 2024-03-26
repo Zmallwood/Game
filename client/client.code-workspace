@@ -85,7 +85,8 @@
 			"codecvt": "cpp",
 			"format": "cpp",
 			"span": "cpp",
-			"numeric": "cpp"
+			"numeric": "cpp",
+			"*.ipp": "cpp"
 		}
 	}
 }

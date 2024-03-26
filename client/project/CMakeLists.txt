@@ -16,9 +16,9 @@ file(GLOB_RECURSE SRC_FILES_WORLD_GENERATION ${PROJECT_SOURCE_DIR}/../../world_g
 add_executable(Game ${SRC_FILES} ${SRC_FILES_MATTER} ${SRC_FILES_DYNAMIC_DATA} ${SRC_FILES_WORLD_STRUCTURE} ${SRC_FILES_WORLD_GENERATION})
 
 IF (WIN32)
-    target_link_libraries(Game tgui sfml-graphics opengl32 glu32)
+    target_link_libraries(Game tgui sfml-graphics opengl32 glu32 glew)
 ELSE()
-    target_link_libraries(Game tgui sfml-graphics GL GLU)
+    target_link_libraries(Game tgui sfml-graphics GL GLU GLEW)
 ENDIF()
 
 target_include_directories(Game PUBLIC "src")
