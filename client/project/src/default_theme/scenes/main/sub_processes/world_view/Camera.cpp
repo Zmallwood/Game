@@ -1,6 +1,6 @@
 #include "Camera.h"
 #include "core/rendering/CameraGL.h"
-#include "core/GameProps.h"
+#include "core/configuration/GameProps.h"
 #include "core/Player.h"
 #include "../../../world_structure/World.h"
 #include "../../../world_structure/WorldArea.h"
@@ -26,9 +26,7 @@ namespace Zmallwood {
     auto tileSize = GameProps::Get()->TileSize();
     auto currWA = World::Get()->WorldArea();
     auto lookFrom = GetCameraPosition();
-    // lookFrom.y = 20.0f;
     lookFrom.z = 0.1f;
-    // lookFrom = playerPos.Translate(0.0f, 20.0f, 0.1f);
     auto lookAt = playerPos;
     auto newViewMatrix = glm::lookAt(
         glm::vec3(lookFrom.x, lookFrom.y, lookFrom.z),

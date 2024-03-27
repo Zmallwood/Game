@@ -4,7 +4,7 @@
 #include "shaders/ShaderGroundVertex.h"
 #include "core/rendering/CameraGL.h"
 #include "core/Player.h"
-#include "core/GameProps.h"
+#include "core/configuration/GameProps.h"
 #include "../../../world_structure/World.h"
 #include "../../../world_structure/WorldArea.h"
 #include "core/assets/TextureBank.h"

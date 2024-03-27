@@ -1,6 +1,6 @@
 #include "RunNewGameInstance.h"
 #include "core/GameInstance.h"
-#include "core/GameProps.h"
+#include "core/configuration/GameProps.h"
 
 namespace Zmallwood {
   void RunNewGameInstance() {

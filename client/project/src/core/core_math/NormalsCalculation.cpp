@@ -1,7 +1,7 @@
 #include "NormalsCalculation.h"
 #include "../../../world_structure/WorldArea.h"
 #include "../../../world_structure/Tile.h"
-#include "core/GameProps.h"
+#include "core/configuration/GameProps.h"
 
 namespace Zmallwood {
   void CalculateNormal(std::shared_ptr<WorldArea> worldArea, Point coordinate) {

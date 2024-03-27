@@ -1,5 +1,5 @@
 #include "WorldArea.h"
-#include "core/GameProps.h"
+#include "core/configuration/GameProps.h"
 #include "Tile.h"
 
 namespace Zmallwood {

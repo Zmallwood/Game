@@ -1,6 +1,6 @@
 #include "NewGameScene.h"
 #include "core/scenes_core/SceneManager.h"
-#include "core/GameProps.h"
+#include "core/configuration/GameProps.h"
 
 namespace Zmallwood {
   NewGameScene::NewGameScene() {

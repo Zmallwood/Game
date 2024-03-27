@@ -1,6 +1,6 @@
 #include "IScene.h"
 #include "core/Graphics.h"
-#include "core/GameProps.h"
+#include "core/configuration/GameProps.h"
 
 namespace Zmallwood {
   IScene::IScene() {

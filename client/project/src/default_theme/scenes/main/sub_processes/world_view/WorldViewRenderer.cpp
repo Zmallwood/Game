@@ -2,7 +2,7 @@
 #include "../../../world_structure/World.h"
 #include "../../../world_structure/WorldArea.h"
 #include "../../../world_structure/Tile.h"
-#include "core/GameProps.h"
+#include "core/configuration/GameProps.h"
 #include "core/rendering/ground_rendering/TileSurfaceRenderer.h"
 #include "Camera.h"
 
