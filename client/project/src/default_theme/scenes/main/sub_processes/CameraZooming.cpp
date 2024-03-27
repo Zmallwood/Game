@@ -9,8 +9,7 @@ namespace Zmallwood
   {
     auto zoomSensitivity = 1.0f;
     auto cameraDistance = Camera::Get()->CameraDistance();
-    cameraDistance +=
-      MouseInput::Get()->MouseWheelDeltaPickResult() * zoomSensitivity;
+    cameraDistance += MouseInput::Get()->MouseWheelDeltaPickResult() * zoomSensitivity;
     Camera::Get()->SetCameraDistance(cameraDistance);
   }
 }

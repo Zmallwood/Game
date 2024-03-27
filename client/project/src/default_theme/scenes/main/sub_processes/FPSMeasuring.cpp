@@ -18,7 +18,6 @@ namespace Zmallwood
     }
     framesCount++;
 
-    MainScene::Get()->GUI()->get<tgui::Label>("lblFPS")->setText(
-      "FPS: " + std::to_string(fps));
+    MainScene::Get()->GUI()->get<tgui::Label>("lblFPS")->setText("FPS: " + std::to_string(fps));
   }
 }

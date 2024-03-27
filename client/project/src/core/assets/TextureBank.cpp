@@ -4,7 +4,7 @@ namespace Zmallwood
 {
   TextureBank::TextureBank()
   {
-    LoadTextures();
+    LoadTextures();                             // Load textures from filesystem on object reation
   }
 
   void
@@ -12,16 +12,16 @@ namespace Zmallwood
   {
     sf::Texture t1;
     t1.loadFromFile("./resources/images/Ground.png");
-    m_images.insert({ Hash("Ground"), t1 });
+    m_textures.insert({ Hash("Ground"), t1 });
   }
 
   void
   TextureBank::BindTexture(const std::string& imageName)
   {
-    auto hash = Hash(imageName);
-    if (m_images.contains(hash))
+    auto hash = Hash(imageName);                // Convert image name to hash code
+    if (m_textures.contains(hash))              // Check if texture exists
     {
-      sf::Texture::bind(&m_images.at(hash));
+      sf::Texture::bind(&m_textures.at(hash));  // If so, bind it for use with OpenGL
     }
   }
 
@@ -34,7 +34,7 @@ namespace Zmallwood
   TextureBank*
   TextureBank::Get()
   {
-    static TextureBank instance;
+    static TextureBank instance;                // Create singleton instance once
     return &instance;
   }
 }

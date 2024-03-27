@@ -2,7 +2,9 @@
 
 namespace Zmallwood
 {
-  Mesh::Mesh(std::vector<GLMVertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures)
+  Mesh::Mesh(std::vector<GLMVertex> vertices,
+             std::vector<unsigned int> indices,
+             std::vector<Texture> textures)
   {
     this->vertices = vertices;
     this->indices = indices;
@@ -25,7 +27,8 @@ namespace Zmallwood
 
     for (unsigned int i = 0; i < textures.size(); i++)
     {
-      glActiveTexture(GL_TEXTURE0 + i); // active proper texture unit before binding
+      glActiveTexture(GL_TEXTURE0 + i); // active proper texture unit before
+                                        // binding
       // retrieve texture number (the N in diffuse_textureN)
       std::string number;
       std::string name = textures[i].type;
@@ -33,7 +36,8 @@ namespace Zmallwood
       if (name == "texture_diffuse")
         number = std::to_string(diffuseNr++);
       else if (name == "texture_specular")
-        number = std::to_string(specularNr++); // transfer unsigned int to string
+        number = std::to_string(specularNr++); // transfer unsigned int to
+                                               // string
       else if (name == "texture_normal")
         number = std::to_string(normalNr++); // transfer unsigned int to string
       else if (name == "texture_height")

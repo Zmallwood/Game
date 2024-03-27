@@ -5,12 +5,12 @@ namespace Zmallwood
   void
   MouseButton::OnPress()
   {
-    m_pressed = true;
+    m_pressed = true;                           // Button is pressed down
   }
 
   void
   MouseButton::OnRelease()
   {
-    m_pressed = false;
+    m_pressed = false;                          // Button is not pressed down
   }
 }

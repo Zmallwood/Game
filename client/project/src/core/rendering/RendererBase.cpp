@@ -29,14 +29,11 @@ namespace Zmallwood
   }
 
   void
-  RendererBase::SetIndicesData(GLuint indicesVBOID,
-                               int numVertices,
-                               const void* data) const
+  RendererBase::SetIndicesData(GLuint indicesVBOID, int numVertices, const void* data) const
   {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesVBOID);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER,
-                 numVertices * k_numFloatsPerEntry.at(BufferTypes::Indices) *
-                   sizeof(float),
+                 numVertices * k_numFloatsPerEntry.at(BufferTypes::Indices) * sizeof(float),
                  data,
                  GL_DYNAMIC_DRAW);
   }
@@ -50,19 +47,13 @@ namespace Zmallwood
   {
     if (buffType == BufferTypes::BoneIDs)
     {
-      SetArrayBufferDataInt(VBOID,
-                            numVertices,
-                            data,
-                            RendererBase::k_numFloatsPerEntry.at(buffType),
-                            layoutLocation);
+      SetArrayBufferDataInt(
+        VBOID, numVertices, data, RendererBase::k_numFloatsPerEntry.at(buffType), layoutLocation);
     }
     else
     {
-      SetArrayBufferData(VBOID,
-                         numVertices,
-                         data,
-                         RendererBase::k_numFloatsPerEntry.at(buffType),
-                         layoutLocation);
+      SetArrayBufferData(
+        VBOID, numVertices, data, RendererBase::k_numFloatsPerEntry.at(buffType), layoutLocation);
     }
   }
 
@@ -74,19 +65,11 @@ namespace Zmallwood
                                    int layoutLocation) const
   {
     glBindBuffer(GL_ARRAY_BUFFER, VBOID);
-    glBufferData(GL_ARRAY_BUFFER,
-                 numVertices * numFloatsPerEntry * sizeof(float),
-                 data,
-                 GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, numVertices * numFloatsPerEntry * sizeof(float), data, GL_DYNAMIC_DRAW);
 
     if (layoutLocation >= 0)
     {
-      glVertexAttribPointer(layoutLocation,
-                            numFloatsPerEntry,
-                            GL_FLOAT,
-                            GL_FALSE,
-                            0,
-                            (const GLvoid*)0);
+      glVertexAttribPointer(layoutLocation, numFloatsPerEntry, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)0);
       glEnableVertexAttribArray(layoutLocation);
     }
   }
@@ -99,16 +82,12 @@ namespace Zmallwood
                                       int layoutLocation) const
   {
     glBindBuffer(GL_ARRAY_BUFFER, VBOID);
-    glBufferData(GL_ARRAY_BUFFER,
-                 numVertices * numFloatsPerEntry * sizeof(int),
-                 data,
-                 GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, numVertices * numFloatsPerEntry * sizeof(int), data, GL_DYNAMIC_DRAW);
 
     if (layoutLocation >= 0)
     {
       glEnableVertexAttribArray(3);
-      glVertexAttribIPointer(
-        layoutLocation, numFloatsPerEntry, GL_INT, 0, (const GLvoid*)0);
+      glVertexAttribIPointer(layoutLocation, numFloatsPerEntry, GL_INT, 0, (const GLvoid*)0);
       glEnableVertexAttribArray(layoutLocation);
     }
   }
@@ -116,8 +95,7 @@ namespace Zmallwood
   GLuint
   RendererBase::GetUniformLocation(const std::string& variableName)
   {
-    return glGetUniformLocation(m_shaderProgram->ProgramID(),
-                                variableName.c_str());
+    return glGetUniformLocation(m_shaderProgram->ProgramID(), variableName.c_str());
   }
 
   void
@@ -134,14 +112,10 @@ namespace Zmallwood
   }
 
   void
-  RendererBase::UpdateIndicesData(GLuint indicesVBOID,
-                                  std::vector<int>& indices) const
+  RendererBase::UpdateIndicesData(GLuint indicesVBOID, std::vector<int>& indices) const
   {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesVBOID);
-    glBufferSubData(GL_ELEMENT_ARRAY_BUFFER,
-                    0,
-                    sizeof(float) * indices.size(),
-                    indices.data());
+    glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, sizeof(float) * indices.size(), indices.data());
   }
 
   void
@@ -151,14 +125,8 @@ namespace Zmallwood
                                       int layoutLocation) const
   {
     glBindBuffer(GL_ARRAY_BUFFER, VBOID);
-    glBufferSubData(
-      GL_ARRAY_BUFFER, 0, sizeof(float) * data.size(), data.data());
-    glVertexAttribPointer(layoutLocation,
-                          numFloatsPerEntry,
-                          GL_FLOAT,
-                          GL_FALSE,
-                          0,
-                          (const GLvoid*)0);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(float) * data.size(), data.data());
+    glVertexAttribPointer(layoutLocation, numFloatsPerEntry, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)0);
     glEnableVertexAttribArray(layoutLocation);
   }
 
@@ -170,8 +138,7 @@ namespace Zmallwood
   {
     glBindBuffer(GL_ARRAY_BUFFER, VBOID);
     glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(int) * data.size(), data.data());
-    glVertexAttribIPointer(
-      layoutLocation, numFloatsPerEntry, GL_INT, 0, (const GLvoid*)0);
+    glVertexAttribIPointer(layoutLocation, numFloatsPerEntry, GL_INT, 0, (const GLvoid*)0);
     glEnableVertexAttribArray(layoutLocation);
   }
 
@@ -183,17 +150,11 @@ namespace Zmallwood
   {
     if (buffType == BufferTypes::BoneIDs)
     {
-      UpdateArrayBufferDataInt(VBOID,
-                               data,
-                               RendererBase::k_numFloatsPerEntry.at(buffType),
-                               layoutLocation);
+      UpdateArrayBufferDataInt(VBOID, data, RendererBase::k_numFloatsPerEntry.at(buffType), layoutLocation);
     }
     else
     {
-      UpdateArrayBufferData(VBOID,
-                            data,
-                            RendererBase::k_numFloatsPerEntry.at(buffType),
-                            layoutLocation);
+      UpdateArrayBufferData(VBOID, data, RendererBase::k_numFloatsPerEntry.at(buffType), layoutLocation);
     }
   }
 

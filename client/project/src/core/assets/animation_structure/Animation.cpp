@@ -24,9 +24,13 @@ namespace Zmallwood
       std::find_if(m_bones.begin(), m_bones.end(), [&](const Bone& Bone) { return Bone.BoneName() == name; });
 
     if (iter == m_bones.end())
+    {
       return nullptr;
+    }
     else
+    {
       return &(*iter);
+    }
   }
 
   void

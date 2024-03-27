@@ -8,10 +8,8 @@ namespace Zmallwood
   IntroScene::IntroScene()
   {
     {
-      m_startText =
-        tgui::RichTextLabel::create("<color=white>Press to start</color>");
-      m_startText->setPosition("(parent.width - width)/2",
-                               "(parent.height - height)/2");
+      m_startText = tgui::RichTextLabel::create("<color=white>Press to start</color>");
+      m_startText->setPosition("(parent.width - width)/2", "(parent.height - height)/2");
       m_startText->setTextSize(20);
       GUI()->add(m_startText);
     }
@@ -20,8 +18,7 @@ namespace Zmallwood
   void
   IntroScene::Update()
   {
-    if (KeyboardInput::Get()->AnyKeyIsPressed() ||
-        MouseInput::Get()->AnyButtonPressed())
+    if (KeyboardInput::Get()->AnyKeyIsPressed() || MouseInput::Get()->AnyButtonPressed())
     {
       SceneManager::Get()->EnterScene("MainMenuScene");
     }

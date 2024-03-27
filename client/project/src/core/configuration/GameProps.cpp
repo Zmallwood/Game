@@ -5,7 +5,7 @@ namespace Zmallwood
   GameProps*
   GameProps::Get()
   {
-    static GameProps instance;
+    static GameProps instance;                  // Create singleton instance once
     return &instance;
   }
 }

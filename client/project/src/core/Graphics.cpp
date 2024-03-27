@@ -10,8 +10,8 @@ namespace Zmallwood
       auto settings = sf::ContextSettings();
       settings.depthBits = 24;
 
-      m_renderWindow = std::make_shared<sf::RenderWindow>(
-        desktopMode, "SFML OpenGL", sf::Style::Fullscreen, settings);
+      m_renderWindow =
+        std::make_shared<sf::RenderWindow>(desktopMode, "SFML OpenGL", sf::Style::Fullscreen, settings);
     }
 
     glewExperimental = GL_TRUE;
@@ -19,8 +19,7 @@ namespace Zmallwood
       auto glewError = glewInit();
 
       if (glewError != GLEW_OK)
-        std::cout << "Error initializing GLEW: "
-                  << glewGetErrorString(glewError) << std::endl;
+        std::cout << "Error initializing GLEW: " << glewGetErrorString(glewError) << std::endl;
     }
 
     glClearDepth(1.f);

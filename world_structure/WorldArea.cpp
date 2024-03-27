@@ -55,7 +55,6 @@ namespace Zmallwood
   bool
   WorldArea::ValidCoordinate(Point coordinate)
   {
-    return coordinate.x >= 0 && coordinate.y >= 0 && coordinate.x < Width() &&
-           coordinate.y < Height();
+    return coordinate.x >= 0 && coordinate.y >= 0 && coordinate.x < Width() && coordinate.y < Height();
   }
 }

@@ -84,9 +84,7 @@ namespace Zmallwood
   }
 
   float
-  Bone::GetScaleFactor(float lastTimeStamp,
-                       float nextTimeStamp,
-                       float animationTime)
+  Bone::GetScaleFactor(float lastTimeStamp, float nextTimeStamp, float animationTime)
   {
     float scaleFactor = 0.0f;
     float midWayLength = animationTime - lastTimeStamp;
@@ -103,12 +101,10 @@ namespace Zmallwood
 
     int p0Index = GetPositionIndex(animationTime);
     int p1Index = p0Index + 1;
-    float scaleFactor = GetScaleFactor(m_positions[p0Index].timeStamp,
-                                       m_positions[p1Index].timeStamp,
-                                       animationTime);
-    glm::vec3 finalPosition = glm::mix(m_positions[p0Index].position,
-                                       m_positions[p1Index].position,
-                                       scaleFactor);
+    float scaleFactor =
+      GetScaleFactor(m_positions[p0Index].timeStamp, m_positions[p1Index].timeStamp, animationTime);
+    glm::vec3 finalPosition =
+      glm::mix(m_positions[p0Index].position, m_positions[p1Index].position, scaleFactor);
 
     return glm::translate(glm::mat4(1.0f), finalPosition);
   }
@@ -125,12 +121,10 @@ namespace Zmallwood
 
     int p0Index = GetRotationIndex(animationTime);
     int p1Index = p0Index + 1;
-    float scaleFactor = GetScaleFactor(m_rotations[p0Index].timeStamp,
-                                       m_rotations[p1Index].timeStamp,
-                                       animationTime);
-    glm::quat finalRotation = glm::slerp(m_rotations[p0Index].orientation,
-                                         m_rotations[p1Index].orientation,
-                                         scaleFactor);
+    float scaleFactor =
+      GetScaleFactor(m_rotations[p0Index].timeStamp, m_rotations[p1Index].timeStamp, animationTime);
+    glm::quat finalRotation =
+      glm::slerp(m_rotations[p0Index].orientation, m_rotations[p1Index].orientation, scaleFactor);
     finalRotation = glm::normalize(finalRotation);
 
     return glm::toMat4(finalRotation);
@@ -144,10 +138,9 @@ namespace Zmallwood
 
     int p0Index = GetScaleIndex(animationTime);
     int p1Index = p0Index + 1;
-    float scaleFactor = GetScaleFactor(
-      m_scales[p0Index].timeStamp, m_scales[p1Index].timeStamp, animationTime);
-    glm::vec3 finalScale =
-      glm::mix(m_scales[p0Index].scale, m_scales[p1Index].scale, scaleFactor);
+    float scaleFactor =
+      GetScaleFactor(m_scales[p0Index].timeStamp, m_scales[p1Index].timeStamp, animationTime);
+    glm::vec3 finalScale = glm::mix(m_scales[p0Index].scale, m_scales[p1Index].scale, scaleFactor);
 
     return glm::scale(glm::mat4(1.0f), finalScale);
   }

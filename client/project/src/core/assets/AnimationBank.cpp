@@ -5,7 +5,7 @@ namespace Zmallwood
   AnimationBank*
   AnimationBank::Get()
   {
-    static AnimationBank instance;
+    static AnimationBank instance;              // Create singleton instance once
     return &instance;
   }
 }

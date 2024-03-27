@@ -12,8 +12,7 @@ namespace Zmallwood
     m_scenes.insert({ Hash("IntroScene"), IntroScene::Get() });
     m_scenes.insert({ Hash("MainMenuScene"), MainMenuScene::Get() });
     m_scenes.insert({ Hash("NewGameScene"), NewGameScene::Get() });
-    m_scenes.insert(
-      { Hash("WorldGenerationScene"), WorldGenerationScene::Get() });
+    m_scenes.insert({ Hash("WorldGenerationScene"), WorldGenerationScene::Get() });
     m_scenes.insert({ Hash("MainScene"), MainScene::Get() });
 
     EnterScene("IntroScene");

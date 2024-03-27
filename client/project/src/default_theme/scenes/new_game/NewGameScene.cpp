@@ -39,14 +39,11 @@ namespace Zmallwood
       button->onPress(
         [this]
         {
-          auto editBoxWorldAreaWidth =
-            GUI()->get<tgui::EditBox>("EditBoxWorldAreaWidth");
+          auto editBoxWorldAreaWidth = GUI()->get<tgui::EditBox>("EditBoxWorldAreaWidth");
           auto worldAreaWidth = editBoxWorldAreaWidth->getText().toInt();
-          auto editBoxWorldAreaHeight =
-            GUI()->get<tgui::EditBox>("EditBoxWorldAreaHeight");
+          auto editBoxWorldAreaHeight = GUI()->get<tgui::EditBox>("EditBoxWorldAreaHeight");
           auto worldAreaHeight = editBoxWorldAreaHeight->getText().toInt();
-          GameProps::Get()->SetWorldAreaSize(
-            { .w = worldAreaWidth, .h = worldAreaHeight });
+          GameProps::Get()->SetWorldAreaSize({ .w = worldAreaWidth, .h = worldAreaHeight });
           SceneManager::Get()->EnterScene("WorldGenerationScene");
         });
       GUI()->add(button);

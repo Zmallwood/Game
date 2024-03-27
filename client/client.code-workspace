@@ -86,13 +86,17 @@
 			"format": "cpp",
 			"span": "cpp",
 			"numeric": "cpp",
-			"*.ipp": "cpp"
+			"*.ipp": "cpp",
+			"forward_list": "cpp",
+			"valarray": "cpp"
 		},
 		"editor.rulers": [
-			45
+			48,
+			70
 		],
 		"tab-stop.columns": [
-			45
+			48,
+			70
 		]
 	}
 }

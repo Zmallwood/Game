@@ -52,18 +52,10 @@ namespace Zmallwood
 
         auto elevAmount = 1.0f;
 
-        verts._00.position = { x * tileSize,
-                               elev00 * elevAmount,
-                               y * tileSize };
-        verts._10.position = { x * tileSize + tileSize,
-                               elev10 * elevAmount,
-                               y * tileSize };
-        verts._11.position = { x * tileSize + tileSize,
-                               elev11 * elevAmount,
-                               y * tileSize + tileSize };
-        verts._01.position = { x * tileSize,
-                               elev01 * elevAmount,
-                               y * tileSize + tileSize };
+        verts._00.position = { x * tileSize, elev00 * elevAmount, y * tileSize };
+        verts._10.position = { x * tileSize + tileSize, elev10 * elevAmount, y * tileSize };
+        verts._11.position = { x * tileSize + tileSize, elev11 * elevAmount, y * tileSize + tileSize };
+        verts._01.position = { x * tileSize, elev01 * elevAmount, y * tileSize + tileSize };
         verts._00.uv = { 0.0f, 0.0f };
         verts._10.uv = { 1.0f, 0.0f };
         verts._11.uv = { 1.0f, 1.0f };
