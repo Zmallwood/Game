@@ -21,7 +21,13 @@ namespace Zmallwood {
               auto dy = y - yCenter;
 
               if (dx * dx + dy * dy <= r * r) {
-                if (!worldArea->GetTile({.x = x, .y = y})->Water()) {
+                if (!worldArea->GetTile({.x = x, .y = y})->Water() &&
+                    (x == 0 ||
+                     !worldArea->GetTile({.x = x - 1, .y = y})->Water()) &&
+                    (y == 0 ||
+                     !worldArea->GetTile({.x = x, .y = y - 1})->Water()) &&
+                    ((x == 0 || y == 0) ||
+                     !worldArea->GetTile({.x = x - 1, .y = y - 1})->Water())) {
                   worldArea->GetTile({.x = x, .y = y})->AddElevation(0.4f);
                 }
               }
