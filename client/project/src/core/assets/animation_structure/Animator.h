@@ -1,10 +1,12 @@
 #pragma once
 
-namespace Zmallwood {
+namespace Zmallwood
+{
   class Animation;
   class AssimpNodeData;
 
-  class Animator {
+  class Animator
+  {
    public:
     Animator(Animation *animation);
     void UpdateAnimation(float dt);
@@ -14,7 +16,8 @@ namespace Zmallwood {
 
     auto FinalBoneMatrices() const { return m_finalBoneMatrices; }
     void SetCurrentTime(float value) { m_currentTime = value; }
-    void SetDisableAutomaticUpdating(bool value) {
+    void SetDisableAutomaticUpdating(bool value)
+    {
       m_disableAutomaticUpdating = value;
     }
 

@@ -8,9 +8,9 @@
 
 namespace Zmallwood {
   void WorldViewRenderer::Initialize() {
-    auto worldArea = World::Get()->WorldArea();
-    std::vector<std::vector<Square<Vertex3F>>> surfVerts;
-    auto tileSize = GameProps::Get()->TileSize();
+    auto worldArea          = World::Get()->WorldArea();
+    auto surfVerts          = std::vector<std::vector<Square<Vertex3F>>>();
+    auto tileSize           = GameProps::Get()->TileSize();
 
     for (auto x = 0; x < worldArea->Width(); x++) {
       surfVerts.push_back(std::vector<Square<Vertex3F>>());

@@ -1,9 +1,12 @@
 #include "AssimpGLMUtilities.h"
 
-namespace Zmallwood {
-  glm::mat4 AssimpGLMUtilities::ConvertMatrixToGLMFormat(
-      const aiMatrix4x4 &from) {
+namespace Zmallwood
+{
+  glm::mat4
+  AssimpGLMUtilities::ConvertMatrixToGLMFormat (const aiMatrix4x4 &from)
+  {
     glm::mat4 to;
+
     // the a,b,c,d in assimp is the row ; the 1,2,3,4 is the column
     to[0][0] = from.a1;
     to[1][0] = from.a2;
@@ -21,15 +24,20 @@ namespace Zmallwood {
     to[1][3] = from.d2;
     to[2][3] = from.d3;
     to[3][3] = from.d4;
+
     return to;
   }
 
-  glm::vec3 AssimpGLMUtilities::GetGLMVec(const aiVector3D &vec) {
-    return glm::vec3(vec.x, vec.y, vec.z);
+  glm::vec3
+  AssimpGLMUtilities::GetGLMVec (const aiVector3D &vec)
+  {
+    return glm::vec3 (vec.x, vec.y, vec.z);
   }
 
-  glm::quat AssimpGLMUtilities::GetGLMQuat(const aiQuaternion &pOrientation) {
-    return glm::quat(pOrientation.w, pOrientation.x, pOrientation.y,
-                     pOrientation.z);
+  glm::quat
+  AssimpGLMUtilities::GetGLMQuat (const aiQuaternion &pOrientation)
+  {
+    return glm::quat (pOrientation.w, pOrientation.x, pOrientation.y,
+                      pOrientation.z);
   }
 }
