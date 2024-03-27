@@ -1,6 +1,6 @@
 ---
 Language:        Cpp
-AccessModifierOffset: -1
+AccessModifierOffset: -2
 AlignAfterOpenBracket: Align
 AlignArrayOfStructures: None
 AlignConsecutiveMacros: None
@@ -147,7 +147,7 @@ SpaceBeforeCaseColon: false
 SpaceBeforeCpp11BracedList: false
 SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: Always
+SpaceBeforeParens: false
 SpaceBeforeParensOptions:
   AfterControlStatements: false
   AfterForeachMacros: false

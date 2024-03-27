@@ -1,10 +1,13 @@
 #pragma once
 #include "Texture.h"
 
-namespace Zmallwood {
-  class Mesh {
-   public:
-    Mesh(std::vector<GLMVertex> vertices, std::vector<unsigned int> indices,
+namespace Zmallwood
+{
+  class Mesh
+  {
+  public:
+    Mesh(std::vector<GLMVertex> vertices,
+         std::vector<unsigned int> indices,
          std::vector<Texture> textures);
     void Draw(void);
 
@@ -14,7 +17,7 @@ namespace Zmallwood {
     std::vector<Texture> textures;
     unsigned int VAO;
 
-   private:
+  private:
     /// Initializes all the buffer objects/arrays
     void SetupMesh();
 
