@@ -1,7 +1,7 @@
 #pragma once
 
 namespace Zmallwood {
-    class WorldArea;
+  class WorldArea;
 
-    void GenerateWater(std::shared_ptr<WorldArea> worldArea);
+  void GenerateWater(std::shared_ptr<WorldArea> worldArea);
 }

@@ -4,20 +4,20 @@
 #include "scenes_core/SceneManager.h"
 
 namespace Zmallwood {
-    void Engine::HandleInput() {
-        PollEvents();
-    }
+  void Engine::HandleInput() {
+    PollEvents();
+  }
 
-    void Engine::Update() {
-        SceneManager::Get()->UpdateCurrentScene();
-    }
+  void Engine::Update() {
+    SceneManager::Get()->UpdateCurrentScene();
+  }
 
-    void Engine::Render() {
-        SceneManager::Get()->RenderCurrentScene();
-    }
+  void Engine::Render() {
+    SceneManager::Get()->RenderCurrentScene();
+  }
 
-    Engine *Engine::Get() {
-        static Engine instance;
-        return &instance;
-    }
+  Engine *Engine::Get() {
+    static Engine instance;
+    return &instance;
+  }
 }

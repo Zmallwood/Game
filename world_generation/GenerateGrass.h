@@ -1,7 +1,7 @@
 #pragma once
 
 namespace Zmallwood {
-    class WorldArea;
+  class WorldArea;
 
-    void GenerateGrass(std::shared_ptr<WorldArea> worldArea);
+  void GenerateGrass(std::shared_ptr<WorldArea> worldArea);
 }

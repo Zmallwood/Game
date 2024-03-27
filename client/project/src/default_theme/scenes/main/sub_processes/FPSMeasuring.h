@@ -1,5 +1,5 @@
 #pragma once
 
 namespace Zmallwood {
-    void UpdateFPSMeasuring();
+  void UpdateFPSMeasuring();
 }

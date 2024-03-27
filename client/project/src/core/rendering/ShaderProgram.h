@@ -1,17 +1,17 @@
 #pragma once
 
 namespace Zmallwood {
-    class ShaderProgram {
-       public:
-        bool Create(const GLchar *vertexShaderSource,
-                    const GLchar *fragmentShaderSource);
-        void Cleanup();
-        auto ProgramID() { return m_programID; }
+  class ShaderProgram {
+   public:
+    bool Create(const GLchar *vertexShaderSource,
+                const GLchar *fragmentShaderSource);
+    void Cleanup();
+    auto ProgramID() { return m_programID; }
 
-       private:
-        GLuint CompileShader(const GLchar *shaderSource, GLuint *shader,
-                             GLenum shaderType);
+   private:
+    GLuint CompileShader(const GLchar *shaderSource, GLuint *shader,
+                         GLenum shaderType);
 
-        GLuint m_programID = 0;
-    };
+    GLuint m_programID = 0;
+  };
 }

@@ -1,14 +1,14 @@
 #pragma once
 
 namespace Zmallwood {
-    class Graphics {
-       public:
-        auto RenderWindow() { return m_renderWindow; }
-        static Graphics *Get();
+  class Graphics {
+   public:
+    auto RenderWindow() { return m_renderWindow; }
+    static Graphics *Get();
 
-       private:
-        Graphics();
+   private:
+    Graphics();
 
-        std::shared_ptr<sf::RenderWindow> m_renderWindow;
-    };
+    std::shared_ptr<sf::RenderWindow> m_renderWindow;
+  };
 }
