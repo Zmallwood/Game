@@ -1,25 +1,29 @@
-#include "ImageBank.h"
+#include "TextureBank.h"
 
 namespace Zmallwood {
-    ImageBank::ImageBank() {
-        LoadImages();
+    TextureBank::TextureBank() {
+        LoadTextures();
     }
 
-    void ImageBank::LoadImages() {
+    void TextureBank::LoadTextures() {
         sf::Texture t1;
         t1.loadFromFile("./resources/images/Ground.png");
         m_images.insert({Hash("Ground"), t1});
     }
     
-    void ImageBank::BindImage(const std::string &imageName) {
+    void TextureBank::BindTexture(const std::string &imageName) {
         auto hash = Hash(imageName);
         if (m_images.contains(hash)) {
             sf::Texture::bind(&m_images.at(hash));
         }
     }
 
-    ImageBank *ImageBank::Get() {
-        static ImageBank instance;
+    void TextureBank::UnbindTexture() {
+        sf::Texture::bind(NULL);
+    }
+
+    TextureBank *TextureBank::Get() {
+        static TextureBank instance;
         return &instance;
     }
 }

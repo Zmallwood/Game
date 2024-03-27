@@ -3,7 +3,7 @@
 #include "../../../world_structure/WorldArea.h"
 #include "../../../world_structure/Tile.h"
 #include "core/GameProps.h"
-#include "core/rendering/ground_rendering/GroundRenderer.h"
+#include "core/rendering/ground_rendering/TileSurfaceRenderer.h"
 #include "Camera.h"
 
 namespace Zmallwood {
@@ -23,16 +23,16 @@ namespace Zmallwood {
                                       y * tileSize};
                 verts._11.position = {x * tileSize + tileSize, 0.0f - 0.0f,
                                       y * tileSize + tileSize};
-                verts._01.position = {x * tileSize, 0.0f - 0.1f,
+                verts._01.position = {x * tileSize, 0.0f,
                                       y * tileSize + tileSize};
                 verts._00.uv = {0.0f, 0.0f};
                 verts._10.uv = {1.0f, 0.0f};
                 verts._11.uv = {1.0f, 1.0f};
                 verts._01.uv = {0.0f, 1.0f};
-                verts._00.color = tile->Color();
-                verts._10.color = tile->Color();
-                verts._11.color = tile->Color();
-                verts._01.color = tile->Color();
+                verts._00.color = tile->Color().ToColorF();
+                verts._10.color = tile->Color().ToColorF();
+                verts._11.color = tile->Color().ToColorF();
+                verts._01.color = tile->Color().ToColorF();
                 verts._00.normal = {0.0f, 1.0f, 0.0f};
                 verts._10.normal = {0.0f, 1.0f, 0.0f};
                 verts._11.normal = {0.0f, 1.0f, 0.0f};
@@ -40,8 +40,8 @@ namespace Zmallwood {
                 surfVerts.at(x).push_back(verts);
             }
         }
-        m_GLIDTileSurface = GroundRenderer::Get()->NewTileSurface();
-        GroundRenderer::Get()->SetTileSufaceGeom(m_GLIDTileSurface, surfVerts);
+        m_tileSurfaceID = TileSurfaceRenderer::Get()->NewTileSurface();
+        TileSurfaceRenderer::Get()->SetTileSurfaceGeom(m_tileSurfaceID, surfVerts);
     }
 
     void WorldViewRenderer::UpdateCamera() {
@@ -49,7 +49,7 @@ namespace Zmallwood {
     }
 
     void WorldViewRenderer::RenderWorldView() {
-        GroundRenderer::Get()->DrawTileSurface("Ground", m_GLIDTileSurface);
+        TileSurfaceRenderer::Get()->DrawTileSurface("Ground", m_tileSurfaceID);
     }
 
     WorldViewRenderer *WorldViewRenderer::Get() {

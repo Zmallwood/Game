@@ -1,4 +1,4 @@
-#include "GroundRenderer.h"
+#include "TileSurfaceRenderer.h"
 #include "core/rendering/ShaderProgram.h"
 #include "shaders/ShaderGroundFragment.h"
 #include "shaders/ShaderGroundVertex.h"
@@ -6,28 +6,28 @@
 #include "core/Player.h"
 #include "core/GameProps.h"
 #include "../../../world_structure/World.h"
-#include "core/assets/ImageBank.h"
+#include "../../../world_structure/WorldArea.h"
+#include "core/assets/TextureBank.h"
 
 namespace Zmallwood {
-    GroundRenderer::GroundRenderer() : RendererBase() {
+    TileSurfaceRenderer::TileSurfaceRenderer() : RendererBase() {
         ShaderProgram()->Create(shaderGroundVertex, shaderGroundFragment);
         m_locProjection = GetUniformLocation("projection");
         m_locView = GetUniformLocation("view");
         m_locModel = GetUniformLocation("model");
-        m_locAlpha = GetUniformLocation("mAlpha");
         m_locViewPos = GetUniformLocation("viewPos");
         m_locFogColor = GetUniformLocation("fogColor");
     }
 
-    GLuint GroundRenderer::NewTileSurface() {
+    GLuint TileSurfaceRenderer::NewTileSurface() {
         auto numVerts = 6 * 100 * 100;
-        auto GLID = GenNewVAOID();
-        auto indexBuffID = GenNewBuffID(BufferTypes::Indices, GLID);
-        auto posBuffID = GenNewBuffID(BufferTypes::Positions3D, GLID);
-        auto colorBuffID = GenNewBuffID(BufferTypes::Colors, GLID);
-        auto uvBuffID = GenNewBuffID(BufferTypes::Uvs, GLID);
-        auto normBuffID = GenNewBuffID(BufferTypes::Normals, GLID);
-        glBindVertexArray(GLID);
+        auto id = GenNewVAOID();
+        auto indexBuffID = GenNewBuffID(BufferTypes::Indices, id);
+        auto posBuffID = GenNewBuffID(BufferTypes::Positions3D, id);
+        auto colorBuffID = GenNewBuffID(BufferTypes::Colors, id);
+        auto uvBuffID = GenNewBuffID(BufferTypes::Uvs, id);
+        auto normBuffID = GenNewBuffID(BufferTypes::Normals, id);
+        glBindVertexArray(id);
         SetIndicesData(indexBuffID, numVerts, nullptr);
         SetData(posBuffID, numVerts, nullptr, BufferTypes::Positions3D);
         SetData(colorBuffID, numVerts, nullptr, BufferTypes::Colors);
@@ -35,36 +35,37 @@ namespace Zmallwood {
         SetData(normBuffID, numVerts, nullptr, BufferTypes::Normals);
         glBindVertexArray(0);
 
-        return GLID;
+        return id;
     }
 
-    void GroundRenderer::SetTileSufaceGeom(
+    void TileSurfaceRenderer::SetTileSurfaceGeom(
         GLuint VAOID, std::vector<std::vector<Square<Vertex3F>>> &vertices) {
-        std::vector<Vertex3F> vertsVec;
+        std::vector<Vertex3F> vertsTriangles;
 
         for (auto y = 0; y < vertices.size(); y++) {
             for (auto x = 0; x < vertices.at(0).size(); x++) {
                 auto entry = vertices.at(x).at(y);
-                vertsVec.push_back(entry._00);
-                vertsVec.push_back(entry._10);
-                vertsVec.push_back(entry._11);
-                vertsVec.push_back(entry._00);
-                vertsVec.push_back(entry._11);
-                vertsVec.push_back(entry._01);
+                vertsTriangles.push_back(entry._00);
+                vertsTriangles.push_back(entry._10);
+                vertsTriangles.push_back(entry._11);
+                vertsTriangles.push_back(entry._00);
+                vertsTriangles.push_back(entry._11);
+                vertsTriangles.push_back(entry._01);
             }
         }
 
-        if (!m_isBatchDrawing)
+        if (!m_isBatchDrawing) {
             UseVAOBegin(VAOID);
+        }
 
-        std::vector<int> indices(vertsVec.size());
+        std::vector<int> indices(vertsTriangles.size());
         std::iota(std::begin(indices), std::end(indices), 0);
         std::vector<float> positions;
         std::vector<float> colors;
         std::vector<float> uvs;
         std::vector<float> normals;
 
-        for (auto &vert : vertsVec) {
+        for (auto &vert : vertsTriangles) {
             positions.push_back(vert.position.x);
             positions.push_back(vert.position.y);
             positions.push_back(vert.position.z);
@@ -97,13 +98,15 @@ namespace Zmallwood {
             glBindVertexArray(0);
         }
 
-        if (!m_isBatchDrawing)
+        if (!m_isBatchDrawing) {
             UseVAOEnd();
+        }
     }
 
-    void GroundRenderer::DrawTileSurface(const std::string &imageName,
+    void TileSurfaceRenderer::DrawTileSurface(const std::string &imageName,
                                          GLuint VAOID, bool depthTestOff) {
-        auto vertCount = 6 * 100 * 100;
+        auto worldArea = World::Get()->WorldArea();
+        auto vertCount = 6 * worldArea->Width() * worldArea->Height();
 
         if (depthTestOff) {
             glDisable(GL_DEPTH_TEST);
@@ -120,7 +123,6 @@ namespace Zmallwood {
                            glm::value_ptr(CameraGL::Get()->ViewMatrix()));
         glm::mat4 model(1.0);
         glUniformMatrix4fv(m_locModel, 1, GL_FALSE, glm::value_ptr(model));
-        glUniform1f(m_locAlpha, 1.0f);
 
         auto playerPos = Player::Get()->Position().Multiply(
             GameProps::Get()->TileSize());
@@ -132,21 +134,23 @@ namespace Zmallwood {
         glUniform3fv(m_locFogColor, 1, glm::value_ptr(fogColorGLM));
         glUseProgram(ShaderProgram()->ProgramID());
         glEnable(GL_CULL_FACE);
-        glCullFace(GL_FRONT);
-        ImageBank::Get()->BindImage(imageName);
+        glCullFace(GL_BACK);
+        glFrontFace(GL_CW);
+        TextureBank::Get()->BindTexture(imageName);
         glBindVertexArray(VAOID);
         glDrawElements(GL_TRIANGLES, vertCount, GL_UNSIGNED_INT, NULL);
+        TextureBank::Get()->UnbindTexture();
         glBindVertexArray(0);
         glUseProgram(0);
         glDisable(GL_CULL_FACE);
     }
 
-    GroundRenderer::~GroundRenderer() {
+    TileSurfaceRenderer::~TileSurfaceRenderer() {
         CleanupBase();
     }
 
-    GroundRenderer *GroundRenderer::Get() {
-        static GroundRenderer instance;
+    TileSurfaceRenderer *TileSurfaceRenderer::Get() {
+        static TileSurfaceRenderer instance;
         return &instance;
     }
 }

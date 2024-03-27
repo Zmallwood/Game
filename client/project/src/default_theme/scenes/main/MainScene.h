@@ -10,6 +10,6 @@ namespace Zmallwood {
         static MainScene *Get();
 
        private:
-        MainScene() = default;
+        MainScene();
     };
 }

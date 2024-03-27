@@ -7,7 +7,7 @@ namespace Zmallwood {
     class Vertex3F {
        public:
         Point3F position;
-        Color color;
+        ColorF color;
         PointF uv;
         Point3F normal;
     };

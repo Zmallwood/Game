@@ -11,6 +11,6 @@ namespace Zmallwood {
        private:
         WorldViewRenderer() = default;
 
-        GLuint m_GLIDTileSurface = -1;
+        GLuint m_tileSurfaceID = -1;
     };
 }

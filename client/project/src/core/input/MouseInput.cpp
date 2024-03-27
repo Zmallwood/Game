@@ -1,7 +1,7 @@
 #include "MouseInput.h"
 
 namespace Zmallwood {
-    void MouseInput::OnMousePress(sf::Mouse::Button button){
+    void MouseInput::OnMousePress(sf::Mouse::Button button) {
         switch (button) {
             case sf::Mouse::Button::Left:
                 m_leftButton.OnPress();
@@ -25,6 +25,16 @@ namespace Zmallwood {
 
     bool MouseInput::AnyButtonPressed() {
         return m_leftButton.Pressed() || m_rightButton.Pressed();
+    }
+
+    int MouseInput::MouseWheelDeltaPickResult() {
+        auto result = m_mouseWheelDelta;
+        m_mouseWheelDelta = 0;
+        return result;
+    }
+
+    void MouseInput::AddMouseWheelDelta(int delta) {
+        m_mouseWheelDelta += delta;
     }
 
     MouseInput *MouseInput::Get() {

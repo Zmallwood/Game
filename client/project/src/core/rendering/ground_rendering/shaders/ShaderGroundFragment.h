@@ -15,7 +15,6 @@ namespace Zmallwood {
         in vec3 ex_Normal;
         in vec3 FragPos;
         uniform sampler2D TexUnit;
-        uniform float mAlpha;
         uniform vec3 viewPos;
         uniform vec3 fogColor;
 

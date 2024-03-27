@@ -2,15 +2,15 @@
 #include "core/rendering/RendererBase.h"
 
 namespace Zmallwood {
-    class GroundRenderer : public RendererBase {
+    class TileSurfaceRenderer : public RendererBase {
        public:
-        ~GroundRenderer();
+        ~TileSurfaceRenderer();
         GLuint NewTileSurface();
-        void SetTileSufaceGeom(
+        void SetTileSurfaceGeom(
             GLuint VAOID, std::vector<std::vector<Square<Vertex3F>>> &verts);
         void DrawTileSurface(const std::string &imageName, GLuint VAOID,
                              bool depthTestOff = false);
-        static GroundRenderer *Get();
+        static TileSurfaceRenderer *Get();
 
         static constexpr int k_locPosition = 0;
         static constexpr int k_locColor = 1;
@@ -19,12 +19,11 @@ namespace Zmallwood {
         Color k_fogColorGround = {.r = 0, .g = 150, .b = 255};
 
        private:
-        GroundRenderer();
+        TileSurfaceRenderer();
 
         int m_locProjection = -1;
         int m_locView = -1;
         int m_locModel = -1;
-        int m_locAlpha = -1;
         int m_locViewPos = -1;
         int m_locFogColor = -1;
         bool m_isBatchDrawing = false;

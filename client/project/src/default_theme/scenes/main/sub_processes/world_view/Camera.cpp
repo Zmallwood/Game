@@ -26,7 +26,9 @@ namespace Zmallwood {
         auto tileSize = GameProps::Get()->TileSize();
         auto currWA = World::Get()->WorldArea();
         auto lookFrom = GetCameraPosition();
-        lookFrom = playerPos.Translate(0.0f, 20.0f, 0.1f);
+        //lookFrom.y = 20.0f;
+        lookFrom.z = 0.1f;
+        //lookFrom = playerPos.Translate(0.0f, 20.0f, 0.1f);
         auto lookAt = playerPos;
         auto newViewMatrix = glm::lookAt(
             glm::vec3(lookFrom.x, lookFrom.y, lookFrom.z),
@@ -82,16 +84,17 @@ namespace Zmallwood {
                   3.0f * CosDegrees(m_horizontalAngleDegrees);
         auto dy = SinDegrees(usedVertAngle) * usedCamDist * 3.0f;
         auto playrElev = 0.0f;
-        auto result = Point3F();
+        {
+            auto result = Point3F();
 
-        if (m_useFixedCameraDistance) {
-            result = playerPosNoElev.Translate(dx, dy + k_fixedCameraDistance,
-                                               dz);
-        } else {
-            result = playerPosNoElev.Translate(dx, dy + playrElev, dz);
+            if (m_useFixedCameraDistance) {
+                result = playerPosNoElev.Translate(
+                    dx, dy + k_fixedCameraDistance, dz);
+            } else {
+                result = playerPosNoElev.Translate(dx, dy + playrElev, dz);
+            }
+            return result.Translate(0.0f, m_cameraHeight * 2.0f + 20.0f, 0.0f);
         }
-
-        return result.Translate(0.0f, m_cameraHeight * 2.0f, 0.0f);
     }
 
     Camera *Camera::Get() {

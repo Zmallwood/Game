@@ -1,5 +1,4 @@
 #include "SceneManager.h"
-#include "default_theme/scenes/game_over/GameOverScene.h"
 #include "default_theme/scenes/intro/IntroScene.h"
 #include "default_theme/scenes/main/MainScene.h"
 #include "default_theme/scenes/main_menu/MainMenuScene.h"
@@ -13,7 +12,6 @@ namespace Zmallwood {
         m_scenes.insert({Hash("NewGameScene"), NewGameScene::Get()});
         m_scenes.insert({Hash("WorldGenerationScene"), WorldGenerationScene::Get()});
         m_scenes.insert({Hash("MainScene"), MainScene::Get()});
-        m_scenes.insert({Hash("GameOverScene"), GameOverScene::Get()});
 
         EnterScene("IntroScene");
     }

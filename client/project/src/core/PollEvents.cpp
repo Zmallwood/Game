@@ -24,10 +24,16 @@ namespace Zmallwood {
                         KeyboardInput::Get()->OnKeyRelease(event.key.code);
                         break;
                     case sf::Event::MouseButtonPressed:
-                        MouseInput::Get()->OnMousePress(event.mouseButton.button);
+                        MouseInput::Get()->OnMousePress(
+                            event.mouseButton.button);
                         break;
                     case sf::Event::MouseButtonReleased:
-                        MouseInput::Get()->OnMouseRelease(event.mouseButton.button);
+                        MouseInput::Get()->OnMouseRelease(
+                            event.mouseButton.button);
+                        break;
+                    case sf::Event::MouseWheelScrolled:
+                        MouseInput::Get()->AddMouseWheelDelta(
+                            event.mouseWheelScroll.delta);
                         break;
                 }
             }
