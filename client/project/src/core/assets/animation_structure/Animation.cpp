@@ -6,8 +6,7 @@ namespace Zmallwood
   Animation::Animation(const std::string& animationPath, Model* model)
   {
     Assimp::Importer importer;
-    const aiScene* scene =
-      importer.ReadFile(animationPath, aiProcess_Triangulate);
+    const aiScene* scene = importer.ReadFile(animationPath, aiProcess_Triangulate);
     assert(scene && scene->mRootNode);
     auto animation = scene->mAnimations[0];
     m_duration = animation->mDuration;
@@ -22,9 +21,7 @@ namespace Zmallwood
   Animation::FindBone(const std::string& name)
   {
     auto iter =
-      std::find_if(m_bones.begin(),
-                   m_bones.end(),
-                   [&](const Bone& Bone) { return Bone.BoneName() == name; });
+      std::find_if(m_bones.begin(), m_bones.end(), [&](const Bone& Bone) { return Bone.BoneName() == name; });
 
     if (iter == m_bones.end())
       return nullptr;
@@ -36,13 +33,14 @@ namespace Zmallwood
   Animation::ReadMissingBones(const aiAnimation* animation, Model& model)
   {
     int size = animation->mNumChannels;
-    auto& boneInfoMap =
-      model.BoneInfoMap(); // getting m_BoneInfoMap from Model class
-    int& boneCount =
-      model.BoneCount(); // getting the m_boneCounter from Model class
+    auto& boneInfoMap = model.BoneInfoMap(); // getting m_BoneInfoMap from Model
+                                             // class
+    int& boneCount = model.BoneCount();      // getting the m_boneCounter from Model
+                                             // class
 
-    // reading channels(bones engaged in an animation and their keyframes)
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)           // reading channels
+                                             // (bones engaged in an
+                                             // animation and their keyframes)
     {
       auto channel = animation->mChannels[i];
       std::string boneName = channel->mNodeName.data;
@@ -53,9 +51,7 @@ namespace Zmallwood
         boneCount++;
       }
 
-      m_bones.push_back(Bone(channel->mNodeName.data,
-                             boneInfoMap[channel->mNodeName.data].ID,
-                             channel));
+      m_bones.push_back(Bone(channel->mNodeName.data, boneInfoMap[channel->mNodeName.data].ID, channel));
     }
 
     m_boneInfoMap = boneInfoMap;
@@ -66,8 +62,7 @@ namespace Zmallwood
   {
     assert(src);
     dest.name = src->mName.data;
-    dest.transformation =
-      AssimpGLMUtilities::ConvertMatrixToGLMFormat(src->mTransformation);
+    dest.transformation = AssimpGLMUtilities::ConvertMatrixToGLMFormat(src->mTransformation);
     dest.childrenCount = src->mNumChildren;
 
     for (int i = 0; i < src->mNumChildren; i++)

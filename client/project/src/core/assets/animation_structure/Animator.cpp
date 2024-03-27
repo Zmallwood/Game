@@ -36,8 +36,7 @@ namespace Zmallwood
   }
 
   void
-  Animator::CalculateBoneTransform(const AssimpNodeData* node,
-                                   glm::mat4 parentTransform)
+  Animator::CalculateBoneTransform(const AssimpNodeData* node, glm::mat4 parentTransform)
   {
     std::string nodeName = node->name;
     glm::mat4 nodeTransform = node->transformation;

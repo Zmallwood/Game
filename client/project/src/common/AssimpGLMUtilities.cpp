@@ -37,7 +37,6 @@ namespace Zmallwood
   glm::quat
   AssimpGLMUtilities::GetGLMQuat(const aiQuaternion& pOrientation)
   {
-    return glm::quat(
-      pOrientation.w, pOrientation.x, pOrientation.y, pOrientation.z);
+    return glm::quat(pOrientation.w, pOrientation.x, pOrientation.y, pOrientation.z);
   }
 }

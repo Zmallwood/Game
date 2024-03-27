@@ -89,12 +89,10 @@
 			"*.ipp": "cpp"
 		},
 		"editor.rulers": [
-			28,
-			80
+			45
 		],
 		"tab-stop.columns": [
-			28,
-			80
+			45
 		]
 	}
 }
