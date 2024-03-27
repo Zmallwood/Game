@@ -80,20 +80,22 @@ namespace Zmallwood {
             normals.push_back(vert_normal.z);
         }
 
-        auto indexBuffID = GetBuffID(BufferTypes::Indices, VAOID);
-        auto posBuffID = GetBuffID(BufferTypes::Positions3D, VAOID);
-        auto colorBuffID = GetBuffID(BufferTypes::Colors, VAOID);
-        auto uvBuffID = GetBuffID(BufferTypes::Uvs, VAOID);
-        auto normBuffID = GetBuffID(BufferTypes::Normals, VAOID);
-        glBindVertexArray(VAOID);
+        {
+            auto indexBuffID = GetBuffID(BufferTypes::Indices, VAOID);
+            auto posBuffID = GetBuffID(BufferTypes::Positions3D, VAOID);
+            auto colorBuffID = GetBuffID(BufferTypes::Colors, VAOID);
+            auto uvBuffID = GetBuffID(BufferTypes::Uvs, VAOID);
+            auto normBuffID = GetBuffID(BufferTypes::Normals, VAOID);
+            glBindVertexArray(VAOID);
 
-        UpdateIndicesData(indexBuffID, indices);
-        UpdateData(posBuffID, positions, BufferTypes::Positions3D,
-                   k_locPosition);
-        UpdateData(colorBuffID, colors, BufferTypes::Colors, k_locColor);
-        UpdateData(uvBuffID, uvs, BufferTypes::Uvs, k_locUv);
-        UpdateData(normBuffID, normals, BufferTypes::Normals, k_locNormal);
-        glBindVertexArray(0);
+            UpdateIndicesData(indexBuffID, indices);
+            UpdateData(posBuffID, positions, BufferTypes::Positions3D,
+                       k_locPosition);
+            UpdateData(colorBuffID, colors, BufferTypes::Colors, k_locColor);
+            UpdateData(uvBuffID, uvs, BufferTypes::Uvs, k_locUv);
+            UpdateData(normBuffID, normals, BufferTypes::Normals, k_locNormal);
+            glBindVertexArray(0);
+        }
 
         if (!m_isBatchDrawing)
             UseVAOEnd();
@@ -103,10 +105,11 @@ namespace Zmallwood {
                                          GLuint VAOID, bool depthTestOff) {
         auto vertCount = 6 * 100 * 100;
 
-        if (depthTestOff)
+        if (depthTestOff) {
             glDisable(GL_DEPTH_TEST);
-        else
+        } else {
             glEnable(GL_DEPTH_TEST);
+        }
 
         UseVAOBegin(VAOID);
         glUseProgram(ShaderProgram()->ProgramID());
@@ -122,14 +125,11 @@ namespace Zmallwood {
         auto playerPos = Player::Get()->Position().Multiply(
             GameProps::Get()->TileSize());
 
-        auto worldArea = World::Get()->WorldArea();
-        auto tileSize = GameProps::Get()->TileSize();
-
         glm::vec3 viewPos(playerPos.x, playerPos.y, playerPos.z);
         glUniform3fv(m_locViewPos, 1, glm::value_ptr(viewPos));
-        auto fogColor = k_fogColorGround.ToGLColor();
-        glm::vec3 fogColorGL(fogColor.r, fogColor.g, fogColor.b);
-        glUniform3fv(m_locFogColor, 1, glm::value_ptr(fogColorGL));
+        auto fogColorF = k_fogColorGround.ToColorF();
+        glm::vec3 fogColorGLM(fogColorF.r, fogColorF.g, fogColorF.b);
+        glUniform3fv(m_locFogColor, 1, glm::value_ptr(fogColorGLM));
         glUseProgram(ShaderProgram()->ProgramID());
         glEnable(GL_CULL_FACE);
         glCullFace(GL_FRONT);

@@ -13,11 +13,13 @@ namespace Zmallwood {
         }
 
         glewExperimental = GL_TRUE;
-        auto glewError = glewInit();
+        {
+            auto glewError = glewInit();
 
-        if (glewError != GLEW_OK)
-            std::cout << "Error initializing GLEW: "
-                      << glewGetErrorString(glewError) << std::endl;
+            if (glewError != GLEW_OK)
+                std::cout << "Error initializing GLEW: "
+                          << glewGetErrorString(glewError) << std::endl;
+        }
 
         glClearDepth(1.f);
         glClearColor(0.3f, 0.3f, 0.3f, 0.f);

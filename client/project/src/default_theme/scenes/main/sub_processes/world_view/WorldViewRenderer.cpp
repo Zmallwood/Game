@@ -1,6 +1,7 @@
 #include "WorldViewRenderer.h"
 #include "../../../world_structure/World.h"
 #include "../../../world_structure/WorldArea.h"
+#include "../../../world_structure/Tile.h"
 #include "core/GameProps.h"
 #include "core/rendering/ground_rendering/GroundRenderer.h"
 #include "Camera.h"
@@ -15,6 +16,7 @@ namespace Zmallwood {
             surfVerts.push_back(std::vector<Square<Vertex3F>>());
             for (auto y = 0; y < worldArea->Height(); y++) {
                 Square<Vertex3F> verts;
+                auto tile = worldArea->GetTile({.x = x, .y = y});
 
                 verts._00.position = {x * tileSize, 0.0f - 0.0f, y * tileSize};
                 verts._10.position = {x * tileSize + tileSize, 0.0f - 0.0f,
@@ -27,10 +29,10 @@ namespace Zmallwood {
                 verts._10.uv = {1.0f, 0.0f};
                 verts._11.uv = {1.0f, 1.0f};
                 verts._01.uv = {0.0f, 1.0f};
-                verts._00.color = {.r = 255, .g = 255, .b = 255};
-                verts._10.color = {.r = 255, .g = 255, .b = 255};
-                verts._11.color = {.r = 255, .g = 255, .b = 255};
-                verts._01.color = {.r = 255, .g = 255, .b = 255};
+                verts._00.color = tile->Color();
+                verts._10.color = tile->Color();
+                verts._11.color = tile->Color();
+                verts._01.color = tile->Color();
                 verts._00.normal = {0.0f, 1.0f, 0.0f};
                 verts._10.normal = {0.0f, 1.0f, 0.0f};
                 verts._11.normal = {0.0f, 1.0f, 0.0f};

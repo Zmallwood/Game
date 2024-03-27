@@ -1,7 +1,7 @@
 #include "MouseInput.h"
 
 namespace Zmallwood {
-    void MouseInput::OnMousePress(sf::Mouse::Button button) {
+    void MouseInput::OnMousePress(sf::Mouse::Button button){
         switch (button) {
             case sf::Mouse::Button::Left:
                 m_leftButton.OnPress();

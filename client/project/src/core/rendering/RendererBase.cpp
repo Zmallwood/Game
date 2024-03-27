@@ -33,14 +33,15 @@ namespace Zmallwood {
 
     void RendererBase::SetData(GLuint VBOID, int numVertices, const void *data,
                                BufferTypes buffType, int layoutLocation) const {
-        if (buffType == BufferTypes::BoneIDs)
+        if (buffType == BufferTypes::BoneIDs) {
             SetArrayBufferDataInt(
                 VBOID, numVertices, data,
                 RendererBase::k_numFloatsPerEntry.at(buffType), layoutLocation);
-        else
+        } else {
             SetArrayBufferData(VBOID, numVertices, data,
                                RendererBase::k_numFloatsPerEntry.at(buffType),
                                layoutLocation);
+        }
     }
 
     void RendererBase::SetArrayBufferData(GLuint VBOID, int numVertices,
@@ -124,14 +125,15 @@ namespace Zmallwood {
     void RendererBase::UpdateData(GLuint VBOID, std::vector<float> &data,
                                   BufferTypes buffType,
                                   int layoutLocation) const {
-        if (buffType == BufferTypes::BoneIDs)
+        if (buffType == BufferTypes::BoneIDs) {
             UpdateArrayBufferDataInt(
                 VBOID, data, RendererBase::k_numFloatsPerEntry.at(buffType),
                 layoutLocation);
-        else
+        } else {
             UpdateArrayBufferData(
                 VBOID, data, RendererBase::k_numFloatsPerEntry.at(buffType),
                 layoutLocation);
+        }
     }
 
     void RendererBase::UseVAOEnd() const {
@@ -140,12 +142,15 @@ namespace Zmallwood {
     }
 
     void RendererBase::CleanupBase() const {
-        for (auto &bufType : m_VBOIDs)
-            for (auto &bufferEntry : bufType.second)
+        for (auto &bufType : m_VBOIDs) {
+            for (auto &bufferEntry : bufType.second) {
                 glDeleteBuffers(1, &bufferEntry.second);
+            }
+        }
 
-        for (auto VAOID : m_VAOIDs)
+        for (auto VAOID : m_VAOIDs) {
             glDeleteVertexArrays(1, &VAOID);
+        }
 
         m_shaderProgram->Cleanup();
     }

@@ -6,14 +6,15 @@ namespace Zmallwood {
         GLuint vertexShader = 0;
         GLuint fragmentShader = 0;
         m_programID = glCreateProgram();
-        auto vertexShaderRes = CompileShader(vertexShaderSource, &vertexShader,
-                                             GL_VERTEX_SHADER);
         auto success = true;
+        {
+            auto vertexShaderRes = CompileShader(
+                vertexShaderSource, &vertexShader, GL_VERTEX_SHADER);
 
-        if (vertexShaderRes != GL_TRUE) {
-            std::cout << "Unable to compile vertex shader.\n";
-            printf("Unable to compile vertex shader %d!\n", vertexShader);
-            success = false;
+            if (vertexShaderRes != GL_TRUE) {
+                std::cout << "Unable to compile vertex shader.\n";
+                success = false;
+            }
         }
 
         if (success) {
@@ -23,8 +24,6 @@ namespace Zmallwood {
 
             if (fragmentShaderRes != GL_TRUE) {
                 std::cout << "Unable to compile fragment shader.\n";
-                printf("Unable to compile fragment shader %d!\n",
-                       fragmentShader);
                 success = false;
             }
         }
@@ -37,7 +36,6 @@ namespace Zmallwood {
 
             if (programSuccess != GL_TRUE) {
                 std::cout << "Error linking shader program.\n";
-                printf("Error linking program %d!\n", m_programID);
                 success = false;
             }
         }

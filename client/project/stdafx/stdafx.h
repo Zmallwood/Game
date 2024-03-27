@@ -14,7 +14,7 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "../../../matter/Color.h"
-#include "../../../matter/GLColor.h"
+#include "../../../matter/ColorF.h"
 #include "../../../matter/Size.h"
 #include "../../../matter/Point.h"
 #include "../../../matter/PointF.h"

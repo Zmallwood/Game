@@ -1,15 +1,15 @@
 #pragma once
 
 namespace Zmallwood {
-    class GLColor;
+    class ColorF;
 
     class Color {
        public:
-        GLColor ToGLColor();
+        ColorF ToColorF();
 
-        unsigned char r = 0;
-        unsigned char g = 0;
-        unsigned char b = 0;
+        unsigned char r = 255;
+        unsigned char g = 255;
+        unsigned char b = 255;
         unsigned char a = 255;
     };
 }

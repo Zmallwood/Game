@@ -8,8 +8,12 @@ namespace Zmallwood {
     }
 
     void IScene::Render() {
-        auto clearColor = GameProps::Get()->ClearColor().ToGLColor();
-        glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+        {
+            auto clearColor = GameProps::Get()->ClearColor().ToColorF();
+            glClearColor(clearColor.r, clearColor.g, clearColor.b,
+                         clearColor.a);
+        }
+        
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glMatrixMode(GL_MODELVIEW);

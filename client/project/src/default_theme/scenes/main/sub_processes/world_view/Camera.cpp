@@ -26,7 +26,7 @@ namespace Zmallwood {
         auto tileSize = GameProps::Get()->TileSize();
         auto currWA = World::Get()->WorldArea();
         auto lookFrom = GetCameraPosition();
-        lookFrom = playerPos.Translate(0.0f, 10.0f, 10.0f);
+        lookFrom = playerPos.Translate(0.0f, 20.0f, 0.1f);
         auto lookAt = playerPos;
         auto newViewMatrix = glm::lookAt(
             glm::vec3(lookFrom.x, lookFrom.y, lookFrom.z),

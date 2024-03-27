@@ -1,7 +1,7 @@
 #pragma once
 
 namespace Zmallwood {
-    class GLColor {
+    class ColorF {
        public:
         float r = 0.0f;
         float g = 0.0f;

@@ -6,7 +6,7 @@ namespace Zmallwood {
         bool Create(const GLchar *vertexShaderSource,
                     const GLchar *fragmentShaderSource);
         void Cleanup();
-        auto ProgramID() const { return m_programID; }
+        auto ProgramID() { return m_programID; }
 
        private:
         GLuint CompileShader(const GLchar *shaderSource, GLuint *shader,
