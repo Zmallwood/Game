@@ -3,7 +3,7 @@
 
 namespace Zmallwood
 {
-  Animator::Animator(Animation *animation)
+  Animator::Animator(Animation* animation)
   {
     m_currentTime = 0.0;
     m_currentAnimation = animation;
@@ -13,7 +13,8 @@ namespace Zmallwood
       m_finalBoneMatrices.push_back(glm::mat4(1.0f));
   }
 
-  void Animator::UpdateAnimation(float dt)
+  void
+  Animator::UpdateAnimation(float dt)
   {
     m_deltaTime = dt;
 
@@ -27,18 +28,20 @@ namespace Zmallwood
     }
   }
 
-  void Animator::PlayAnimation(Animation *pAnimation)
+  void
+  Animator::PlayAnimation(Animation* pAnimation)
   {
     m_currentAnimation = pAnimation;
     m_currentTime = 0.0f;
   }
 
-  void Animator::CalculateBoneTransform(const AssimpNodeData *node,
-                                        glm::mat4 parentTransform)
+  void
+  Animator::CalculateBoneTransform(const AssimpNodeData* node,
+                                   glm::mat4 parentTransform)
   {
     std::string nodeName = node->name;
     glm::mat4 nodeTransform = node->transformation;
-    Bone *Bone = m_currentAnimation->FindBone(nodeName);
+    Bone* Bone = m_currentAnimation->FindBone(nodeName);
 
     if (Bone)
     {

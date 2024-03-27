@@ -1,13 +1,15 @@
 #pragma once
 
-namespace Zmallwood {
-  class TextureBank {
-   public:
-    void BindTexture(const std::string &imageName);
+namespace Zmallwood
+{
+  class TextureBank
+  {
+  public:
+    void BindTexture(const std::string& imageName);
     void UnbindTexture();
-    static TextureBank *Get();
+    static TextureBank* Get();
 
-   private:
+  private:
     TextureBank();
     void LoadTextures();
 

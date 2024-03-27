@@ -1,11 +1,13 @@
 #pragma once
 
-namespace Zmallwood {
-  class ModelBank {
-   public:
-    static ModelBank *Get();
+namespace Zmallwood
+{
+  class ModelBank
+  {
+  public:
+    static ModelBank* Get();
 
-   private:
+  private:
     ModelBank() = default;
   };
 }

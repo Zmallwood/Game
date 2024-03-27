@@ -3,7 +3,7 @@
 namespace Zmallwood
 {
   glm::mat4
-  AssimpGLMUtilities::ConvertMatrixToGLMFormat(const aiMatrix4x4 &from)
+  AssimpGLMUtilities::ConvertMatrixToGLMFormat(const aiMatrix4x4& from)
   {
     glm::mat4 to;
 
@@ -29,15 +29,15 @@ namespace Zmallwood
   }
 
   glm::vec3
-  AssimpGLMUtilities::GetGLMVec(const aiVector3D &vec)
+  AssimpGLMUtilities::GetGLMVec(const aiVector3D& vec)
   {
     return glm::vec3(vec.x, vec.y, vec.z);
   }
 
   glm::quat
-  AssimpGLMUtilities::GetGLMQuat(const aiQuaternion &pOrientation)
+  AssimpGLMUtilities::GetGLMQuat(const aiQuaternion& pOrientation)
   {
-    return glm::quat(pOrientation.w, pOrientation.x, pOrientation.y,
-                     pOrientation.z);
+    return glm::quat(
+      pOrientation.w, pOrientation.x, pOrientation.y, pOrientation.z);
   }
 }
