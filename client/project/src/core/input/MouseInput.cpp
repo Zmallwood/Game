@@ -1,8 +1,12 @@
 #include "MouseInput.h"
 
-namespace Zmallwood {
-  void MouseInput::OnMousePress(sf::Mouse::Button button) {
-    switch (button) {
+namespace Zmallwood
+{
+  void
+  MouseInput::OnMousePress(sf::Mouse::Button button)
+  {
+    switch (button)
+    {
       case sf::Mouse::Button::Left:
         m_leftButton.OnPress();
         break;
@@ -12,8 +16,11 @@ namespace Zmallwood {
     }
   }
 
-  void MouseInput::OnMouseRelease(sf::Mouse::Button button) {
-    switch (button) {
+  void
+  MouseInput::OnMouseRelease(sf::Mouse::Button button)
+  {
+    switch (button)
+    {
       case sf::Mouse::Button::Left:
         m_leftButton.OnRelease();
         break;
@@ -23,21 +30,29 @@ namespace Zmallwood {
     }
   }
 
-  bool MouseInput::AnyButtonPressed() {
+  bool
+  MouseInput::AnyButtonPressed()
+  {
     return m_leftButton.Pressed() || m_rightButton.Pressed();
   }
 
-  int MouseInput::MouseWheelDeltaPickResult() {
+  int
+  MouseInput::MouseWheelDeltaPickResult()
+  {
     auto result = m_mouseWheelDelta;
     m_mouseWheelDelta = 0;
     return result;
   }
 
-  void MouseInput::AddMouseWheelDelta(int delta) {
+  void
+  MouseInput::AddMouseWheelDelta(int delta)
+  {
     m_mouseWheelDelta += delta;
   }
 
-  MouseInput *MouseInput::Get() {
+  MouseInput*
+  MouseInput::Get()
+  {
     static MouseInput instance;
     return &instance;
   }

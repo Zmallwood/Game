@@ -1,7 +1,8 @@
 #pragma once
 
-namespace Zmallwood {
-  inline static const GLchar *defaultShaderModelsVertex =
+namespace Zmallwood
+{
+  inline static const GLchar* defaultShaderModelsVertex =
     R"(
     #version 430 core
 

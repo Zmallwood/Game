@@ -1,5 +1,6 @@
 #include "Model.h"
 
-namespace Zmallwood {
-  
+namespace Zmallwood
+{
+
 }

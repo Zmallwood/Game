@@ -1,7 +1,9 @@
 #include "Graphics.h"
 
-namespace Zmallwood {
-  Graphics::Graphics() {
+namespace Zmallwood
+{
+  Graphics::Graphics()
+  {
     {
       auto desktopMode = sf::VideoMode::getDesktopMode();
 
@@ -9,7 +11,7 @@ namespace Zmallwood {
       settings.depthBits = 24;
 
       m_renderWindow = std::make_shared<sf::RenderWindow>(
-          desktopMode, "SFML OpenGL", sf::Style::Fullscreen, settings);
+        desktopMode, "SFML OpenGL", sf::Style::Fullscreen, settings);
     }
 
     glewExperimental = GL_TRUE;
@@ -28,10 +30,12 @@ namespace Zmallwood {
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(90.f, 1.f, 1.f, 300.0f);  // fov, aspect, zNear, zFar
+    gluPerspective(90.f, 1.f, 1.f, 300.0f); // fov, aspect, zNear, zFar
   }
 
-  Graphics *Graphics::Get() {
+  Graphics*
+  Graphics::Get()
+  {
     static Graphics instance;
     return &instance;
   }

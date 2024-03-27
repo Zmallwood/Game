@@ -1,17 +1,22 @@
 #include "Camera.h"
-#include "core/rendering/CameraGL.h"
-#include "core/configuration/GameProps.h"
-#include "core/Player.h"
 #include "../../../world_structure/World.h"
 #include "../../../world_structure/WorldArea.h"
+#include "core/Player.h"
+#include "core/configuration/GameProps.h"
+#include "core/rendering/CameraGL.h"
 
-namespace Zmallwood {
-  void Camera::Update() {
+namespace Zmallwood
+{
+  void
+  Camera::Update()
+  {
     SetPerspectiveMatrix();
     SetViewMatrix();
   }
 
-  void Camera::SetPerspectiveMatrix() {
+  void
+  Camera::SetPerspectiveMatrix()
+  {
     auto fovRads = glm::radians(m_usedFov / 2);
     auto aspect = 1600.0f / 900.0f;
     auto zNear = 0.1f;
@@ -20,21 +25,26 @@ namespace Zmallwood {
     CameraGL::Get()->SetPerspectiveMatrix(newPerspMat);
   }
 
-  void Camera::SetViewMatrix() {
-    auto playerPos = Player::Get()->Position().Multiply(
-        GameProps::Get()->TileSize());
+  void
+  Camera::SetViewMatrix()
+  {
+    auto playerPos =
+      Player::Get()->Position().Multiply(GameProps::Get()->TileSize());
     auto tileSize = GameProps::Get()->TileSize();
     auto currWA = World::Get()->WorldArea();
     auto lookFrom = GetCameraPosition();
     lookFrom.z = 0.1f;
     auto lookAt = playerPos;
-    auto newViewMatrix = glm::lookAt(
-        glm::vec3(lookFrom.x, lookFrom.y, lookFrom.z),
-        glm::vec3(lookAt.x, lookAt.y, lookAt.z), glm::vec3(0.0, 1.0, 0.0));
+    auto newViewMatrix =
+      glm::lookAt(glm::vec3(lookFrom.x, lookFrom.y, lookFrom.z),
+                  glm::vec3(lookAt.x, lookAt.y, lookAt.z),
+                  glm::vec3(0.0, 1.0, 0.0));
     CameraGL::Get()->SetViewMatrix(newViewMatrix);
   }
 
-  Point3F Camera::GetCameraPosition() {
+  Point3F
+  Camera::GetCameraPosition()
+  {
     auto player = Player::Get();
     auto playerPos = player->Position().GetXZ();
     auto currWA = World::Get()->WorldArea();
@@ -48,15 +58,18 @@ namespace Zmallwood {
     auto coord11 = tileCoord.Translate(1, 1);
     auto coord01 = tileCoord.Translate(0, 1);
 
-    if (currWA->ValidCoordinate(coord10)) {
+    if (currWA->ValidCoordinate(coord10))
+    {
       elev10 = 0.0f;
     }
 
-    if (currWA->ValidCoordinate(coord11)) {
+    if (currWA->ValidCoordinate(coord11))
+    {
       elev11 = 0.0f;
     }
 
-    if (currWA->ValidCoordinate(coord01)) {
+    if (currWA->ValidCoordinate(coord01))
+    {
       elev01 = 0.0f;
     }
 
@@ -65,11 +78,11 @@ namespace Zmallwood {
     auto playerTileDy = playerPos.y - static_cast<int>(playerPos.y) - 0.5f;
     auto elevDx = ((elev10 - elev00) + (elev11 - elev01)) / 2.0f;
     auto elevDy = ((elev01 - elev00) + (elev11 - elev10)) / 2.0f;
-    auto playerElev = tileAvgElev + playerTileDx * elevDx +
-                      playerTileDy * elevDy;
+    auto playerElev =
+      tileAvgElev + playerTileDx * elevDx + playerTileDy * elevDy;
     auto elevAmount = 1.0f;
-    auto playerPosNoElev = player->Position().Multiply(
-        GameProps::Get()->TileSize());
+    auto playerPosNoElev =
+      player->Position().Multiply(GameProps::Get()->TileSize());
     playerPosNoElev.y = 0.0f;
     auto usedVertAngle = m_verticalAngleDegrees;
     float usedCamDist;
@@ -85,16 +98,21 @@ namespace Zmallwood {
     {
       auto result = Point3F();
 
-      if (m_useFixedCameraDistance) {
+      if (m_useFixedCameraDistance)
+      {
         result = playerPosNoElev.Translate(dx, dy + k_fixedCameraDistance, dz);
-      } else {
+      }
+      else
+      {
         result = playerPosNoElev.Translate(dx, dy + playrElev, dz);
       }
       return result.Translate(0.0f, m_cameraHeight * 2.0f + 20.0f, 0.0f);
     }
   }
 
-  Camera *Camera::Get() {
+  Camera*
+  Camera::Get()
+  {
     static Camera instance;
     return &instance;
   }

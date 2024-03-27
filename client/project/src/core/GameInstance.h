@@ -1,8 +1,10 @@
 #pragma once
 
-namespace Zmallwood {
-  class GameInstance {
-   public:
+namespace Zmallwood
+{
+  class GameInstance
+  {
+  public:
     void Run();
   };
 }

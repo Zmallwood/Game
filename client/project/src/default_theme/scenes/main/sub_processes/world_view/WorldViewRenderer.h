@@ -1,14 +1,16 @@
 #pragma once
 
-namespace Zmallwood {
-  class WorldViewRenderer {
-   public:
+namespace Zmallwood
+{
+  class WorldViewRenderer
+  {
+  public:
     void Initialize();
     void UpdateCamera();
     void RenderWorldView();
-    static WorldViewRenderer *Get();
+    static WorldViewRenderer* Get();
 
-   private:
+  private:
     WorldViewRenderer() = default;
 
     GLuint m_tileSurfaceID = -1;

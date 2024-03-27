@@ -1,19 +1,24 @@
 #include "PollEvents.h"
-#include "Graphics.h"
 #include "Engine.h"
+#include "Graphics.h"
 #include "input/KeyboardInput.h"
 #include "input/MouseInput.h"
 #include "scenes_core/SceneManager.h"
 
-namespace Zmallwood {
-  void PollEvents() {
+namespace Zmallwood
+{
+  void
+  PollEvents()
+  {
     auto renderWindow = Graphics::Get()->RenderWindow();
     {
       sf::Event event;
-      while (renderWindow->pollEvent(event)) {
+      while (renderWindow->pollEvent(event))
+      {
         SceneManager::Get()->HandleEventCurrentScene(event);
 
-        switch (event.type) {
+        switch (event.type)
+        {
           case sf::Event::Closed:
             Engine::Get()->SetRunning(false);
             break;

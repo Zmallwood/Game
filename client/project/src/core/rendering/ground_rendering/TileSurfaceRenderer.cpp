@@ -1,16 +1,19 @@
 #include "TileSurfaceRenderer.h"
+#include "../../../world_structure/World.h"
+#include "../../../world_structure/WorldArea.h"
+#include "core/Player.h"
+#include "core/assets/TextureBank.h"
+#include "core/configuration/GameProps.h"
+#include "core/rendering/CameraGL.h"
 #include "core/rendering/ShaderProgram.h"
 #include "shaders/ShaderGroundFragment.h"
 #include "shaders/ShaderGroundVertex.h"
-#include "core/rendering/CameraGL.h"
-#include "core/Player.h"
-#include "core/configuration/GameProps.h"
-#include "../../../world_structure/World.h"
-#include "../../../world_structure/WorldArea.h"
-#include "core/assets/TextureBank.h"
 
-namespace Zmallwood {
-  TileSurfaceRenderer::TileSurfaceRenderer() : RendererBase() {
+namespace Zmallwood
+{
+  TileSurfaceRenderer::TileSurfaceRenderer()
+    : RendererBase()
+  {
     ShaderProgram()->Create(shaderGroundVertex, shaderGroundFragment);
     m_locProjection = GetUniformLocation("projection");
     m_locView = GetUniformLocation("view");
@@ -19,7 +22,9 @@ namespace Zmallwood {
     m_locFogColor = GetUniformLocation("fogColor");
   }
 
-  GLuint TileSurfaceRenderer::NewTileSurface() {
+  GLuint
+  TileSurfaceRenderer::NewTileSurface()
+  {
     auto numVerts = 6 * 100 * 100;
     auto id = GenNewVAOID();
     auto indexBuffID = GenNewBuffID(BufferTypes::Indices, id);
@@ -38,12 +43,17 @@ namespace Zmallwood {
     return id;
   }
 
-  void TileSurfaceRenderer::SetTileSurfaceGeom(
-      GLuint VAOID, std::vector<std::vector<Square<Vertex3F>>> &vertices) {
+  void
+  TileSurfaceRenderer::SetTileSurfaceGeom(
+    GLuint VAOID,
+    std::vector<std::vector<Square<Vertex3F>>>& vertices)
+  {
     std::vector<Vertex3F> vertsTriangles;
 
-    for (auto y = 0; y < vertices.size(); y++) {
-      for (auto x = 0; x < vertices.at(0).size(); x++) {
+    for (auto y = 0; y < vertices.size(); y++)
+    {
+      for (auto x = 0; x < vertices.at(0).size(); x++)
+      {
         auto entry = vertices.at(x).at(y);
         vertsTriangles.push_back(entry._00);
         vertsTriangles.push_back(entry._10);
@@ -54,7 +64,8 @@ namespace Zmallwood {
       }
     }
 
-    if (!m_isBatchDrawing) {
+    if (!m_isBatchDrawing)
+    {
       UseVAOBegin(VAOID);
     }
 
@@ -65,7 +76,8 @@ namespace Zmallwood {
     std::vector<float> uvs;
     std::vector<float> normals;
 
-    for (auto &vert : vertsTriangles) {
+    for (auto& vert : vertsTriangles)
+    {
       positions.push_back(vert.position.x);
       positions.push_back(vert.position.y);
       positions.push_back(vert.position.z);
@@ -97,33 +109,42 @@ namespace Zmallwood {
       glBindVertexArray(0);
     }
 
-    if (!m_isBatchDrawing) {
+    if (!m_isBatchDrawing)
+    {
       UseVAOEnd();
     }
   }
 
-  void TileSurfaceRenderer::DrawTileSurface(const std::string &imageName,
-                                            GLuint VAOID, bool depthTestOff) {
+  void
+  TileSurfaceRenderer::DrawTileSurface(const std::string& imageName,
+                                       GLuint VAOID,
+                                       bool depthTestOff)
+  {
     auto worldArea = World::Get()->WorldArea();
     auto vertCount = 6 * worldArea->Width() * worldArea->Height();
 
-    if (depthTestOff) {
+    if (depthTestOff)
+    {
       glDisable(GL_DEPTH_TEST);
-    } else {
+    }
+    else
+    {
       glEnable(GL_DEPTH_TEST);
     }
 
     UseVAOBegin(VAOID);
     glUseProgram(ShaderProgram()->ProgramID());
-    glUniformMatrix4fv(m_locProjection, 1, GL_FALSE,
+    glUniformMatrix4fv(m_locProjection,
+                       1,
+                       GL_FALSE,
                        glm::value_ptr(CameraGL::Get()->PerspectiveMatrix()));
-    glUniformMatrix4fv(m_locView, 1, GL_FALSE,
-                       glm::value_ptr(CameraGL::Get()->ViewMatrix()));
+    glUniformMatrix4fv(
+      m_locView, 1, GL_FALSE, glm::value_ptr(CameraGL::Get()->ViewMatrix()));
     glm::mat4 model(1.0);
     glUniformMatrix4fv(m_locModel, 1, GL_FALSE, glm::value_ptr(model));
 
-    auto playerPos = Player::Get()->Position().Multiply(
-        GameProps::Get()->TileSize());
+    auto playerPos =
+      Player::Get()->Position().Multiply(GameProps::Get()->TileSize());
 
     glm::vec3 viewPos(playerPos.x, playerPos.y, playerPos.z);
     glUniform3fv(m_locViewPos, 1, glm::value_ptr(viewPos));
@@ -143,11 +164,14 @@ namespace Zmallwood {
     glDisable(GL_CULL_FACE);
   }
 
-  TileSurfaceRenderer::~TileSurfaceRenderer() {
+  TileSurfaceRenderer::~TileSurfaceRenderer()
+  {
     CleanupBase();
   }
 
-  TileSurfaceRenderer *TileSurfaceRenderer::Get() {
+  TileSurfaceRenderer*
+  TileSurfaceRenderer::Get()
+  {
     static TileSurfaceRenderer instance;
     return &instance;
   }

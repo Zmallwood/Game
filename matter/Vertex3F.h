@@ -1,11 +1,13 @@
 #pragma once
-#include "PointF.h"
-#include "Point3F.h"
 #include "Color.h"
+#include "Point3F.h"
+#include "PointF.h"
 
-namespace Zmallwood {
-  class Vertex3F {
-   public:
+namespace Zmallwood
+{
+  class Vertex3F
+  {
+  public:
     Point3F position;
     ColorF color;
     PointF uv;

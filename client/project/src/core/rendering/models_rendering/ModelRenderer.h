@@ -1,11 +1,13 @@
 #pragma once
 
-namespace Zmallwood {
-  class ModelRenderer {
-   public:
-    static ModelRenderer *Get();
+namespace Zmallwood
+{
+  class ModelRenderer
+  {
+  public:
+    static ModelRenderer* Get();
 
-   private:
+  private:
     ModelRenderer() = default;
   };
 }

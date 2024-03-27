@@ -1,5 +1,6 @@
 #pragma once
 
-namespace Zmallwood {
+namespace Zmallwood
+{
   constexpr int k_maxBoneInfluence = 4;
 }

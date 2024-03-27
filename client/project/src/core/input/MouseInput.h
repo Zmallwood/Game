@@ -1,20 +1,22 @@
 #pragma once
 #include "MouseButton.h"
 
-namespace Zmallwood {
-  class MouseInput {
-   public:
+namespace Zmallwood
+{
+  class MouseInput
+  {
+  public:
     void OnMousePress(sf::Mouse::Button button);
     void OnMouseRelease(sf::Mouse::Button button);
     int MouseWheelDeltaPickResult();
     bool AnyButtonPressed();
-    auto &LeftButton() { return m_leftButton; }
-    auto &RightButton() { return m_rightButton; }
+    auto& LeftButton() { return m_leftButton; }
+    auto& RightButton() { return m_rightButton; }
     void AddMouseWheelDelta(int delta);
 
-    static MouseInput *Get();
+    static MouseInput* Get();
 
-   private:
+  private:
     MouseInput() = default;
 
     MouseButton m_leftButton;

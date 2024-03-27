@@ -1,16 +1,18 @@
 #pragma once
 
-namespace Zmallwood {
-  class Engine {
-   public:
+namespace Zmallwood
+{
+  class Engine
+  {
+  public:
     void HandleInput();
     void Update();
     void Render();
     auto Running() { return m_running; }
     void SetRunning(bool value) { m_running = value; }
-    static Engine *Get();
+    static Engine* Get();
 
-   private:
+  private:
     Engine() = default;
 
     bool m_running = true;

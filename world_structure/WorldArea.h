@@ -1,17 +1,19 @@
 #pragma once
 
-namespace Zmallwood {
+namespace Zmallwood
+{
   class Tile;
 
-  class WorldArea {
-   public:
+  class WorldArea
+  {
+  public:
     WorldArea();
     int Width();
     int Height();
     std::shared_ptr<Tile> GetTile(Point coordinate);
     bool ValidCoordinate(Point coordinate);
 
-   private:
+  private:
     std::vector<std::vector<std::shared_ptr<Tile>>> m_tiles;
   };
 }

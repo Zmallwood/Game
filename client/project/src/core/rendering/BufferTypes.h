@@ -1,7 +1,9 @@
 #pragma once
 
-namespace Zmallwood {
-  enum class BufferTypes {
+namespace Zmallwood
+{
+  enum class BufferTypes
+  {
     Indices,
     Positions2D,
     Positions3D,

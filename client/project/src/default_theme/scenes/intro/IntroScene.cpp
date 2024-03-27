@@ -1,13 +1,15 @@
 #include "IntroScene.h"
-#include "core/scenes_core/SceneManager.h"
 #include "core/input/KeyboardInput.h"
 #include "core/input/MouseInput.h"
+#include "core/scenes_core/SceneManager.h"
 
-namespace Zmallwood {
-  IntroScene::IntroScene() {
+namespace Zmallwood
+{
+  IntroScene::IntroScene()
+  {
     {
-      m_startText = tgui::RichTextLabel::create(
-          "<color=white>Press to start</color>");
+      m_startText =
+        tgui::RichTextLabel::create("<color=white>Press to start</color>");
       m_startText->setPosition("(parent.width - width)/2",
                                "(parent.height - height)/2");
       m_startText->setTextSize(20);
@@ -15,19 +17,27 @@ namespace Zmallwood {
     }
   }
 
-  void IntroScene::Update() {
+  void
+  IntroScene::Update()
+  {
     if (KeyboardInput::Get()->AnyKeyIsPressed() ||
-        MouseInput::Get()->AnyButtonPressed()) {
+        MouseInput::Get()->AnyButtonPressed())
+    {
       SceneManager::Get()->EnterScene("MainMenuScene");
     }
-    if (Ticks() % 600 < 300) {
+    if (Ticks() % 600 < 300)
+    {
       m_startText->setVisible(false);
-    } else {
+    }
+    else
+    {
       m_startText->setVisible(true);
     }
   }
 
-  void IntroScene::Render3D() {
+  void
+  IntroScene::Render3D()
+  {
     glTranslatef(0.f, 0.f, -200.f);
 
     {
@@ -79,7 +89,9 @@ namespace Zmallwood {
     glEnd();
   }
 
-  IntroScene *IntroScene::Get() {
+  IntroScene*
+  IntroScene::Get()
+  {
     static IntroScene instance;
     return &instance;
   }

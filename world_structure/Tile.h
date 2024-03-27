@@ -1,9 +1,11 @@
 #pragma once
 
-namespace Zmallwood {
-  class Tile {
-   public:
-    void SetGround(const std::string &text);
+namespace Zmallwood
+{
+  class Tile
+  {
+  public:
+    void SetGround(const std::string& text);
     void AddElevation(float delta);
     auto Color() { return m_color; }
     void SetColor(Zmallwood::Color value) { m_color = value; }
@@ -13,10 +15,10 @@ namespace Zmallwood {
     auto Normal() { return m_normal; }
     void SetNormal(Point3F value) { m_normal = value; }
 
-   private:
+  private:
     Zmallwood::Color m_color;
     float m_elevation = 0.0f;
     bool m_water = false;
-    Point3F m_normal = {.x = 0.0f, .y = 1.0f, .z = 0.0f};
+    Point3F m_normal = { .x = 0.0f, .y = 1.0f, .z = 0.0f };
   };
 }

@@ -1,14 +1,16 @@
 #pragma once
 #include "core/scenes_core/IScene.h"
 
-namespace Zmallwood {
-  class IntroScene : public IScene {
-   public:
+namespace Zmallwood
+{
+  class IntroScene : public IScene
+  {
+  public:
     void Update() override;
     void Render3D() override;
-    static IntroScene *Get();
+    static IntroScene* Get();
 
-   private:
+  private:
     IntroScene();
 
     tgui::RichTextLabel::Ptr m_startText;

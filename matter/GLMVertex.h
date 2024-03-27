@@ -1,9 +1,11 @@
 #pragma once
 #include "core/configuration/Constants.h"
 
-namespace Zmallwood {
-  class GLMVertex {
-   public:
+namespace Zmallwood
+{
+  class GLMVertex
+  {
+  public:
     glm::vec3 position;
     glm::vec3 normal;
     glm::vec2 texCoords;

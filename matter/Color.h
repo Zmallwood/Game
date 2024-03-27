@@ -1,10 +1,12 @@
 #pragma once
 
-namespace Zmallwood {
+namespace Zmallwood
+{
   class ColorF;
 
-  class Color {
-   public:
+  class Color
+  {
+  public:
     ColorF ToColorF();
 
     unsigned char r = 255;

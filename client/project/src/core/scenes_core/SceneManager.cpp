@@ -5,44 +5,60 @@
 #include "default_theme/scenes/new_game/NewGameScene.h"
 #include "default_theme/scenes/world_generation/WorldGenerationScene.h"
 
-namespace Zmallwood {
-  SceneManager::SceneManager() {
-    m_scenes.insert({Hash("IntroScene"), IntroScene::Get()});
-    m_scenes.insert({Hash("MainMenuScene"), MainMenuScene::Get()});
-    m_scenes.insert({Hash("NewGameScene"), NewGameScene::Get()});
+namespace Zmallwood
+{
+  SceneManager::SceneManager()
+  {
+    m_scenes.insert({ Hash("IntroScene"), IntroScene::Get() });
+    m_scenes.insert({ Hash("MainMenuScene"), MainMenuScene::Get() });
+    m_scenes.insert({ Hash("NewGameScene"), NewGameScene::Get() });
     m_scenes.insert(
-        {Hash("WorldGenerationScene"), WorldGenerationScene::Get()});
-    m_scenes.insert({Hash("MainScene"), MainScene::Get()});
+      { Hash("WorldGenerationScene"), WorldGenerationScene::Get() });
+    m_scenes.insert({ Hash("MainScene"), MainScene::Get() });
 
     EnterScene("IntroScene");
   }
 
-  void SceneManager::HandleEventCurrentScene(sf::Event event) {
-    if (m_scenes.contains(m_currentScene)) {
+  void
+  SceneManager::HandleEventCurrentScene(sf::Event event)
+  {
+    if (m_scenes.contains(m_currentScene))
+    {
       m_scenes.at(m_currentScene)->GUI()->handleEvent(event);
     }
   }
 
-  void SceneManager::UpdateCurrentScene() {
-    if (m_scenes.contains(m_currentScene)) {
+  void
+  SceneManager::UpdateCurrentScene()
+  {
+    if (m_scenes.contains(m_currentScene))
+    {
       m_scenes.at(m_currentScene)->Update();
     }
   }
 
-  void SceneManager::RenderCurrentScene() {
-    if (m_scenes.contains(m_currentScene)) {
+  void
+  SceneManager::RenderCurrentScene()
+  {
+    if (m_scenes.contains(m_currentScene))
+    {
       m_scenes.at(m_currentScene)->Render();
     }
   }
 
-  void SceneManager::EnterScene(const std::string &scene) {
+  void
+  SceneManager::EnterScene(const std::string& scene)
+  {
     m_currentScene = Hash(scene);
-    if (m_scenes.contains(m_currentScene)) {
+    if (m_scenes.contains(m_currentScene))
+    {
       m_scenes.at(m_currentScene)->OnEnter();
     }
   }
 
-  SceneManager *SceneManager::Get() {
+  SceneManager*
+  SceneManager::Get()
+  {
     static SceneManager instance;
     return &instance;
   }

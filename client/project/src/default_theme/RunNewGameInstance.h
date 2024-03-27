@@ -1,5 +1,6 @@
 #pragma once
 
-namespace Zmallwood {
+namespace Zmallwood
+{
   void RunNewGameInstance();
 }

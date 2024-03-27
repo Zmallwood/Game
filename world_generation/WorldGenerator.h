@@ -1,12 +1,14 @@
 #pragma once
 
-namespace Zmallwood {
-  class WorldGenerator {
-   public:
+namespace Zmallwood
+{
+  class WorldGenerator
+  {
+  public:
     void GenerateWorld();
-    static WorldGenerator *Get();
+    static WorldGenerator* Get();
 
-   private:
+  private:
     WorldGenerator() = default;
   };
 }

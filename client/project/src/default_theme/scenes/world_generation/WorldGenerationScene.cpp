@@ -2,8 +2,10 @@
 #include "../../../world_generation/WorldGenerator.h"
 #include "core/scenes_core/SceneManager.h"
 
-namespace Zmallwood {
-  WorldGenerationScene::WorldGenerationScene() {
+namespace Zmallwood
+{
+  WorldGenerationScene::WorldGenerationScene()
+  {
     {
       auto label = tgui::Label::create();
       label->setText("Generating world...");
@@ -13,10 +15,13 @@ namespace Zmallwood {
     }
   }
 
-  void WorldGenerationScene::Update() {
+  void
+  WorldGenerationScene::Update()
+  {
     static bool hasSkippedUpdateFirstFrame = false;
 
-    if (hasSkippedUpdateFirstFrame) {
+    if (hasSkippedUpdateFirstFrame)
+    {
       WorldGenerator::Get()->GenerateWorld();
       SceneManager::Get()->EnterScene("MainScene");
     }
@@ -24,9 +29,14 @@ namespace Zmallwood {
     hasSkippedUpdateFirstFrame = true;
   }
 
-  void WorldGenerationScene::Render3D() {}
+  void
+  WorldGenerationScene::Render3D()
+  {
+  }
 
-  WorldGenerationScene *WorldGenerationScene::Get() {
+  WorldGenerationScene*
+  WorldGenerationScene::Get()
+  {
     static WorldGenerationScene instance;
     return &instance;
   }

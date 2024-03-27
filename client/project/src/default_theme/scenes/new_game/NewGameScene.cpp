@@ -1,9 +1,11 @@
 #include "NewGameScene.h"
-#include "core/scenes_core/SceneManager.h"
 #include "core/configuration/GameProps.h"
+#include "core/scenes_core/SceneManager.h"
 
-namespace Zmallwood {
-  NewGameScene::NewGameScene() {
+namespace Zmallwood
+{
+  NewGameScene::NewGameScene()
+  {
     {
       auto label = tgui::Label::create();
       label->setText("world area width:");
@@ -32,26 +34,33 @@ namespace Zmallwood {
     }
     {
       auto button = tgui::Button::create("Start game");
-      button->setSize({140, 40});
+      button->setSize({ 140, 40 });
       button->setPosition("(parent.width - width)/2", "50%");
-      button->onPress([this] {
-        auto editBoxWorldAreaWidth = GUI()->get<tgui::EditBox>(
-            "EditBoxWorldAreaWidth");
-        auto worldAreaWidth = editBoxWorldAreaWidth->getText().toInt();
-        auto editBoxWorldAreaHeight = GUI()->get<tgui::EditBox>(
-            "EditBoxWorldAreaHeight");
-        auto worldAreaHeight = editBoxWorldAreaHeight->getText().toInt();
-        GameProps::Get()->SetWorldAreaSize(
-            {.w = worldAreaWidth, .h = worldAreaHeight});
-        SceneManager::Get()->EnterScene("WorldGenerationScene");
-      });
+      button->onPress(
+        [this]
+        {
+          auto editBoxWorldAreaWidth =
+            GUI()->get<tgui::EditBox>("EditBoxWorldAreaWidth");
+          auto worldAreaWidth = editBoxWorldAreaWidth->getText().toInt();
+          auto editBoxWorldAreaHeight =
+            GUI()->get<tgui::EditBox>("EditBoxWorldAreaHeight");
+          auto worldAreaHeight = editBoxWorldAreaHeight->getText().toInt();
+          GameProps::Get()->SetWorldAreaSize(
+            { .w = worldAreaWidth, .h = worldAreaHeight });
+          SceneManager::Get()->EnterScene("WorldGenerationScene");
+        });
       GUI()->add(button);
     }
   }
 
-  void NewGameScene::Update() {}
+  void
+  NewGameScene::Update()
+  {
+  }
 
-  void NewGameScene::Render3D() {
+  void
+  NewGameScene::Render3D()
+  {
     glTranslatef(0.f, 0.f, -200.f);
 
     {
@@ -103,7 +112,9 @@ namespace Zmallwood {
     glEnd();
   }
 
-  NewGameScene *NewGameScene::Get() {
+  NewGameScene*
+  NewGameScene::Get()
+  {
     static NewGameScene instance;
     return &instance;
   }

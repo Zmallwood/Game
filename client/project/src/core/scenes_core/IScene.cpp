@@ -2,12 +2,16 @@
 #include "core/Graphics.h"
 #include "core/configuration/GameProps.h"
 
-namespace Zmallwood {
-  IScene::IScene() {
+namespace Zmallwood
+{
+  IScene::IScene()
+  {
     m_gui = std::make_shared<tgui::Gui>(*Graphics::Get()->RenderWindow());
   }
 
-  void IScene::Render() {
+  void
+  IScene::Render()
+  {
     {
       auto clearColor = GameProps::Get()->ClearColor().ToColorF();
       glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);

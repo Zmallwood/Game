@@ -1,7 +1,8 @@
 #pragma once
 
-namespace Zmallwood {
-  inline static const GLchar *shaderGroundFragment =
+namespace Zmallwood
+{
+  inline static const GLchar* shaderGroundFragment =
     R"(
     #version 330 core
     precision mediump float;

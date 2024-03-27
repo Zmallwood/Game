@@ -1,13 +1,15 @@
 #pragma once
 
-namespace Zmallwood {
-  class MouseButton {
-   public:
+namespace Zmallwood
+{
+  class MouseButton
+  {
+  public:
     void OnPress();
     void OnRelease();
     auto Pressed() { return m_pressed; }
 
-   private:
+  private:
     bool m_pressed = false;
   };
 }

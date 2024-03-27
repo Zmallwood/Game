@@ -1,6 +1,8 @@
 #include "default_theme/RunNewGameInstance.h"
 
-int main() {
+int
+main()
+{
   Zmallwood::RunNewGameInstance();
   return EXIT_SUCCESS;
 }

@@ -2,34 +2,41 @@
 #include "core/Engine.h"
 #include "core/scenes_core/SceneManager.h"
 
-namespace Zmallwood {
-  MainMenuScene::MainMenuScene() {
+namespace Zmallwood
+{
+  MainMenuScene::MainMenuScene()
+  {
     {
       auto button = tgui::Button::create("New game");
-      button->setSize({140, 40});
+      button->setSize({ 140, 40 });
       button->setPosition("(parent.width - width)/2", "30%");
       button->onPress([] { SceneManager::Get()->EnterScene("NewGameScene"); });
       GUI()->add(button);
     }
     {
       auto button = tgui::Button::create("Continue game");
-      button->setSize({140, 40});
+      button->setSize({ 140, 40 });
       button->setPosition("(parent.width - width)/2", "35%");
       button->onPress([] { std::cout << "Continue game\n"; });
       GUI()->add(button);
     }
     {
       auto button = tgui::Button::create("Exit");
-      button->setSize({140, 40});
+      button->setSize({ 140, 40 });
       button->setPosition("(parent.width - width)/2", "40%");
       button->onPress([] { Engine::Get()->SetRunning(false); });
       GUI()->add(button);
     }
   }
 
-  void MainMenuScene::Update() {}
+  void
+  MainMenuScene::Update()
+  {
+  }
 
-  void MainMenuScene::Render3D() {
+  void
+  MainMenuScene::Render3D()
+  {
     glTranslatef(0.f, 0.f, -200.f);
 
     {
@@ -81,7 +88,9 @@ namespace Zmallwood {
     glEnd();
   }
 
-  MainMenuScene *MainMenuScene::Get() {
+  MainMenuScene*
+  MainMenuScene::Get()
+  {
     static MainMenuScene instance;
     return &instance;
   }

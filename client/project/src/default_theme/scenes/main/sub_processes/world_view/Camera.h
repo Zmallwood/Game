@@ -1,26 +1,31 @@
 #pragma once
 
-namespace Zmallwood {
-  class Camera {
-   public:
+namespace Zmallwood
+{
+  class Camera
+  {
+  public:
     void Update();
     auto HorizontalAngleDegrees() const { return m_horizontalAngleDegrees; }
-    void SetHorizontalAngleDegrees(float value) {
+    void SetHorizontalAngleDegrees(float value)
+    {
       m_horizontalAngleDegrees = value;
     }
     auto VerticalAngleDegrees() const { return m_verticalAngleDegrees; }
-    void SetVerticalAngleDegrees(float value) {
+    void SetVerticalAngleDegrees(float value)
+    {
       m_verticalAngleDegrees = value;
     }
     auto CameraDistance() const { return m_cameraDistance; }
     void SetCameraDistance(float value) { m_cameraDistance = value; }
-    void SetUseFixedCameraDistance(bool value) {
+    void SetUseFixedCameraDistance(bool value)
+    {
       m_useFixedCameraDistance = value;
     }
 
-    static Camera *Get();
+    static Camera* Get();
 
-   private:
+  private:
     Camera() = default;
     void SetPerspectiveMatrix(void);
     void SetViewMatrix(void);

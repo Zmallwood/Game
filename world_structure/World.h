@@ -1,14 +1,16 @@
 #pragma once
 
-namespace Zmallwood {
+namespace Zmallwood
+{
   class WorldArea;
 
-  class World {
-   public:
+  class World
+  {
+  public:
     auto WorldArea() { return m_worldArea; }
-    static World *Get();
+    static World* Get();
 
-   private:
+  private:
     World();
 
     std::shared_ptr<Zmallwood::WorldArea> m_worldArea;
