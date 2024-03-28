@@ -5,7 +5,7 @@ namespace Zmallwood
   int
   Ticks()
   {
-    static sf::Clock clock;
+    static sf::Clock clock;                     // Create clock object once
     return clock.getElapsedTime().asMilliseconds();
   }
 

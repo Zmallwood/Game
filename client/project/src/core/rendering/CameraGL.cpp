@@ -5,7 +5,7 @@ namespace Zmallwood
   CameraGL*
   CameraGL::Get()
   {
-    static CameraGL instance;
+    static CameraGL instance;                   // Create singleton instance once
     return &instance;
   }
 }

@@ -13,7 +13,7 @@ namespace Zmallwood
   {
     GLuint VAOID;
     glGenVertexArrays(1, &VAOID);
-    m_VAOIDs.push_back(VAOID);
+    m_VAOIDs.push_back(VAOID);                  // Store newly created VAO id
 
     return VAOID;
   }
@@ -23,16 +23,17 @@ namespace Zmallwood
   {
     GLuint buffID;
     glGenBuffers(1, &buffID);
-    m_VBOIDs[buffType][VAOID] = buffID;
-
+    m_VBOIDs[buffType][VAOID] = buffID;         // Store newly created VBO id,
+                                                // with the VAO id as one of keys
     return buffID;
   }
 
   void
   RendererBase::SetIndicesData(GLuint indicesVBOID, int numVertices, const void* data) const
   {
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indicesVBOID);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER,
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,       // Bind the VBO buffer that should hold indices data
+                 indicesVBOID);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,       // Set indices data as element array buffer
                  numVertices * k_numFloatsPerEntry.at(BufferTypes::Indices) * sizeof(float),
                  data,
                  GL_DYNAMIC_DRAW);
@@ -47,13 +48,19 @@ namespace Zmallwood
   {
     if (buffType == BufferTypes::BoneIDs)
     {
-      SetArrayBufferDataInt(
-        VBOID, numVertices, data, RendererBase::k_numFloatsPerEntry.at(buffType), layoutLocation);
+      SetArrayBufferDataInt(VBOID,              // Call other method for BoneIDs than other buffer types
+                            numVertices,
+                            data,
+                            RendererBase::k_numFloatsPerEntry.at(buffType),
+                            layoutLocation);
     }
     else
     {
-      SetArrayBufferData(
-        VBOID, numVertices, data, RendererBase::k_numFloatsPerEntry.at(buffType), layoutLocation);
+      SetArrayBufferData(VBOID,                 // Call this function for all buffer types except BoneIDs
+                         numVertices,
+                         data,
+                         RendererBase::k_numFloatsPerEntry.at(buffType),
+                         layoutLocation);
     }
   }
 
@@ -64,10 +71,13 @@ namespace Zmallwood
                                    int numFloatsPerEntry,
                                    int layoutLocation) const
   {
-    glBindBuffer(GL_ARRAY_BUFFER, VBOID);
-    glBufferData(GL_ARRAY_BUFFER, numVertices * numFloatsPerEntry * sizeof(float), data, GL_DYNAMIC_DRAW);
+    glBindBuffer(GL_ARRAY_BUFFER, VBOID);       // Bind the VBO for the provided VBO id
+    glBufferData(GL_ARRAY_BUFFER,               // Set the buffer data as an array buffer
+                 numVertices * numFloatsPerEntry * sizeof(float),
+                 data,
+                 GL_DYNAMIC_DRAW);
 
-    if (layoutLocation >= 0)
+    if (layoutLocation >= 0)                    // Is valid layout location?
     {
       glVertexAttribPointer(layoutLocation, numFloatsPerEntry, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)0);
       glEnableVertexAttribArray(layoutLocation);
