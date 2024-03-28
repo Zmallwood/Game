@@ -28,6 +28,7 @@
 #include "../../../matter/Point3F.h"
 #include "../../../matter/Vertex3F.h"
 #include "../../../matter/GLMVertex.h"
+#include "../../../matter/Vertex2F.h"
 #include "common/Utilities.h"
 #include "common/Square.h"
 #include "common/AssimpGLMUtilities.h"

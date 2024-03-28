@@ -1,8 +1,8 @@
 #include "default_theme/RunNewGameInstance.h"
 
 int
-main()
+main()                                          // Game entry point 
 {
-  Zmallwood::RunNewGameInstance();
-  return EXIT_SUCCESS;
+  Zmallwood::RunNewGameInstance();              // Run game 
+  return 0;
 }

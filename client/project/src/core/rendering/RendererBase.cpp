@@ -178,9 +178,9 @@ namespace Zmallwood
   void
   RendererBase::CleanupBase() const
   {
-    for (auto& bufType : m_VBOIDs)
+    for (auto& buffType : m_VBOIDs)
     {
-      for (auto& bufferEntry : bufType.second)
+      for (auto& bufferEntry : buffType.second)
       {
         glDeleteBuffers(1, &bufferEntry.second);
       }

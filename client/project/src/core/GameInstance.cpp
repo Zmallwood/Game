@@ -7,7 +7,7 @@ namespace Zmallwood
   GameInstance::Run()
   {
     auto e = Engine::Get();
-    while (e->Running())
+    while (e->Running())                        // Main game loop 
     {
       e->HandleInput();
       e->Update();

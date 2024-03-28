@@ -7,7 +7,7 @@ namespace Zmallwood
   public:
     Point3F Translate(float dx, float dy, float dz) const
     {
-      return { x + dx, y + dy, z + dz };
+      return { x + dx, y + dy, z + dz };         
     }
     Point3F Multiply(float k) const { return { x * k, y * k, z * k }; }
     PointF GetXZ(void) const { return { x, z }; }
