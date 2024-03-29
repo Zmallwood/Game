@@ -2,7 +2,10 @@
 
 namespace Zmallwood
 {
-  enum class BufferTypes                        // Different kinds of creatable buffers in RendererBase
+  /**
+   * \brief Available buffer types for the renderers
+  */
+  enum class BufferTypes
   {
     Indices,
     Positions2D,
@@ -11,7 +14,6 @@ namespace Zmallwood
     Uvs,
     Normals,
     BoneIDs,
-    Weights,
-    Misc
+    Weights
   };
 }

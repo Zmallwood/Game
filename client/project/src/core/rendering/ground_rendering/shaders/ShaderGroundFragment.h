@@ -2,7 +2,7 @@
 
 namespace Zmallwood
 {
-  inline static const GLchar* shaderGroundFragment =
+  inline static const GLchar* shaderGroundFragment =                  ///< Frag shader for ground rendering
     R"(
     #version 330 core
     precision mediump float;

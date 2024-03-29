@@ -8,11 +8,18 @@ namespace Zmallwood
   class GameProps
   {
   public:
-    auto ClearColor() { return m_clearColor; }
+    // Getters/Setters
+    Color ClearColor() { return m_clearColor; }
     void SetClearColor(Color value) { m_clearColor = value; }
-    auto WorldAreaSize() { return m_worldAreaSize; }
+    Size WorldAreaSize() { return m_worldAreaSize; }
     void SetWorldAreaSize(Size value) { m_worldAreaSize = value; }
-    auto TileSize() { return m_tileSize; }
+    float TileSize() { return m_tileSize; }
+    
+    /**
+     * \brief Get singleton instance
+     *
+     * \return Singleton instance
+    */
     static GameProps* Get();
 
   private:

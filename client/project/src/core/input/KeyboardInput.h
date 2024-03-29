@@ -29,6 +29,11 @@ namespace Zmallwood
     */
     bool AnyKeyIsPressed();
 
+    /**
+     * \brief Get singleton instance
+     * 
+     * \return Singleton instance
+    */
     static KeyboardInput* Get();
 
   private:

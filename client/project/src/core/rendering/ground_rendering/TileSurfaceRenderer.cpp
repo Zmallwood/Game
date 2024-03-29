@@ -63,10 +63,7 @@ namespace Zmallwood
       }
     }
 
-    if (!m_isBatchDrawing)
-    {
       UseVAOBegin(VAOID);                                             // Start using the VAO for tile surf.
-    }
 
     std::vector<int> indices(vertsTriangles.size());                  // To hold indices data
     std::iota(std::begin(indices), std::end(indices), 0);             // Fill indices with number sequence
@@ -108,10 +105,7 @@ namespace Zmallwood
       glBindVertexArray(0);                                           // Stop using VAO
     }
 
-    if (!m_isBatchDrawing)
-    {
       UseVAOEnd();                                                    // Stop using VAO
-    }
   }
 
   void

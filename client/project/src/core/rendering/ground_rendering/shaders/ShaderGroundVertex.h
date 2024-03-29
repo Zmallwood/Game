@@ -2,7 +2,7 @@
 
 namespace Zmallwood
 {
-  inline static const GLchar* shaderGroundVertex =
+  inline static const GLchar* shaderGroundVertex =                    // Vert shader for ground rendering
     R"(
     #version 330 core
 
