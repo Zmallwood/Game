@@ -4,6 +4,7 @@
 #include "GenerateElevation.h"
 #include "GenerateGrass.h"
 #include "GenerateWater.h"
+#include "GenerateObjects.h"
 
 namespace Zmallwood
 {
@@ -15,6 +16,7 @@ namespace Zmallwood
     GenerateGrass(worldArea);
     GenerateWater(worldArea);
     GenerateElevation(worldArea);
+    GenerateObjects(worldArea);
     CalculateNormals(worldArea);
   }
 

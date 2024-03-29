@@ -2,7 +2,7 @@
 
 namespace Zmallwood
 {
-  inline static const GLchar* defaultShaderModelsVertex =
+  inline static const GLchar* shaderModelsVertex =
     R"(
     #version 430 core
 

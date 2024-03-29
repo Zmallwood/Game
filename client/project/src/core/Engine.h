@@ -13,7 +13,7 @@ namespace Zmallwood
     static Engine* Get();
 
   private:
-    Engine() = default;
+    Engine();
 
     bool m_running = true;
   };

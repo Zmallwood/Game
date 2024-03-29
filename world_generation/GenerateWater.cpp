@@ -29,8 +29,7 @@ namespace Zmallwood
             if (dx * dx + dy * dy <= r * r)
             {
               auto colorWater = Color{ .r = 0, .g = 150, .b = 255 };
-              worldArea->GetTile({ .x = x, .y = y })->SetColor(colorWater);
-              worldArea->GetTile({ .x = x, .y = y })->SetWater(true);
+              worldArea->GetTile({ .x = x, .y = y })->SetType("TileWater");
             }
           }
         }

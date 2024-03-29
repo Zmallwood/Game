@@ -14,6 +14,7 @@ namespace Zmallwood
     Uvs,
     Normals,
     BoneIDs,
-    Weights
+    Weights,
+    Misc
   };
 }

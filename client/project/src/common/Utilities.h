@@ -13,4 +13,8 @@ namespace Zmallwood
    * \param text Text to create hash code from.
   */
   int Hash(const std::string& text);
+
+  std::string FileExtension(const std::string& absPath);
+
+  std::string FilenameNoExtension(const std::string& absPath);
 }

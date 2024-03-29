@@ -12,7 +12,7 @@ namespace Zmallwood
       for (auto x = 0; x < worldArea->Width(); x++)
       {
         auto colorGrass = Color{ .r = 0, .g = 200, .b = 0 };
-        worldArea->GetTile({ .x = x, .y = y })->SetColor(colorGrass);
+        worldArea->GetTile({ .x = x, .y = y })->SetType("TileGrass");
       }
     }
   }

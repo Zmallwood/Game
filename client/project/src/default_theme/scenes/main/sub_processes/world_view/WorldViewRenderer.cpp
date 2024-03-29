@@ -2,9 +2,11 @@
 #include "../../../world_structure/Tile.h"
 #include "../../../world_structure/World.h"
 #include "../../../world_structure/WorldArea.h"
+#include "../../../world_structure/TileTypeColors.h"
 #include "Camera.h"
 #include "core/configuration/GameProps.h"
 #include "core/rendering/ground_rendering/TileSurfaceRenderer.h"
+#include "sub_processes/ObjectsRendering.h"
 
 namespace Zmallwood
 {
@@ -60,10 +62,12 @@ namespace Zmallwood
         verts._10.uv = { 1.0f, 0.0f };
         verts._11.uv = { 1.0f, 1.0f };
         verts._01.uv = { 0.0f, 1.0f };
-        verts._00.color = tile->Color().ToColorF();
-        verts._10.color = tile->Color().ToColorF();
-        verts._11.color = tile->Color().ToColorF();
-        verts._01.color = tile->Color().ToColorF();
+        auto tileType = tile->Type();
+        auto typeColor = k_tileTypeColors.at(tileType);
+        verts._00.color = typeColor.ToColorF();
+        verts._10.color = typeColor.ToColorF();
+        verts._11.color = typeColor.ToColorF();
+        verts._01.color = typeColor.ToColorF();
         verts._00.normal = normal00;
         verts._10.normal = normal10;
         verts._11.normal = normal11;
@@ -85,6 +89,7 @@ namespace Zmallwood
   WorldViewRenderer::RenderWorldView()
   {
     TileSurfaceRenderer::Get()->DrawTileSurface("Ground", m_tileSurfaceID);
+    RenderObjects();
   }
 
   WorldViewRenderer*

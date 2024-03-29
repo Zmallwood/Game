@@ -2,7 +2,7 @@
 
 namespace Zmallwood
 {
-  inline static const GLchar* defaultShaderModelsFragment =
+  inline static const GLchar* shaderModelsFragment =
     R"(
     #version 330 core
     out vec4 FragColor;
