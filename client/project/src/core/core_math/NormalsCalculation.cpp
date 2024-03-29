@@ -28,18 +28,30 @@ namespace Zmallwood
       auto tileSize = GameProps::Get()->TileSize();
       auto elevAmount = 1.0f;
 
-      // Create 3 vertices between the 3 corners of the tile
-      auto i = glm::vec3{ coordinate.x * tileSize, elev00 * elevAmount, coordinate.y * tileSize };
-      auto i1 = glm::vec3{ (coordinate.x + 1) * tileSize, elev10 * elevAmount, coordinate.y * tileSize };
-      auto i2 = glm::vec3{ coordinate.x * tileSize, elev01 * elevAmount, (coordinate.y + 1) * tileSize };
+      // Create 3 vertices between tree of the tile corners.
+      auto i = glm::vec3{                       // North west corner
+                          coordinate.x * tileSize,
+                          elev00 * elevAmount,
+                          coordinate.y * tileSize
+      };
+      auto i1 = glm::vec3{                      // North east corner
+                           (coordinate.x + 1) * tileSize,
+                           elev10 * elevAmount,
+                           coordinate.y * tileSize
+      };
+      auto i2 = glm::vec3{                      // South west corner
+                           coordinate.x * tileSize,
+                           elev01 * elevAmount,
+                           (coordinate.y + 1) * tileSize
+      };
 
-      auto v1 = i1 - i;                         // Vector from northwest to east corner
+      auto v1 = i1 - i;                         // Vector from northwest to north east corner
       auto v2 = i2 - i;                         // Vector from northwest to south west corner
 
       auto v3 = glm::cross(v1, v2);             // Calculate cross product from the two vectors
       auto normal = glm::normalize(v3);
 
-      // Set the normal to the calculated vector, but invert the y value.
+      // Set the normal to the calculated vector, but invert the y value
       worldArea->GetTile(coord00)->SetNormal({ .x = normal.x, .y = -normal.y, .z = normal.z });
     }
   }

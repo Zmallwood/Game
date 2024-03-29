@@ -29,14 +29,14 @@ namespace Zmallwood
   }
 
   glm::vec3
-  AssimpGLMUtilities::GetGLMVec(const aiVector3D& vec)
+  AssimpGLMUtilities::GetGLMVec(const aiVector3D& from)
   {
-    return glm::vec3(vec.x, vec.y, vec.z);
+    return glm::vec3(from.x, from.y, from.z);
   }
 
   glm::quat
-  AssimpGLMUtilities::GetGLMQuat(const aiQuaternion& pOrientation)
+  AssimpGLMUtilities::GetGLMQuat(const aiQuaternion& from)
   {
-    return glm::quat(pOrientation.w, pOrientation.x, pOrientation.y, pOrientation.z);
+    return glm::quat(from.w, from.x, from.y, from.z);
   }
 }

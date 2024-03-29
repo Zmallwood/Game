@@ -2,13 +2,21 @@
 
 namespace Zmallwood
 {
-  inline float SinDegrees(float angleDegrees)
-  {
-    return sinf(angleDegrees * static_cast<float>(M_PI) / 180.0f);
-  }
+  /**
+   * \brief Calculate sinus value from angle in degress
+   * 
+   * \param angleDegress Angle in degreses
+   * 
+   * \return Sinus value
+  */
+  float SinDegrees(float angleDegrees);
 
-  inline float CosDegrees(float angleDegrees)
-  {
-    return cosf(angleDegrees * static_cast<float>(M_PI) / 180.0f);
-  }
+  /**
+   * \brief Calculate cosinus value from angle in degrees
+   * 
+   * \param angleDegrees Angle in degrees
+   * 
+   * \return Cosinus value
+  */
+  float CosDegrees(float angleDegrees);
 }

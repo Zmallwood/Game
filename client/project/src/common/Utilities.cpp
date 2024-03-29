@@ -12,6 +12,6 @@ namespace Zmallwood
   int
   Hash(const std::string& text)
   {
-    return std::hash<std::string>{}(text);      // Use std hash function on string
+    return std::hash<std::string>{}(text);      // Use default hash function on string
   }
 }

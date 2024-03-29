@@ -2,6 +2,9 @@
 
 namespace Zmallwood
 {
+  /**
+   * \brief Contains game properties for a game instance.
+  */
   class GameProps
   {
   public:
@@ -13,10 +16,13 @@ namespace Zmallwood
     static GameProps* Get();
 
   private:
+   /**
+    * \brief Private constructor to force use singleton
+   */
     GameProps() = default;
 
-    Color m_clearColor = { 0, 0, 20, 255 };
-    Size m_worldAreaSize = { 100, 100 };
-    float m_tileSize = 1.0f;
+    Color m_clearColor = { 0, 0, 20, 255 };     ///< Clear color used by OpenGL used every frame.
+    Size m_worldAreaSize = { 100, 100 };        ///< Size in number of tiles for the world areas.
+    float m_tileSize = 1.0f;                    ///< Size of a single tile in number of length units.
   };
 }
