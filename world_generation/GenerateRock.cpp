@@ -1,10 +1,10 @@
+#include "GenerateRock.h"
 #include "../world_structure/Tile.h"
 #include "../world_structure/WorldArea.h"
-#include "GenerateWater.h"
 
 namespace Zmallwood
 {
-  void GenerateWater(std::shared_ptr<WorldArea> worldArea)
+  void GenerateRock(std::shared_ptr<WorldArea> worldArea)
   {
     auto contentScaling = worldArea->Width() * worldArea->Height() / 100.0f / 100.0f;
 
@@ -29,7 +29,10 @@ namespace Zmallwood
 
             if (dx * dx + dy * dy <= r * r)
             {
-              worldArea->GetTile({ .x = x, .y = y })->SetType("TileWater");
+              if (worldArea->GetTile({ .x = x, .y = y })->Elevation() > 3.0f)
+              {
+                worldArea->GetTile({ .x = x, .y = y })->SetType("TileRock");
+              }
             }
           }
         }

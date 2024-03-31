@@ -14,8 +14,9 @@ namespace Zmallwood
     Size WorldAreaSize() { return m_worldAreaSize; }
     void SetWorldAreaSize(Size value) { m_worldAreaSize = value; }
     float TileSize() { return m_tileSize; }
-    
-    /**
+    float ElevationScale() { return m_elevationScale; }
+
+        /**
      * \brief Get singleton instance
      *
      * \return Singleton instance
@@ -30,6 +31,7 @@ namespace Zmallwood
 
     Color m_clearColor = { 0, 150, 255, 255 };     ///< Clear color used by OpenGL used every frame.
     Size m_worldAreaSize = { 100, 100 };        ///< Size in number of tiles for the world areas.
-    float m_tileSize = 1.0f;                    ///< Size of a single tile in number of length units.
+    float m_tileSize = 1.5f;                    ///< Size of a single tile in number of length units.
+    float m_elevationScale = 1.0f;
   };
 }
