@@ -28,7 +28,7 @@ namespace Zmallwood
    */
     GameProps() = default;
 
-    Color m_clearColor = { 0, 0, 20, 255 };     ///< Clear color used by OpenGL used every frame.
+    Color m_clearColor = { 0, 150, 255, 255 };     ///< Clear color used by OpenGL used every frame.
     Size m_worldAreaSize = { 100, 100 };        ///< Size in number of tiles for the world areas.
     float m_tileSize = 1.0f;                    ///< Size of a single tile in number of length units.
   };

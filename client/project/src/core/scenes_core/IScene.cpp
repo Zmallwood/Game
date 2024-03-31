@@ -86,7 +86,7 @@ namespace Zmallwood
         if (noPixelEffect == 0.0 && 1.0 != 0.0) {
             for (d=1.0/xs,x=-r,p.x+=x*d;x<=r;x++,p.x+=d){
                 w=w0*exp((-x*x)/(2.0*rr));
-                col+=texture(TexUnit,floor(p*300)/300)*w/2;
+                col+=texture(TexUnit,floor(p*500)/500)*w/2;
             }
 
             for (d=1.0/ys,y=-r,p.y+=y*d;y<=r;y++,p.y+=d){
@@ -105,6 +105,10 @@ namespace Zmallwood
                 col+=texture(TexUnit,p)*w/2;
             }
         }
+        
+        col.r = floor(col.r*10)/10;
+        col.g = floor(col.g*10)/10;
+        col.b = floor(col.b*10)/10;
 
         fragColor = col;
     }
@@ -168,8 +172,8 @@ namespace Zmallwood
     glBindFramebuffer(GL_FRAMEBUFFER, m_FBO);
 
     {
-      auto clearColor = GameProps::Get()->ClearColor().ToColorF();
-      glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+      auto clearColorF = GameProps::Get()->ClearColor().ToColorF();
+      glClearColor(clearColorF.r, clearColorF.g, clearColorF.b, clearColorF.a);
     }
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -179,6 +183,10 @@ namespace Zmallwood
 
     Render3D();
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+
+
+
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     

@@ -8,7 +8,7 @@ namespace Zmallwood
   RunNewGameInstance()
   {
     GameProps::Get()->SetClearColor(            // Set GL clear color
-      { .r = 30, .g = 0, .b = 30 });
+      { .r = 0, .g = 150, .b = 255 });
 
     GameInstance gameInstance;                  // Create new game instance
     gameInstance.Run();                         // and run

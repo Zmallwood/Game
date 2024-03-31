@@ -23,7 +23,7 @@ namespace Zmallwood
     }
 
     glClearDepth(1.f);
-    glClearColor(0.3f, 0.3f, 0.3f, 0.f);
+    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
     glEnable(GL_DEPTH_TEST);
     glDepthMask(GL_TRUE);
 
