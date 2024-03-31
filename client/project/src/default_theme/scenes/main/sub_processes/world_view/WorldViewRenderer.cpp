@@ -7,6 +7,7 @@
 #include "core/configuration/GameProps.h"
 #include "core/rendering/ground_rendering/TileSurfaceRenderer.h"
 #include "sub_processes/ObjectsRendering.h"
+#include "sub_processes/PlayerRendering.h"
 
 namespace Zmallwood
 {
@@ -90,6 +91,7 @@ namespace Zmallwood
   {
     TileSurfaceRenderer::Get()->DrawTileSurface("Ground", m_tileSurfaceID);
     RenderObjects();
+    RenderPlayer();
   }
 
   WorldViewRenderer*

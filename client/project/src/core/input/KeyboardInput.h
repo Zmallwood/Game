@@ -28,6 +28,8 @@ namespace Zmallwood
      * \return True if any key is currently being pressed down, otherwise false
     */
     bool AnyKeyIsPressed();
+    
+    bool KeyIsPressed(sf::Keyboard::Key key);
 
     /**
      * \brief Get singleton instance

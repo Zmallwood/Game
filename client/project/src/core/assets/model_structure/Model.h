@@ -38,9 +38,9 @@ namespace Zmallwood
     void ExtractBoneWeightForVertices(std::vector<GLMVertex>& vertices,
                                       aiMesh* mesh,
                                       const aiScene* scene);
-    unsigned int TextureFromFile(const char* path,
-                                 const std::string& directory,
-                                 bool gamma = false);
+    //unsigned int TextureFromFile(const char* path,
+    //                             const std::string& directory,
+    //                             bool gamma = false);
     /// Checks all material textures of a given type and loads the textures if
     /// they're not loaded yet. the required info is returned as a Texture
     /// struct.

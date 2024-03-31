@@ -5,6 +5,32 @@
 
 namespace Zmallwood
 {
+  AnimationBank::AnimationBank()
+  {
+    ReadAnimationNames();
+  }
+
+  void
+  AnimationBank::ReadAnimationNames()
+  {
+    using iterator = std::filesystem ::recursive_directory_iterator;
+    auto allAnimationsPath = std::filesystem::current_path().string() + "/" + k_relAnimationsPath;
+
+    for (auto& entry : iterator(allAnimationsPath))
+    {
+      auto absPath = entry.path().string();
+
+      if (FileExtension(absPath) != "dae")
+      {
+        continue;
+      }
+      {
+        auto animName = FilenameNoExtension(absPath);
+        m_animationNames.insert({ Hash(animName), animName });
+      }
+    }
+  }
+
   std::shared_ptr<Animator>
   AnimationBank::GetAnimator(int animationNameHash, int modelNameHash)
   {
@@ -47,9 +73,7 @@ namespace Zmallwood
   bool
   AnimationBank::CreateSingleAnimator(int animationNameHash, int modelNameHash)
   {
-    std::map<int, std::string> animationNames = { { Hash("AnimObjectTree1"), "AnimObjectTree1" } };
-
-    auto animationName = animationNames.at(animationNameHash);
+    auto animationName = m_animationNames.at(animationNameHash);
 
     auto absFilePath =
       std::filesystem::current_path().string() + "/" + k_relAnimationsPath + animationName + ".dae";

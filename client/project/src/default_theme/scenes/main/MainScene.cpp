@@ -2,6 +2,7 @@
 #include "sub_processes/CameraZooming.h"
 #include "sub_processes/FPSMeasuring.h"
 #include "sub_processes/world_view/WorldViewRenderer.h"
+#include "sub_processes/KeyboardMovement.h"
 
 namespace Zmallwood
 {
@@ -24,6 +25,7 @@ namespace Zmallwood
   void
   MainScene::Update()
   {
+    UpdateKeyboardMovement();
     UpdateCameraZooming();
     UpdateFPSMeasuring();
     WorldViewRenderer::Get()->UpdateCamera();

@@ -137,7 +137,7 @@ namespace Zmallwood
 
       glBindBuffer(GL_ARRAY_BUFFER, m_uvBufID);
       glBufferData(GL_ARRAY_BUFFER, numVertices * 2 * sizeof(float), nullptr, GL_DYNAMIC_DRAW);
-      std::cout << "init\n";
+
       initialized = true;
     }
 
@@ -161,7 +161,7 @@ namespace Zmallwood
       glDeleteBuffers(1, &m_posBufID);
       glDeleteBuffers(1, &m_colorBufID);
       glDeleteBuffers(1, &m_uvBufID);
-      std::cout << "cleanup\n";
+      
       cleanedUp = true;
     }
   }

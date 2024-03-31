@@ -16,7 +16,6 @@ namespace Zmallwood
   ModelRenderer::ModelRenderer()
     : RendererBase()
   {
-    std::cout << "create model rend\n";
     ShaderProgram()->Create(shaderModelsVertex, shaderModelsFragment);// Create shader program
     m_locProjection = GetUniformLocation("projection");
     m_locView = GetUniformLocation("view");
@@ -126,7 +125,6 @@ namespace Zmallwood
     if (AnimationBank::Get()->GetAnimator(animNameHash, modelNameHash) != nullptr)
     {
       auto transforms = AnimationBank::Get()->GetAnimator(animNameHash, modelNameHash)->FinalBoneMatrices();
-
       for (int i = 0; i < transforms.size(); ++i)
       {
         auto str = "finalBonesMatrices[" + std::to_string(i) + "]";

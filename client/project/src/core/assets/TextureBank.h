@@ -13,6 +13,7 @@ namespace Zmallwood
     TextureBank();
     void LoadTextures();
 
+    const std::string k_relImagesPath = "resources/images/";
     std::map<int, sf::Texture> m_textures;
   };
 }
