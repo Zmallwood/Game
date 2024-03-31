@@ -4,14 +4,15 @@
 
 namespace Zmallwood
 {
-  void
-  GenerateElevation(std::shared_ptr<WorldArea> worldArea)
+  void GenerateElevation(std::shared_ptr<WorldArea> worldArea)
   {
-    for (auto i = 0; i < 60; i++)
+    auto contentScaling = worldArea->Width() * worldArea->Height() / 100.0f / 100.0f;
+
+    for (auto i = 0; i < 60*contentScaling; i++)
     {
       auto xCenter = rand() % worldArea->Width();
       auto yCenter = rand() % worldArea->Height();
-      auto rMax = 3 + rand() % 12;
+      auto rMax = 3 + rand() % 18;
 
       for (auto r = rMax; r >= 0; r--)
       {

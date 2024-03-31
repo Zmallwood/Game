@@ -4,14 +4,15 @@
 
 namespace Zmallwood
 {
-  void
-  GenerateWater(std::shared_ptr<WorldArea> worldArea)
+  void GenerateWater(std::shared_ptr<WorldArea> worldArea)
   {
-    for (auto i = 0; i < 60; i++)
+    auto contentScaling = worldArea->Width() * worldArea->Height() / 100.0f / 100.0f;
+
+    for (auto i = 0; i < 15*contentScaling; i++)
     {
       auto xCenter = rand() % worldArea->Width();
       auto yCenter = rand() % worldArea->Height();
-      auto r = 3 + rand() % 7;
+      auto r = 3 + rand() % 13;
 
       for (auto y = yCenter - r; y <= yCenter + r; y++)
       {

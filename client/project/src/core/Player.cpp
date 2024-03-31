@@ -1,4 +1,6 @@
 #include "Player.h"
+#include "../../../world_structure/World.h"
+#include "../../../world_structure/WorldArea.h"
 
 namespace Zmallwood
 {
@@ -20,6 +22,13 @@ namespace Zmallwood
   void Player::MoveWest()
   {
     m_position.x--;
+  }
+
+  void Player::MoveToRandomLocation()
+  {
+    auto worldArea = World::Get()->WorldArea();
+    m_position.x = rand() % worldArea->Width();
+    m_position.z = rand() % worldArea->Height();
   }
 
   Player* Player::Get()

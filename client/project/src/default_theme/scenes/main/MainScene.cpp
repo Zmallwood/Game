@@ -3,6 +3,7 @@
 #include "sub_processes/FPSMeasuring.h"
 #include "sub_processes/world_view/WorldViewRenderer.h"
 #include "sub_processes/KeyboardMovement.h"
+#include "sub_processes/PlayerPositioning.h"
 
 namespace Zmallwood
 {
@@ -20,6 +21,7 @@ namespace Zmallwood
   MainScene::OnEnter()
   {
     WorldViewRenderer::Get()->Initialize();
+    EnsureGoodPlayerPosition();
   }
 
   void

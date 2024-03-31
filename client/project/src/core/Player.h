@@ -9,6 +9,7 @@ namespace Zmallwood
     void MoveEast();
     void MoveSouth();
     void MoveWest();
+    void MoveToRandomLocation();
     auto Position() { return m_position; }
     auto TicksLastMove() { return m_ticksLastMove; }
     void SetTicksLastMove(int value) { m_ticksLastMove = value; }
@@ -20,6 +21,6 @@ namespace Zmallwood
 
     Point3F m_position = { .x = 50.0f, .y = 0.0f, .z = 50.0f };
     int m_ticksLastMove = 0;
-    float m_movementSpeed = 3.0f;
+    float m_movementSpeed = 5.0f;
   };
 }
