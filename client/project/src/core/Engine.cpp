@@ -4,6 +4,7 @@
 #include "core/Graphics.h"
 #include "core/rendering/models_rendering/ModelRenderer.h"
 #include "scenes_core/SceneManager.h"
+#include "core/assets/AnimationBank.h"
 
 namespace Zmallwood
 {
@@ -22,6 +23,7 @@ namespace Zmallwood
   void
   Engine::Update()
   {
+    AnimationBank::Get()->UpdateAllAnimations();
     SceneManager::Get()->UpdateCurrentScene();
   }
 

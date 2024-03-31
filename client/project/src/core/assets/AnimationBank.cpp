@@ -26,6 +26,24 @@ namespace Zmallwood
     }
   }
 
+  void
+  AnimationBank::UpdateAllAnimations()
+  {
+    float currentFrame = Ticks() / 1000.0f;
+    auto deltaTime = currentFrame - m_lastFrame;
+
+    for (auto& animationEntry : m_animators)
+    {
+      for (auto& modelEntry : animationEntry.second)
+      {
+        auto& animator = modelEntry.second;
+        animator->UpdateAnimation(deltaTime);
+      }
+    }
+
+    m_lastFrame = currentFrame;
+  }
+
   bool
   AnimationBank::CreateSingleAnimator(int animationNameHash, int modelNameHash)
   {
@@ -34,7 +52,7 @@ namespace Zmallwood
     auto animationName = animationNames.at(animationNameHash);
 
     auto absFilePath =
-      std::filesystem::current_path().string() + k_relAnimationsPath + animationName + ".dae";
+      std::filesystem::current_path().string() + "/" + k_relAnimationsPath + animationName + ".dae";
 
     if (std::filesystem::exists(absFilePath) == false)
     {

@@ -104,6 +104,8 @@ namespace Zmallwood
     if (!m_isBatchDrawing)
     {
       glEnable(GL_DEPTH_TEST);
+      glDisable(GL_CULL_FACE);
+      glFrontFace(GL_CCW);
       glUseProgram(ShaderProgram()->ProgramID());
       glUniformMatrix4fv(m_locProjection, 1, GL_FALSE, value_ptr(CameraGL::Get()->PerspectiveMatrix()));
       glUniformMatrix4fv(m_locView, 1, GL_FALSE, glm::value_ptr(CameraGL::Get()->ViewMatrix()));

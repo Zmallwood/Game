@@ -21,6 +21,7 @@ namespace Zmallwood
   void
   ModelBank::LoadAllModels()
   {
+    std::cout << "load all models\n";
     using iterator = std::filesystem ::recursive_directory_iterator;
     auto allModelsPath = std::filesystem::current_path().string() + "/" + k_relModelsPath;
 
@@ -39,6 +40,7 @@ namespace Zmallwood
       m_models[modelNameHash] = model;
       m_modelNames[modelNameHash] = modelName;
     }
+    std::cout << "all models loaded\n";
   }
 
   std::shared_ptr<Model>
