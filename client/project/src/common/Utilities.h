@@ -17,4 +17,6 @@ namespace Zmallwood
   std::string FileExtension(const std::string& absPath);
 
   std::string FilenameNoExtension(const std::string& absPath);
+  
+  PointF MousePosition();
 }

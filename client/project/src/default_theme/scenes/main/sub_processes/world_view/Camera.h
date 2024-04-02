@@ -6,16 +6,8 @@ namespace Zmallwood
   {
   public:
     void Update();
-    auto HorizontalAngleDegrees() const { return m_horizontalAngleDegrees; }
-    void SetHorizontalAngleDegrees(float value)
-    {
-      m_horizontalAngleDegrees = value;
-    }
-    auto VerticalAngleDegrees() const { return m_verticalAngleDegrees; }
-    void SetVerticalAngleDegrees(float value)
-    {
-      m_verticalAngleDegrees = value;
-    }
+    void AddHorizontalAngleDelta(float delta);
+    void AddVerticalAngleDelta(float delta);
     auto CameraDistance() const { return m_cameraDistance; }
     void SetCameraDistance(float value) { m_cameraDistance = value; }
     void SetUseFixedCameraDistance(bool value)

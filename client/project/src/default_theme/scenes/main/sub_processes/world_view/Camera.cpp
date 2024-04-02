@@ -7,15 +7,23 @@
 
 namespace Zmallwood
 {
-  void
-  Camera::Update()
+  void Camera::Update()
   {
     SetPerspectiveMatrix();
     SetViewMatrix();
   }
 
-  void
-  Camera::SetPerspectiveMatrix()
+  void Camera::AddHorizontalAngleDelta(float delta)
+  {
+    m_horizontalAngleDegrees += delta;
+  }
+
+  void Camera::AddVerticalAngleDelta(float delta)
+  {
+    m_verticalAngleDegrees += delta;
+  }
+
+  void Camera::SetPerspectiveMatrix()
   {
     auto fovRads = glm::radians(m_usedFov / 2);
     auto aspect = 1600.0f / 900.0f;
@@ -25,23 +33,21 @@ namespace Zmallwood
     CameraGL::Get()->SetPerspectiveMatrix(newPerspMat);
   }
 
-  void
-  Camera::SetViewMatrix()
+  void Camera::SetViewMatrix()
   {
     auto playerPos = Player::Get()->Position().Multiply(GameProps::Get()->TileSize());
     auto tileSize = GameProps::Get()->TileSize();
     auto currWA = World::Get()->WorldArea();
     auto lookFrom = GetCameraPosition();
     auto lookAt = playerPos;
-    lookFrom.z = lookAt.z + 50.0f;
+    //lookFrom.z = lookAt.z + 50.0f;
     auto newViewMatrix = glm::lookAt(glm::vec3(lookFrom.x, lookFrom.y, lookFrom.z),
                                      glm::vec3(lookAt.x, lookAt.y, lookAt.z),
                                      glm::vec3(0.0, 1.0, 0.0));
     CameraGL::Get()->SetViewMatrix(newViewMatrix);
   }
 
-  Point3F
-  Camera::GetCameraPosition()
+  Point3F Camera::GetCameraPosition()
   {
     auto player = Player::Get();
     auto playerPos = player->Position().GetXZ();
@@ -79,15 +85,18 @@ namespace Zmallwood
     auto playerElev = tileAvgElev + playerTileDx * elevDx + playerTileDy * elevDy;
     auto elevAmount = 1.0f;
     auto playerPosNoElev = player->Position().Multiply(GameProps::Get()->TileSize());
-    playerPosNoElev.y = 0.0f;
+    //playerPosNoElev.y = 0.0f;
     auto usedVertAngle = m_verticalAngleDegrees;
     float usedCamDist;
     usedCamDist = m_cameraDistance * 2.0f;
     auto dzUnrotated = CosDegrees(usedVertAngle) * usedCamDist;
-    auto hypotenuse = dzUnrotated;
+    dzUnrotated = usedCamDist;
+    auto hypotenuse = dzUnrotated*50.0f;
     auto dx = SinDegrees(m_horizontalAngleDegrees) * hypotenuse - 3.0f * SinDegrees(m_horizontalAngleDegrees);
     auto dz = CosDegrees(m_horizontalAngleDegrees) * hypotenuse - 3.0f * CosDegrees(m_horizontalAngleDegrees);
-    auto dy = -1 * SinDegrees(usedVertAngle) * usedCamDist * 3.0f;
+    //auto dy = -1 * SinDegrees(usedVertAngle) * usedCamDist * 3.0f;
+    auto hypo2 = std::sqrt(dx*dx + dz*dz);
+    auto dy = -1 * SinDegrees(usedVertAngle) * hypo2;
     auto playrElev = 0.0f;
     {
       auto result = Point3F();
@@ -100,12 +109,12 @@ namespace Zmallwood
       {
         result = playerPosNoElev.Translate(dx, dy + playrElev, dz);
       }
-      return result.Translate(0.0f, m_cameraHeight * 2.0f + 20.0f, 0.0f);
+      return result.Translate(0.0f, m_cameraHeight * 2.0f, 0.0f);
+      //return result.Translate(0.0f, m_cameraHeight * 2.0f + 20.0f, 0.0f);
     }
   }
 
-  Camera*
-  Camera::Get()
+  Camera* Camera::Get()
   {
     static Camera instance;
     return &instance;

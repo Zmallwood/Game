@@ -7,7 +7,7 @@ namespace Zmallwood
   void
   UpdateCameraZooming()
   {
-    auto zoomSensitivity = 1.0f;
+    auto zoomSensitivity = 0.05f;
     auto cameraDistance = Camera::Get()->CameraDistance();
     cameraDistance += MouseInput::Get()->MouseWheelDeltaPickResult() * zoomSensitivity;
     Camera::Get()->SetCameraDistance(cameraDistance);
