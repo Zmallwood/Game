@@ -14,5 +14,6 @@ namespace zw
     WorldViewRenderer() = default;
 
     GLuint m_tileSurfaceID = -1;
+    std::vector<std::vector<GLuint>> m_tileIDs;
   };
 }

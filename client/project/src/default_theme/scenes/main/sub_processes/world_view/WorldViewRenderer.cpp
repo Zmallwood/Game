@@ -8,6 +8,7 @@
 #include "core/rendering/ground_rendering/TileRenderer.h"
 #include "sub_processes/ObjectsRendering.h"
 #include "sub_processes/PlayerRendering.h"
+#include "sub_processes/TileLayerRendering.h"
 
 namespace zw
 {
@@ -21,11 +22,15 @@ namespace zw
 
     for (auto x = 0; x < worldArea->Width(); x++)
     {
+      m_tileIDs.push_back(std::vector<GLuint>());
       surfVerts.push_back(std::vector<Square<Vertex3F>>());
       for (auto y = 0; y < worldArea->Height(); y++)
       {
+        m_tileIDs.at(x).push_back(TileRenderer::Get()->NewTile());
         Square<Vertex3F> verts;
         auto tile = worldArea->GetTile({ .x = x, .y = y });
+
+        tile->SetDrawID(m_tileIDs[x][y]);
 
         auto elev00 = tile->Elevation()*elevScale;
         auto elev10 = elev00;
@@ -75,6 +80,12 @@ namespace zw
         verts._11.normal = normal11;
         verts._01.normal = normal01;
         surfVerts.at(x).push_back(verts);
+        auto smallValue = 0.01f;
+        verts._00.position.y += smallValue;
+        verts._10.position.y += smallValue;
+        verts._11.position.y += smallValue;
+        verts._01.position.y += smallValue;
+        TileRenderer::Get()->SetTileGeom(m_tileIDs[x][y], verts);
       }
     }
     m_tileSurfaceID = TileRenderer::Get()->NewTileSurface();
@@ -91,6 +102,7 @@ namespace zw
   WorldViewRenderer::RenderWorldView()
   {
     TileRenderer::Get()->DrawTileSurface("Ground", m_tileSurfaceID);
+    RenderTileLayers();
     RenderObjects();
     RenderPlayer();
   }
