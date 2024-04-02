@@ -17,6 +17,7 @@ namespace zw
     auto worldArea = World::Get()->WorldArea();
     auto surfVerts = std::vector<std::vector<Square<Vertex3F>>>();
     auto tileSize = GameProps::Get()->TileSize();
+    auto elevScale = GameProps::Get()->ElevationScale();
 
     for (auto x = 0; x < worldArea->Width(); x++)
     {
@@ -26,7 +27,7 @@ namespace zw
         Square<Vertex3F> verts;
         auto tile = worldArea->GetTile({ .x = x, .y = y });
 
-        auto elev00 = tile->Elevation();
+        auto elev00 = tile->Elevation()*elevScale;
         auto elev10 = elev00;
         auto elev11 = elev00;
         auto elev01 = elev00;
@@ -37,19 +38,19 @@ namespace zw
 
         if (x < worldArea->Width() - 1)
         {
-          elev10 = worldArea->GetTile({ .x = x + 1, .y = y })->Elevation();
+          elev10 = worldArea->GetTile({ .x = x + 1, .y = y })->Elevation()*elevScale;
           normal10 = worldArea->GetTile({ .x = x + 1, .y = y })->Normal();
         }
 
         if (y < worldArea->Height() - 1)
         {
-          elev01 = worldArea->GetTile({ .x = x, .y = y + 1 })->Elevation();
+          elev01 = worldArea->GetTile({ .x = x, .y = y + 1 })->Elevation()*elevScale;
           normal01 = worldArea->GetTile({ .x = x, .y = y + 1 })->Normal();
         }
 
         if (x < worldArea->Width() - 1 && y < worldArea->Height() - 1)
         {
-          elev11 = worldArea->GetTile({ .x = x + 1, .y = y + 1 })->Elevation();
+          elev11 = worldArea->GetTile({ .x = x + 1, .y = y + 1 })->Elevation()*elevScale;
           normal11 = worldArea->GetTile({ .x = x + 1, .y = y + 1 })->Normal();
         }
 

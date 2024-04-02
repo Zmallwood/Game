@@ -11,8 +11,7 @@
 
 namespace zw
 {
-  void
-  RenderObjects()
+  void RenderObjects()
   {
     auto worldArea = World::Get()->WorldArea();
     auto tileSize = GameProps::Get()->TileSize();
@@ -26,7 +25,7 @@ namespace zw
                             0.0f,
                             y * tileSize + tileSize / 2.0f };
         auto modelRotation = 0.0f;
-        auto modelScaling = 1.0f;
+        auto modelScaling = 6.0f;
         auto object = worldArea->GetTile({ .x = x, .y = y })->Object();
         if (object)
         {
@@ -40,7 +39,10 @@ namespace zw
           {
             animator->SetCurrentTime((Ticks() + (x + y) * 1311));
           }
-
+          auto objectTile = worldArea->GetTile({ .x = x, .y = y });
+          auto elev = objectTile->Elevation() * GameProps::Get()->ElevationScale();
+          auto objectElev = elev;
+          pos.y = objectElev;
           ModelRenderer::Get()->DrawModel(
             objectType, animNameHash, Ticks() + x * y * 10, pos, modelRotation, modelScaling);
         }

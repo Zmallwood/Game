@@ -1,4 +1,5 @@
 #include "Camera.h"
+#include "../../../world_structure/Tile.h"
 #include "../../../world_structure/World.h"
 #include "../../../world_structure/WorldArea.h"
 #include "core/Player.h"
@@ -40,6 +41,11 @@ namespace zw
     auto currWA = World::Get()->WorldArea();
     auto lookFrom = GetCameraPosition();
     auto lookAt = playerPos;
+    auto worldArea = World::Get()->WorldArea();
+    auto playerTile = worldArea->GetTile(Player::Get()->Position().GetXZ().ToIntPoint());
+    auto elev = playerTile->Elevation() * GameProps::Get()->ElevationScale();
+    auto playrElev = elev;
+    lookAt.y = playrElev;
     //lookFrom.z = lookAt.z + 50.0f;
     auto newViewMatrix = glm::lookAt(glm::vec3(lookFrom.x, lookFrom.y, lookFrom.z),
                                      glm::vec3(lookAt.x, lookAt.y, lookAt.z),
@@ -91,13 +97,17 @@ namespace zw
     usedCamDist = m_cameraDistance * 2.0f;
     auto dzUnrotated = CosDegrees(usedVertAngle) * usedCamDist;
     dzUnrotated = usedCamDist;
-    auto hypotenuse = dzUnrotated*50.0f;
+    auto hypotenuse = dzUnrotated * 50.0f;
     auto dx = SinDegrees(m_horizontalAngleDegrees) * hypotenuse - 3.0f * SinDegrees(m_horizontalAngleDegrees);
     auto dz = CosDegrees(m_horizontalAngleDegrees) * hypotenuse - 3.0f * CosDegrees(m_horizontalAngleDegrees);
     //auto dy = -1 * SinDegrees(usedVertAngle) * usedCamDist * 3.0f;
-    auto hypo2 = std::sqrt(dx*dx + dz*dz);
+    auto hypo2 = std::sqrt(dx * dx + dz * dz);
     auto dy = -1 * SinDegrees(usedVertAngle) * hypo2;
     auto playrElev = 0.0f;
+    auto worldArea = World::Get()->WorldArea();
+    auto playerTile = worldArea->GetTile(Player::Get()->Position().GetXZ().ToIntPoint());
+    auto elev = playerTile->Elevation() * GameProps::Get()->ElevationScale();
+    playrElev = elev;
     {
       auto result = Point3F();
 

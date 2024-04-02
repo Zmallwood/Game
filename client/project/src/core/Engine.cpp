@@ -11,6 +11,7 @@ namespace zw
 {
   Engine::Engine()
   {
+    srand(time(0));
     Graphics::Get();
     ModelRenderer::Get()->PrepareAllModels();
     Cursor::Get()->Initialize();

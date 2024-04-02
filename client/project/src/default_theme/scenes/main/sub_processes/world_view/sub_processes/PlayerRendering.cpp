@@ -2,11 +2,13 @@
 #include "core/Player.h"
 #include "core/configuration/GameProps.h"
 #include "core/rendering/models_rendering/ModelRenderer.h"
+#include "../../../world_structure/World.h"
+#include "../../../world_structure/WorldArea.h"
+#include "../../../world_structure/Tile.h"
 
 namespace zw
 {
-  void
-  RenderPlayer()
+  void RenderPlayer()
   {
     auto playerModel = "ActorPlayer";
     auto playerModelHash = Hash(playerModel);
@@ -15,7 +17,10 @@ namespace zw
     auto pos = Player::Get()->Position().Multiply(GameProps::Get()->TileSize());
     auto rot = 0.0f;
     auto scale = 1.5f;
-    ModelRenderer::Get()->DrawModel(
-      playerModelHash, animNameHash, Ticks() * 2, pos, rot, scale);
+    auto worldArea = World::Get()->WorldArea();
+    auto tile = worldArea->GetTile(Player::Get()->Position().GetXZ().ToIntPoint());
+    auto elev = tile->Elevation()*GameProps::Get()->ElevationScale();
+    pos.y = elev;
+    ModelRenderer::Get()->DrawModel(playerModelHash, animNameHash, Ticks() * 2, pos, rot, scale);
   }
 }
