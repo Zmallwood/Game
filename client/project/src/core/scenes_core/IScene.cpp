@@ -161,13 +161,12 @@ namespace zw
       glDeleteBuffers(1, &m_posBufID);
       glDeleteBuffers(1, &m_colorBufID);
       glDeleteBuffers(1, &m_uvBufID);
-      
+
       cleanedUp = true;
     }
   }
 
-  void
-  IScene::Render()
+  void IScene::Render()
   {
     glBindFramebuffer(GL_FRAMEBUFFER, m_FBO);
 
@@ -184,15 +183,8 @@ namespace zw
     Render3D();
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-
-
-
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    
-
-
-
 
     auto numVertsInRect = 4;
     Vertex2F verts[numVertsInRect];
@@ -261,11 +253,10 @@ namespace zw
     glBindVertexArray(0);
 
     sf::Shader::bind(NULL);
-    {
-      auto renderWindow = Graphics::Get()->RenderWindow();
-      renderWindow->pushGLStates();
-      renderWindow->resetGLStates();
-      m_gui->draw();
-    }
+  }
+
+  void IScene::RenderGUI()
+  {
+    m_gui->draw();
   }
 }

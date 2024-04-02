@@ -32,9 +32,20 @@ namespace zw
     gluPerspective(90.f, 1.f, 1.f, 300.0f); // fov, aspect, zNear, zFar
   }
 
-  void Graphics::PresentCanvas()
+  void Graphics::Start2DRendering()
+  {
+    m_renderWindow = Graphics::Get()->RenderWindow();
+    m_renderWindow->pushGLStates();
+    m_renderWindow->resetGLStates();
+  }
+
+  void Graphics::Stop2DRendering()
   {
     m_renderWindow->popGLStates();
+  }
+
+  void Graphics::PresentCanvas()
+  {
     m_renderWindow->display();
   }
 

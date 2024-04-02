@@ -9,6 +9,7 @@ namespace zw
     void HandleEventCurrentScene(sf::Event event);
     void UpdateCurrentScene();
     void RenderCurrentScene();
+    void RenderGUICurrentScene();
     void EnterScene(const std::string& scene);
     static SceneManager* Get();
 

@@ -5,6 +5,8 @@ namespace zw
   class Graphics
   {
   public:
+    void Start2DRendering();
+    void Stop2DRendering();
     void PresentCanvas();
     auto RenderWindow() { return m_renderWindow; }
     static Graphics* Get();

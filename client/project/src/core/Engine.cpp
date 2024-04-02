@@ -33,7 +33,10 @@ namespace zw
   Engine::Render()
   {
     SceneManager::Get()->RenderCurrentScene();
+    Graphics::Get()->Start2DRendering();
+    SceneManager::Get()->RenderGUICurrentScene();
     Cursor::Get()->Render();
+    Graphics::Get()->Stop2DRendering();
     Graphics::Get()->PresentCanvas();
   }
 

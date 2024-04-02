@@ -10,6 +10,7 @@ namespace zw
     virtual void OnEnter() {}
     virtual void Update() = 0;
     void Render();
+    void RenderGUI();
     auto GUI() { return m_gui; }
 
   protected:

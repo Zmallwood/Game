@@ -18,8 +18,7 @@ namespace zw
     EnterScene("IntroScene");
   }
 
-  void
-  SceneManager::HandleEventCurrentScene(sf::Event event)
+  void SceneManager::HandleEventCurrentScene(sf::Event event)
   {
     if (m_scenes.contains(m_currentScene))
     {
@@ -27,8 +26,7 @@ namespace zw
     }
   }
 
-  void
-  SceneManager::UpdateCurrentScene()
+  void SceneManager::UpdateCurrentScene()
   {
     if (m_scenes.contains(m_currentScene))
     {
@@ -36,8 +34,7 @@ namespace zw
     }
   }
 
-  void
-  SceneManager::RenderCurrentScene()
+  void SceneManager::RenderCurrentScene()
   {
     if (m_scenes.contains(m_currentScene))
     {
@@ -45,8 +42,15 @@ namespace zw
     }
   }
 
-  void
-  SceneManager::EnterScene(const std::string& scene)
+  void SceneManager::RenderGUICurrentScene()
+  {
+    if (m_scenes.contains(m_currentScene))
+    {
+      m_scenes.at(m_currentScene)->RenderGUI();
+    }
+  }
+
+  void SceneManager::EnterScene(const std::string& scene)
   {
     m_currentScene = Hash(scene);
     if (m_scenes.contains(m_currentScene))
@@ -55,8 +59,7 @@ namespace zw
     }
   }
 
-  SceneManager*
-  SceneManager::Get()
+  SceneManager* SceneManager::Get()
   {
     static SceneManager instance;
     return &instance;
