@@ -5,7 +5,7 @@
 #include "../../../world_structure/TileTypeColors.h"
 #include "Camera.h"
 #include "core/configuration/GameProps.h"
-#include "core/rendering/ground_rendering/TileSurfaceRenderer.h"
+#include "core/rendering/ground_rendering/TileRenderer.h"
 #include "sub_processes/ObjectsRendering.h"
 #include "sub_processes/PlayerRendering.h"
 
@@ -77,8 +77,8 @@ namespace zw
         surfVerts.at(x).push_back(verts);
       }
     }
-    m_tileSurfaceID = TileSurfaceRenderer::Get()->NewTileSurface();
-    TileSurfaceRenderer::Get()->SetTileSurfaceGeom(m_tileSurfaceID, surfVerts);
+    m_tileSurfaceID = TileRenderer::Get()->NewTileSurface();
+    TileRenderer::Get()->SetTileSurfaceGeom(m_tileSurfaceID, surfVerts);
   }
 
   void
@@ -90,7 +90,7 @@ namespace zw
   void
   WorldViewRenderer::RenderWorldView()
   {
-    TileSurfaceRenderer::Get()->DrawTileSurface("Ground", m_tileSurfaceID);
+    TileRenderer::Get()->DrawTileSurface("Ground", m_tileSurfaceID);
     RenderObjects();
     RenderPlayer();
   }
