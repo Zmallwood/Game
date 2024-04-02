@@ -86,7 +86,7 @@ namespace zw
         if (noPixelEffect == 0.0 && 1.0 != 0.0) {
             for (d=1.0/xs,x=-r,p.x+=x*d;x<=r;x++,p.x+=d){
                 w=w0*exp((-x*x)/(2.0*rr));
-                col+=texture(TexUnit,floor(p*500)/500)*w/2;
+                col+=texture(TexUnit,floor(p*300)/300)*w/2;
             }
 
             for (d=1.0/ys,y=-r,p.y+=y*d;y<=r;y++,p.y+=d){
@@ -106,9 +106,9 @@ namespace zw
             }
         }
         
-        col.r = floor(col.r*10)/10;
-        col.g = floor(col.g*10)/10;
-        col.b = floor(col.b*10)/10;
+        col.r = floor(col.r*8)/8;
+        col.g = floor(col.g*8)/8;
+        col.b = floor(col.b*8)/8;
 
         fragColor = col;
     }
