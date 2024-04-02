@@ -37,7 +37,7 @@ namespace Zmallwood
                     ((x == 0 || y == 0) ||
                      worldArea->GetTile({ .x = x - 1, .y = y - 1 })->Type() != Hash("TileWater")))
                 {
-                  worldArea->GetTile({ .x = x, .y = y })->AddElevation(0.4f);
+                  worldArea->GetTile({ .x = x, .y = y })->AddElevation(1.4f);
                 }
               }
             }

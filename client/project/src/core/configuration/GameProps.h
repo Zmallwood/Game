@@ -31,7 +31,7 @@ namespace Zmallwood
 
     Color m_clearColor = { 0, 150, 255, 255 };     ///< Clear color used by OpenGL used every frame.
     Size m_worldAreaSize = { 100, 100 };        ///< Size in number of tiles for the world areas.
-    float m_tileSize = 1.5f;                    ///< Size of a single tile in number of length units.
+    float m_tileSize = 6.0f;                    ///< Size of a single tile in number of length units.
     float m_elevationScale = 1.0f;
   };
 }

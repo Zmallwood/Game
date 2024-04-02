@@ -25,7 +25,7 @@ namespace Zmallwood
 
     float m_cameraHeight = 8.0f;
     float m_usedFov = 110.0f;
-    float m_cameraDistance = 1.0f;
+    float m_cameraDistance = 0.3f;
     float m_horizontalAngleDegrees = 0.0f;
     float m_verticalAngleDegrees = -80.0f;
     bool m_useFixedCameraDistance = false;

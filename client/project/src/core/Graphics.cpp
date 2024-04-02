@@ -32,8 +32,13 @@ namespace Zmallwood
     gluPerspective(90.f, 1.f, 1.f, 300.0f); // fov, aspect, zNear, zFar
   }
 
-  Graphics*
-  Graphics::Get()
+  void Graphics::PresentCanvas()
+  {
+    m_renderWindow->popGLStates();
+    m_renderWindow->display();
+  }
+
+  Graphics* Graphics::Get()
   {
     static Graphics instance;
     return &instance;

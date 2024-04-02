@@ -5,6 +5,7 @@ namespace Zmallwood
   class Graphics
   {
   public:
+    void PresentCanvas();
     auto RenderWindow() { return m_renderWindow; }
     static Graphics* Get();
 

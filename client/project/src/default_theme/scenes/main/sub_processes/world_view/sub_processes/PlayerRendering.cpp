@@ -14,7 +14,7 @@ namespace Zmallwood
     auto animNameHash = Hash(animName);
     auto pos = Player::Get()->Position().Multiply(GameProps::Get()->TileSize());
     auto rot = 0.0f;
-    auto scale = 0.5f;
+    auto scale = 1.5f;
     ModelRenderer::Get()->DrawModel(
       playerModelHash, animNameHash, Ticks() * 2, pos, rot, scale);
   }

@@ -5,6 +5,7 @@
 #include "core/rendering/models_rendering/ModelRenderer.h"
 #include "scenes_core/SceneManager.h"
 #include "core/assets/AnimationBank.h"
+#include "Cursor.h"
 
 namespace Zmallwood
 {
@@ -12,6 +13,7 @@ namespace Zmallwood
   {
     Graphics::Get();
     ModelRenderer::Get()->PrepareAllModels();
+    Cursor::Get()->Initialize();
   }
 
   void
@@ -31,6 +33,8 @@ namespace Zmallwood
   Engine::Render()
   {
     SceneManager::Get()->RenderCurrentScene();
+    Cursor::Get()->Render();
+    Graphics::Get()->PresentCanvas();
   }
 
   Engine*

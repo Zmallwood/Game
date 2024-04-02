@@ -266,9 +266,6 @@ namespace Zmallwood
       renderWindow->pushGLStates();
       renderWindow->resetGLStates();
       m_gui->draw();
-      renderWindow->popGLStates();
-
-      renderWindow->display();
     }
   }
 }

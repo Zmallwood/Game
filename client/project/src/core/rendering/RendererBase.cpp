@@ -91,7 +91,7 @@ namespace Zmallwood
     }
   }
 
-  void
+  void 
   RendererBase::SetArrayBufferDataInt(GLuint VBOID,
                                       int numVertices,
                                       const void* data,

@@ -15,7 +15,7 @@ namespace Zmallwood
     }
     {
       auto editBox = tgui::EditBox::create();
-      editBox->setText("200");
+      editBox->setText("100");
       editBox->setPosition("(parent.width - width)/2", "33%");
       GUI()->add(editBox, "EditBoxWorldAreaWidth");
     }
@@ -28,7 +28,7 @@ namespace Zmallwood
     }
     {
       auto editBox = tgui::EditBox::create();
-      editBox->setText("200");
+      editBox->setText("100");
       editBox->setPosition("(parent.width - width)/2", "43%");
       GUI()->add(editBox, "EditBoxWorldAreaHeight");
     }
