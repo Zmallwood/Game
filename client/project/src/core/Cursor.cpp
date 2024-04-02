@@ -1,7 +1,7 @@
 #include "Cursor.h"
 #include "Graphics.h"
 
-namespace Zmallwood
+namespace zw
 {
   void Cursor::Initialize()
   {

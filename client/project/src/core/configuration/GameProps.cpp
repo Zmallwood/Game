@@ -1,6 +1,6 @@
 #include "GameProps.h"
 
-namespace Zmallwood
+namespace zw
 {
   GameProps*
   GameProps::Get()

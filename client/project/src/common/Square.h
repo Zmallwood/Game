@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Zmallwood
+namespace zw
 {
   /**
    * \brief Four cornered square of provided type.

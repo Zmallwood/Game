@@ -1,7 +1,7 @@
 #pragma once
 #include "core/rendering/RendererBase.h"
 
-namespace Zmallwood
+namespace zw
 {
   /**
    * \brief Renders whole tile surfaces (WorldAreas)

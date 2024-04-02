@@ -9,7 +9,7 @@
 #include "shaders/ShaderGroundFragment.h"
 #include "shaders/ShaderGroundVertex.h"
 
-namespace Zmallwood
+namespace zw
 {
   TileSurfaceRenderer::TileSurfaceRenderer()
     : RendererBase()

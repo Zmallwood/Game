@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Zmallwood
+namespace zw
 {
   inline static std::map<int, Color> k_tileTypeColors = {
     { Hash("TileGrass"), Color{ .r = 0, .g = 200, .b = 0 } },

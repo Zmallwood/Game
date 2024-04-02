@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Zmallwood
+namespace zw
 {
   /**
    * \brief Handles keyboard input and provides easy reading of it

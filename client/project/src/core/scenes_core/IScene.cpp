@@ -2,7 +2,7 @@
 #include "core/Graphics.h"
 #include "core/configuration/GameProps.h"
 
-namespace Zmallwood
+namespace zw
 {
   IScene::IScene()
   {

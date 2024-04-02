@@ -1,7 +1,7 @@
 #pragma once
 #include "core/configuration/Constants.h"
 
-namespace Zmallwood
+namespace zw
 {
   class GLMVertex
   {

@@ -7,7 +7,7 @@
 #include "GenerateRock.h"
 #include "GenerateWater.h"
 
-namespace Zmallwood
+namespace zw
 {
   void WorldGenerator::GenerateWorld()
   {

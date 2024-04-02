@@ -7,7 +7,7 @@
 #include "core/assets/AnimationBank.h"
 #include "Cursor.h"
 
-namespace Zmallwood
+namespace zw
 {
   Engine::Engine()
   {

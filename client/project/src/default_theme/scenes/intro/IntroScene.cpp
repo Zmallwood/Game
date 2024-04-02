@@ -3,7 +3,7 @@
 #include "core/input/MouseInput.h"
 #include "core/scenes_core/SceneManager.h"
 
-namespace Zmallwood
+namespace zw
 {
   IntroScene::IntroScene()
   {

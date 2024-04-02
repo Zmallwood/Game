@@ -3,7 +3,7 @@
 #include "Texture.h"
 #include "core/assets/animation_structure/BoneInfo.h"
 
-namespace Zmallwood
+namespace zw
 {
   class Model
   {

@@ -1,7 +1,7 @@
 #include "FPSMeasuring.h"
 #include "default_theme/scenes/main/MainScene.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   UpdateFPSMeasuring()

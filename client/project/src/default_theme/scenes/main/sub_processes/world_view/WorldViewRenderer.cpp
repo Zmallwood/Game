@@ -9,7 +9,7 @@
 #include "sub_processes/ObjectsRendering.h"
 #include "sub_processes/PlayerRendering.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   WorldViewRenderer::Initialize()

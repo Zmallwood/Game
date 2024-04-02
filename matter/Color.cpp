@@ -1,7 +1,7 @@
 #include "Color.h"
 #include "ColorF.h"
 
-namespace Zmallwood
+namespace zw
 {
   ColorF
   Color::ToColorF()

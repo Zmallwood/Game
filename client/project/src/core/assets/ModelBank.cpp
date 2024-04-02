@@ -1,7 +1,7 @@
 #include "ModelBank.h"
 #include "model_structure/Model.h"
 
-namespace Zmallwood
+namespace zw
 {
   ModelBank::ModelBank()
   {

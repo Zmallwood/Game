@@ -11,7 +11,7 @@
 #include "shaders/ShaderModelsFragment.h"
 #include "shaders/ShaderModelsVertex.h"
 
-namespace Zmallwood
+namespace zw
 {
   ModelRenderer::ModelRenderer()
     : RendererBase()

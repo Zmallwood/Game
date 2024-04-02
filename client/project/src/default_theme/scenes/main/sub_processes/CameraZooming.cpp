@@ -2,7 +2,7 @@
 #include "core/input/MouseInput.h"
 #include "world_view/Camera.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   UpdateCameraZooming()

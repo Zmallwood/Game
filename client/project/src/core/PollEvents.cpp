@@ -5,7 +5,7 @@
 #include "input/MouseInput.h"
 #include "scenes_core/SceneManager.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   PollEvents()

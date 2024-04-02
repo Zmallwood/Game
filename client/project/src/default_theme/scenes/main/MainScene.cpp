@@ -6,7 +6,7 @@
 #include "sub_processes/PlayerPositioning.h"
 #include "sub_processes/world_view/WorldViewRenderer.h"
 
-namespace Zmallwood
+namespace zw
 {
   MainScene::MainScene()
   {

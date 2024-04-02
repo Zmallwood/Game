@@ -3,7 +3,7 @@
 #include "animation_structure/Animator.h"
 #include "core/assets/ModelBank.h"
 
-namespace Zmallwood
+namespace zw
 {
   AnimationBank::AnimationBank()
   {

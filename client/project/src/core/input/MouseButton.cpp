@@ -1,6 +1,6 @@
 #include "MouseButton.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   MouseButton::OnPress()

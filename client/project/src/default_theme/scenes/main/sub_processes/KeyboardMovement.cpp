@@ -2,7 +2,7 @@
 #include "core/Player.h"
 #include "core/input/KeyboardInput.h"
 
-namespace Zmallwood
+namespace zw
 {
   void UpdateKeyboardMovement()
   {

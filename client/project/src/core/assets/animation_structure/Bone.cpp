@@ -1,6 +1,6 @@
 #include "Bone.h"
 
-namespace Zmallwood
+namespace zw
 {
   Bone::Bone(const std::string& name, int ID, const aiNodeAnim* channel)
     : m_name(name)

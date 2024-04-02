@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Zmallwood
+namespace zw
 {
   class Point3F
   {

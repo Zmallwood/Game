@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Zmallwood
+namespace zw
 {
   /**
    * \brief Returns ticks as milliseconds.

@@ -1,6 +1,6 @@
 #include "Graphics.h"
 
-namespace Zmallwood
+namespace zw
 {
   Graphics::Graphics()
   {

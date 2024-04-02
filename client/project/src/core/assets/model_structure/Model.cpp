@@ -2,7 +2,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>
 
-namespace Zmallwood
+namespace zw
 {
   Model::Model(std::string const& path, bool gamma)
     : gammaCorrection(gamma)

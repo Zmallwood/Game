@@ -2,7 +2,7 @@
 #include "../world_structure/Tile.h"
 #include "../world_structure/WorldArea.h"
 
-namespace Zmallwood
+namespace zw
 {
   void GenerateElevation(std::shared_ptr<WorldArea> worldArea)
   {

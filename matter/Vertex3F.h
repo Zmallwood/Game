@@ -3,7 +3,7 @@
 #include "Point3F.h"
 #include "PointF.h"
 
-namespace Zmallwood
+namespace zw
 {
   class Vertex3F
   {

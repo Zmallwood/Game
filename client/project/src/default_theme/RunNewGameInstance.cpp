@@ -2,7 +2,7 @@
 #include "core/GameInstance.h"
 #include "core/configuration/GameProps.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   RunNewGameInstance()

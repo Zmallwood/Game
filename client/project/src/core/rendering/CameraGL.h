@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Zmallwood
+namespace zw
 {
   /**
    * \brief Manages perspective and view matrix for the 3D world view

@@ -2,7 +2,7 @@
 #include "../../../world_structure/World.h"
 #include "../../../world_structure/WorldArea.h"
 
-namespace Zmallwood
+namespace zw
 {
   void Player::MoveNorth()
   {

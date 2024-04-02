@@ -1,6 +1,6 @@
 #include "Tile.h"
 
-namespace Zmallwood
+namespace zw
 {
   void Tile::SetType(const std::string& typeName) {
     m_type = Hash(typeName);

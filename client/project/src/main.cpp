@@ -3,6 +3,6 @@
 int
 main()                                          // Game entry point 
 {
-  Zmallwood::RunNewGameInstance();              // Run game 
+  zw::RunNewGameInstance();              // Run game 
   return 0;
 }

@@ -2,7 +2,7 @@
 #include "Color.h"
 #include "PointF.h"
 
-namespace Zmallwood
+namespace zw
 {
   class Vertex2F
   {

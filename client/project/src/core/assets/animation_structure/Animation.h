@@ -3,7 +3,7 @@
 #include "Bone.h"
 #include "BoneInfo.h"
 
-namespace Zmallwood
+namespace zw
 {
   class Model;
 

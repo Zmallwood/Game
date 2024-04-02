@@ -5,7 +5,7 @@
 #include "default_theme/scenes/new_game/NewGameScene.h"
 #include "default_theme/scenes/world_generation/WorldGenerationScene.h"
 
-namespace Zmallwood
+namespace zw
 {
   SceneManager::SceneManager()
   {

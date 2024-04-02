@@ -1,6 +1,6 @@
 #include "MouseInput.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   MouseInput::OnMousePress(sf::Mouse::Button button)

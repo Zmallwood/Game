@@ -1,10 +1,10 @@
 #include "World.h"
 #include "WorldArea.h"
 
-namespace Zmallwood
+namespace zw
 {
   World::World()
-    : m_worldArea(std::make_shared<Zmallwood::WorldArea>())
+    : m_worldArea(std::make_shared<zw::WorldArea>())
   {
   }
 

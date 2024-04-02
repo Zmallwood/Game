@@ -1,7 +1,7 @@
 #include "Animator.h"
 #include "Animation.h"
 
-namespace Zmallwood
+namespace zw
 {
   Animator::Animator(Animation* animation)
   {

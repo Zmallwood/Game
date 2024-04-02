@@ -1,7 +1,7 @@
 #include "Animation.h"
 #include "core/assets/model_structure/Model.h"
 
-namespace Zmallwood
+namespace zw
 {
   Animation::Animation(const std::string& animationPath, Model* model)
   {

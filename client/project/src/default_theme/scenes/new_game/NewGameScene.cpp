@@ -2,7 +2,7 @@
 #include "core/configuration/GameProps.h"
 #include "core/scenes_core/SceneManager.h"
 
-namespace Zmallwood
+namespace zw
 {
   NewGameScene::NewGameScene()
   {

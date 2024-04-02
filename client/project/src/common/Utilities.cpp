@@ -1,6 +1,6 @@
 #include "Utilities.h"
 
-namespace Zmallwood
+namespace zw
 {
   int Ticks()
   {

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Zmallwood
+namespace zw
 {
   class WorldArea;
 
@@ -13,6 +13,6 @@ namespace Zmallwood
   private:
     World();
 
-    std::shared_ptr<Zmallwood::WorldArea> m_worldArea;
+    std::shared_ptr<zw::WorldArea> m_worldArea;
   };
 }

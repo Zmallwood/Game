@@ -5,7 +5,7 @@
 #include "core/configuration/GameProps.h"
 #include "core/rendering/CameraGL.h"
 
-namespace Zmallwood
+namespace zw
 {
   void Camera::Update()
   {

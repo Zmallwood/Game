@@ -1,7 +1,7 @@
 #pragma once
 #include "Texture.h"
 
-namespace Zmallwood
+namespace zw
 {
   class Mesh
   {

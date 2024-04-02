@@ -1,6 +1,6 @@
 #include "TextureBank.h"
 
-namespace Zmallwood
+namespace zw
 {
   TextureBank::TextureBank()
   {

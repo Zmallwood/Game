@@ -1,6 +1,6 @@
 #include "KeyboardInput.h"
 
-namespace Zmallwood
+namespace zw
 {
   void KeyboardInput::OnKeyPress(sf::Keyboard::Key key)
   {

@@ -1,6 +1,6 @@
 #include "ShaderProgram.h"
 
-namespace Zmallwood
+namespace zw
 {
   bool
   ShaderProgram::Create(const GLchar* vertexShaderSource, const GLchar* fragmentShaderSource)

@@ -1,7 +1,7 @@
 #pragma once
 #include "core/rendering/RendererBase.h"
 
-namespace Zmallwood
+namespace zw
 {
   class ModelRenderer : public RendererBase
   {

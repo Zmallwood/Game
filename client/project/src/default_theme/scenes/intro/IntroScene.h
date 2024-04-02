@@ -1,7 +1,7 @@
 #pragma once
 #include "core/scenes_core/IScene.h"
 
-namespace Zmallwood
+namespace zw
 {
   class IntroScene : public IScene
   {

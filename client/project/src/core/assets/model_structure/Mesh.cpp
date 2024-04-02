@@ -1,6 +1,6 @@
 #include "Mesh.h"
 
-namespace Zmallwood
+namespace zw
 {
   Mesh::Mesh(std::vector<GLMVertex> vertices,
              std::vector<unsigned int> indices,

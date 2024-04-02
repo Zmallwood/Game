@@ -1,7 +1,7 @@
 #pragma once
 #include "MouseButton.h"
 
-namespace Zmallwood
+namespace zw
 {
   /**
    * \brief Handles mouse input and provides easy access to it

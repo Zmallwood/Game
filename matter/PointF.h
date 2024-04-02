@@ -1,7 +1,7 @@
 #pragma once
 #include "Point.h"
 
-namespace Zmallwood
+namespace zw
 {
   class PointF
   {

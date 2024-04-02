@@ -2,7 +2,7 @@
 #include "../world_structure/WorldArea.h"
 #include "GenerateWater.h"
 
-namespace Zmallwood
+namespace zw
 {
   void GenerateWater(std::shared_ptr<WorldArea> worldArea)
   {

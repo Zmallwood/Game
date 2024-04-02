@@ -4,7 +4,7 @@
 #include "../../../world_structure/WorldArea.h"
 #include "core/Player.h"
 
-namespace Zmallwood
+namespace zw
 {
   bool PlayerOnGoodLocation()
   {

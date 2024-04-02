@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Zmallwood
+namespace zw
 {
   inline static const GLchar* shaderGroundVertex =                    // Vert shader for ground rendering
     R"(

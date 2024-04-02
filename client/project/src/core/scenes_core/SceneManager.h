@@ -1,7 +1,7 @@
 #pragma once
 #include "IScene.h"
 
-namespace Zmallwood
+namespace zw
 {
   class SceneManager
   {

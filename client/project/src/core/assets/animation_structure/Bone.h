@@ -3,7 +3,7 @@
 #include "KeyRotation.h"
 #include "KeyScale.h"
 
-namespace Zmallwood
+namespace zw
 {
   class Bone
   {

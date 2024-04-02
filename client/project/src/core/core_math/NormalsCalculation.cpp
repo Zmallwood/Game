@@ -3,7 +3,7 @@
 #include "../../../world_structure/WorldArea.h"
 #include "core/configuration/GameProps.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   CalculateNormal(std::shared_ptr<WorldArea> worldArea, Point coordinate)

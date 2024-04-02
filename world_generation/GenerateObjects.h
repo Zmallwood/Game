@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Zmallwood {
+namespace zw {
   class WorldArea;
 
   void GenerateObjects(std::shared_ptr<WorldArea> worldArea);

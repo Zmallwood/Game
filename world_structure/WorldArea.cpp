@@ -2,7 +2,7 @@
 #include "Tile.h"
 #include "core/configuration/GameProps.h"
 
-namespace Zmallwood
+namespace zw
 {
   WorldArea::WorldArea()
   {

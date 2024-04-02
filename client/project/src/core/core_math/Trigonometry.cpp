@@ -1,6 +1,6 @@
 #include "Trigonometry.h"
 
-namespace Zmallwood
+namespace zw
 {
   float
   SinDegrees(float angleDegrees)

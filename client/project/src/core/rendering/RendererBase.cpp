@@ -1,10 +1,10 @@
 #include "RendererBase.h"
 #include "ShaderProgram.h"
 
-namespace Zmallwood
+namespace zw
 {
   RendererBase::RendererBase()
-    : m_shaderProgram(std::make_shared<Zmallwood::ShaderProgram>())
+    : m_shaderProgram(std::make_shared<zw::ShaderProgram>())
   {
   }
 

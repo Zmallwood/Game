@@ -2,7 +2,7 @@
 #include "../world_structure/Tile.h"
 #include "../world_structure/WorldArea.h"
 
-namespace Zmallwood
+namespace zw
 {
   void GenerateRock(std::shared_ptr<WorldArea> worldArea)
   {

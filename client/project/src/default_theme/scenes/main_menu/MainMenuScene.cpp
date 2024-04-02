@@ -2,7 +2,7 @@
 #include "core/Engine.h"
 #include "core/scenes_core/SceneManager.h"
 
-namespace Zmallwood
+namespace zw
 {
   MainMenuScene::MainMenuScene()
   {

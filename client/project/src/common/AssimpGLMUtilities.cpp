@@ -1,6 +1,6 @@
 #include "AssimpGLMUtilities.h"
 
-namespace Zmallwood
+namespace zw
 {
   glm::mat4
   AssimpGLMUtilities::ConvertMatrixToGLMFormat(const aiMatrix4x4& from)

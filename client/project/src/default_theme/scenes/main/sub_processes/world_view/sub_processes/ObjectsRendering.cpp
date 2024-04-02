@@ -9,7 +9,7 @@
 #include "core/configuration/GameProps.h"
 #include "core/rendering/models_rendering/ModelRenderer.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   RenderObjects()

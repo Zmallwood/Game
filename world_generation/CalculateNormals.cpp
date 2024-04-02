@@ -2,7 +2,7 @@
 #include "../world_structure/WorldArea.h"
 #include "core/core_math/NormalsCalculation.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   CalculateNormals(std::shared_ptr<WorldArea> worldArea)

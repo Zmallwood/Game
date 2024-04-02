@@ -1,6 +1,6 @@
 #include "CameraGL.h"
 
-namespace Zmallwood
+namespace zw
 {
   CameraGL*
   CameraGL::Get()

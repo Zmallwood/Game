@@ -2,7 +2,7 @@
 #include "../../../world_generation/WorldGenerator.h"
 #include "core/scenes_core/SceneManager.h"
 
-namespace Zmallwood
+namespace zw
 {
   WorldGenerationScene::WorldGenerationScene()
   {

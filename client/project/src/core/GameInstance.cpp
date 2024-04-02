@@ -1,7 +1,7 @@
 #include "GameInstance.h"
 #include "Engine.h"
 
-namespace Zmallwood
+namespace zw
 {
   void
   GameInstance::Run()
